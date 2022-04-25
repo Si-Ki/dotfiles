@@ -1,0 +1,165 @@
+!! Transparency (0-1):
+*.alpha: 0.9
+
+!! DPI settings
+Xft.dpi: 78
+
+Sxiv.font: JetBrainsMono:size=10
+
+/* name		dark	light */
+/* black	0	8 */
+/* red		1	9 */
+/* green	2	10 */
+/* yellow	3	11 */
+/* blue		4	12 */
+/* purple	5	13 */
+/* cyan		6	14 */
+/* white	7	15 */
+
+/* ! Dracula Xresources palette */
+/* *.foreground: #F8F8F2 */
+/* *.background: #282A36 */
+/* *.color0:     #000000 */
+/* *.color8:     #4D4D4D */
+/* *.color1:     #FF5555 */
+/* *.color9:     #FF6E67 */
+/* *.color2:     #50FA7B */
+/* *.color10:    #5AF78E */
+/* *.color3:     #F1FA8C */
+/* *.color11:    #F4F99D */
+/* *.color4:     #BD93F9 */
+/* *.color12:    #CAA9FA */
+/* *.color5:     #FF79C6 */
+/* *.color13:    #FF92D0 */
+/* *.color6:     #8BE9FD */
+/* *.color14:    #9AEDFE */
+/* *.color7:     #BFBFBF */
+/* *.color15:    #E6E6E6 */
+
+/* Crayon */
+/* *.foreground:#F8F8F2 */
+/* *.background:#282A36 */
+/* *.color0: 	#101112 */
+/* *.color1: 	#C48D62 */
+/* *.color2: 	#99AE63 */
+/* *.color3: 	#D8C27A */
+/* *.color4: 	#7495B6 */
+/* *.color5: 	#B59CD8 */
+/* *.color6: 	#8DC9C3 */
+/* *.color7: 	#BCC5D1 */
+/* *.color8: 	#586270 */
+/* *.color9: 	#B27B78 */
+/* *.color10:	#282C33 */
+/* *.color11:	#383E47 */
+/* *.color12:	#798494 */
+/* *.color13:	#D8D8D8 */
+/* *.color14:	#CC99B3 */
+/* *.color15:	#FDFEFF */
+
+/* Nord Theme */
+/* *.color0: 	#24283b */
+/* *.color1: 	#f7768e */
+/* *.color2: 	#A3BE8C */
+/* *.color3: 	#EBCB8B */
+/* *.color4: 	#81A1C1 */
+/* *.color5: 	#B48EAD */
+/* *.color6: 	#88C0D0 */
+/* *.color7: 	#E5E9F0 */
+/* *.color8: 	#24283b */
+/* *.color9: 	#f7768e */
+/* *.color10:	#A3BE8C */
+/* *.color11:	#EBCB8B */
+/* *.color12:	#81A1C1 */
+/* *.color13:	#B48EAD */
+/* *.color14:	#8FBCBB */
+/* *.color15:	#ECEFF4 */
+/* *.foreground:  #c0caf5 */
+/* *.background: 	#16161e */
+/* *.cursorColor: #c0caf5 */
+
+ /* Tokyo Night 1 */
+/* *.foreground:  #c0caf5 */
+/* *.background: 	#16161e */
+/* *.cursorColor: #c0caf5 */
+/* *.color0:	#24283b */
+/* *.color8:	#24283b */
+/* *.color1:	#f7768e */
+/* *.color9:	#f7768e */
+/* *.color2:	#9ece6a */
+/* *.color10:	#9ece6a */
+/* *.color3: 	#E0AF68 */
+/* *.color11: 	#E0AF68 */
+/* *.color4: 	#7AA2F7 */
+/* *.color12: 	#7AA2F7 */
+/* *.color5: 	#F6BBE7 */
+/* *.color13: 	#c3a4f8 */
+/* *.color6: 	#95C2D1 */
+/* *.color14: 	#95C2D1 */
+/* *.color7: 	#c0caf5 */
+/* *.color15: 	#c0caf5 */
+
+*.piiink: #F6BBE7
+
+/* material */
+/* *.background:	#20202A */
+/* *.foreground:	#63718B */
+/* *.color0:	#3b3b4d */
+/* *.color1:	#EBB9B9 */
+/* *.color2:	#B1DBA4 */
+/* *.color3:	#E6DFB8 */
+/* *.color4:	#B8DEEB */
+/* *.color5:	#F6BBE7 */
+/* *.color6:	#CDDBF9 */
+/* *.color7:	#C6D0E9 */
+/* *.color8:	#3b3b4d */
+/* *.color9:	#cc9b9d */
+/* *.color10:	#a3ccad */
+/* *.color11:	#d1ba97 */
+/* *.color12:	#B8C9EA */
+/* *.color13:	#c497b3 */
+/* *.color14:	#95C2D1 */
+/* *.color15:	#63718b */
+
+
+! Material Palenight
+#define base00 #292d3e
+#define base01 #444267
+#define base02 #32374d
+#define base03 #676e95
+#define base04 #8796b0
+#define base05 #959dcb
+#define base06 #959dcb
+#define base07 #ffffff
+#define base08 #f07178
+#define base09 #f78c6c
+#define base0A #ffcb6b
+#define base0B #c3e88d
+#define base0C #89ddff
+#define base0D #82aaff
+#define base0E #c792ea
+#define base0F #ff5370
+*foreground:   base05
+*background:   base00
+*cursorColor:  base05
+*color0:       base01
+*color1:       base08
+*color2:       base0B
+*color3:       base0A
+*color4:       base0D
+*color5:       base0E
+*color6:       base0C
+*color7:       base05
+*color8:       base03
+*color9:       base08
+*color10:      base0B
+*color11:      base0A
+*color12:      base0D
+*color13:      base0E
+*color14:      base0C
+*color15:      base07
+*color16:      base09
+*color17:      base0F
+*color18:      base01
+*color19:      base02
+*color20:      base04
+*color21:      base06
