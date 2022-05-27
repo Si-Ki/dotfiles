@@ -53,7 +53,7 @@ adn () {
 anime () {
 	ep=${2:-1-}
 	name="$(echo $1 | sed 's/-/ /g')"
-	animdl stream -q best "animixplay:$name" -r "$ep"
+	animdl stream -q best "animixplay:$name" -s "$ep"
 }
 zle -N zle-keymap-select
 zle-line-init() {

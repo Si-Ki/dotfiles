@@ -33,16 +33,16 @@ call plug#end()
 
 set termguicolors
 
-let g:dracula_colorterm = 0
-"let g:tokyonight_style = 'night' " available: night, storm
-"let g:tokyonight_enable_italic = 1
-"let g:tokyonight_transparent_background = 1
+" let g:dracula_colorterm = 0
+let g:tokyonight_style = 'night' " available: night, storm
+let g:tokyonight_enable_italic = 1
+let g:tokyonight_transparent_background = 1
 let g:airline_theme = "palenight"
 "let g:aqua_transparency = 1
 
-let g:material_theme_style = "darker"
+" let g:material_theme_style = "darker"
 colorscheme palenight
-" hi Normal guibg=NONE ctermbg=NONE
+hi Normal guibg=NONE ctermbg=NONE
 
 set title
 set go=a

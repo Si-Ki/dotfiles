@@ -70,7 +70,7 @@ urlbar_popup_full_width.css is VERY MUCH recommended for Firefox 71+ because of 
 /* change the font DPI so that it goes nicely with low DPI settings on `about:config` */
 /* #tabbrowser-tabs, #navigator-toolbox, menuitem, menu, ... */
 * {
-    font-size: 14px !important;
+    font-size: 12px !important;
 }
 
 /* exception for badge on adblocker */

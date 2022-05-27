@@ -24,6 +24,7 @@ alias \
 	aur="baph -n" \
 	sv="systemctl" \
 	betdis="betterdiscordctl --d-modules ~/.config/discord/0.0.17/modules/ install" \
+	pip="python -m pip" \
 	py="python" \
 	warp="warp-cli" \
 	manga="manga-cli" \
