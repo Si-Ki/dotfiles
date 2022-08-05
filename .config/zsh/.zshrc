@@ -27,6 +27,7 @@ _comp_options+=(globdots)		# Include hidden files.
 # vi mode
 bindkey -v
 export KEYTIMEOUT=1
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
@@ -48,12 +49,12 @@ chst () {
 adn () {
 	ep=${2:-1-}
 	name="$(echo $1 | sed 's/-/ /g')"
-	animdl download -q best "animixplay:$name" -s "$ep"
+	animdl download -q best "animixplay:$name" -r "$ep"
 }
 anime () {
 	ep=${2:-1-}
 	name="$(echo $1 | sed 's/-/ /g')"
-	animdl stream -q best "animixplay:$name" -s "$ep"
+	animdl stream -q best "animixplay:$name" -r "$ep"
 }
 zle -N zle-keymap-select
 zle-line-init() {
@@ -75,13 +76,10 @@ lfcd () {
     fi
 }
 bindkey -s '^o' 'lfcd\n'
-
 bindkey -s '^a' 'bc -lq\n'
-
 bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
-
 bindkey -s '^b' 'cd ~/Books/ && epy "$(ls *.epub | fzf)"\n'
-
+bindkey -s '^h' 'tac ~/.cache/zsh/history | fzf\n'
 bindkey '^[[P' delete-char
 
 # Edit line in vim with ctrl-e:

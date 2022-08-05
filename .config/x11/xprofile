@@ -9,7 +9,7 @@ unclutter --timeout 2 &
 remaps &		# run the remaps script, switching caps/esc and more; check it for more infoj
 setbg
 
-autostart="clipmenud dunst pipewire-pulse xcompmgr checkup"
+autostart="clipmenud dunst pipewire-pulse checkup"
 
 for program in $autostart; do
 	pidof -s "$program" || setsid -f "$program"

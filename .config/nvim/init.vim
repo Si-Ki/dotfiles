@@ -15,10 +15,12 @@ Plug 'jreybert/vimagit'
 Plug 'lukesmithxyz/vimling'
 Plug 'vimwiki/vimwiki'
 Plug 'vim-airline/vim-airline'
+Plug 'junegunn/fzf'
 Plug 'tpope/vim-commentary'
 Plug 'ap/vim-css-color'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'dhruvasagar/vim-table-mode'
 
 " Colorschemes.
 Plug 'dracula/vim', { 'as': 'dracula' }
@@ -31,18 +33,27 @@ Plug 'sts10/vim-pink-moon'
 Plug 'drewtempelmeyer/palenight.vim'
 call plug#end()
 
+set guifont=JetBrains\ Mono:h10
+
+"Neovide exclusive settings.
+if exists("g:neovide")
+	let g:neovide_refresh_rate=60
+	let g:neovide_transparency=1.0
+	"let g:neovide_cursor_animation_length=0.20
+endif
+
 set termguicolors
 
 " let g:dracula_colorterm = 0
-let g:tokyonight_style = 'night' " available: night, storm
-let g:tokyonight_enable_italic = 1
-let g:tokyonight_transparent_background = 1
-let g:airline_theme = "palenight"
+" let g:tokyonight_style = 'night' " available: night, storm
+" let g:tokyonight_enable_italic = 1
+" let g:tokyonight_transparent_background = 1
+let g:airline_theme = "iceberg"
 "let g:aqua_transparency = 1
 
-" let g:material_theme_style = "darker"
-colorscheme palenight
-hi Normal guibg=NONE ctermbg=NONE
+let g:material_theme_style = "palenight"
+colorscheme material
+"hi Normal guibg=NONE ctermbg=NONE
 
 set title
 set go=a

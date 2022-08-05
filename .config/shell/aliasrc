@@ -27,6 +27,7 @@ alias \
 	pip="python -m pip" \
 	py="python" \
 	warp="warp-cli" \
+	nv="WINIT_X11_SCALE_FACTOR=1 neovide --nofork"
 	manga="manga-cli" \
 	lf="lfub"
 
@@ -55,6 +56,7 @@ alias \
 
 alias \
 	tracker="/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME" \
+	pkf="pkgfile" \
 	magit="nvim -c MagitOnly" \
 	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
 	weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport"

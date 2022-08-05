@@ -13,3 +13,6 @@ map J zoom out
 map i recolor
 map p print
 map g goto top
+map b toggle_statusbar
+map n goto nextpage
+map N goto previouspage

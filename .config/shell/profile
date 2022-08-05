@@ -5,18 +5,13 @@
 # If you don't plan on reverting to bash, you can remove the link in ~/.profile
 # to clean up.
 
-if [ "$TTY" = "/dev/tty1" ]; then
-	printf "\033[1;32mBooting into dwm!\033[0m\n"
-	startx "$XDG_CONFIG_HOME/X11/xinitrc" -- -keeptty 2> /dev/null
-fi
-
 # Adds `~/.local/bin` to $PATH
 export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
 
 unsetopt PROMPT_SP
 
 # Default programs:
-export EDITOR="nvim"
+export EDITOR="WINIT_X11_SCALE_FACTOR=1 neovide --nofork"
 export TERMINAL="st"
 export BROWSER="firefox"
 
