@@ -1,0 +1,81 @@
+// i took the design inspiration from catppuccin's rofi theme btw
+
+* {
+  background-color: #282a36;
+}
+
+prompt, entry, window { border-radius: 0px; }
+
+window {
+    height: 40%;
+    width: 40%;
+    location: center;
+    anchor: center;
+    padding: 8px;
+}
+
+
+element-text, element-icon , mode-switcher {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+// input bar
+prompt {
+  padding: 4 6 4 6;
+  margin: 0 0 8 0;
+  background-color: #bd93f9;
+  text-color: #282a36;
+}
+entry {
+  padding: 4 0  0;
+  margin: 0 0 10 5;
+  text-color: #eeeeee;
+}
+
+// element list
+listview, element { background-color: #282a36; }
+listview {
+  cycle: true;
+  scrollbar: false;
+  text-color: #eeeeee;
+}
+element-icon {
+  padding: 0 12 0 12;
+}
+element {
+  padding: 4 0 4 0;
+  text-color: #eeeeee;
+}
+element selected {
+  padding: 4 6 4 6;
+  background-color: #44475a;
+  text-color: #ff79c6;
+}
+
+// mode switcher
+mode-switcher, button {
+  background-color: #282a36;
+}
+button, button selected {
+	padding: 0 0 4px 0;
+}
+button {
+  text-color: #eeeeee;
+}
+button selected {
+  text-color: #bd93f9;
+}
+
+// error message box
+error-message {
+  background-color: #282a36;
+  expand: true;
+  padding: 0;
+}
+// error message text
+textbox {
+  background-color: #282a36;
+  text-color: #eeeeee;
+  padding: 4px 6px;
+}
