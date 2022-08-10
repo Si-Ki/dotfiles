@@ -7,11 +7,13 @@
 
 # Adds `~/.local/bin` to $PATH
 export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
+export PATH="$PATH:${$(find ~/.local/share/cargo/bin/ -type d -printf %p:)%%:}"
 
 unsetopt PROMPT_SP
 
 # Default programs:
-export EDITOR="WINIT_X11_SCALE_FACTOR=1 neovide --nofork"
+# export EDITOR="WINIT_X11_SCALE_FACTOR=1 neovide --nofork"
+export EDITOR="nvim"
 export TERMINAL="st"
 export BROWSER="firefox"
 

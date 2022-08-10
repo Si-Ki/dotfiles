@@ -30,7 +30,8 @@ cmd open ${{
     case $(file --mime-type "$(readlink -f $f)" -b) in
 	application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) localc $fx ;;
 	image/vnd.djvu|application/pdf|application/postscript) zathura $fx >/dev/null 2>&1 ;;
-        text/*|application/json|inode/x-empty) WINIT_X11_SCALE_FACTOR=1 neovide --nofork $fx;;
+#       text/*|application/json|inode/x-empty) WINIT_X11_SCALE_FACTOR=1 neovide --nofork $fx;;
+        text/*|application/json|inode/x-empty) $EDITOR $fx;;
 	image/x-xcf) setsid -f gimp $f >/dev/null 2>&1 ;;
 	image/svg+xml) display -- $f ;;
 	image/*) rotdir $f | grep -i "\.\(png\|jpg\|jpeg\|gif\|webp\|tif\|ico\)\(_large\)*$" |
@@ -44,7 +45,8 @@ cmd open ${{
 	video/* | application/octet-stream) mpv $(rotdir $f) -quiet >/dev/null 2>&1 ;;
 	application/pdf|application/vnd*) zathura $fx >/dev/null 2>&1 ;;
 	application/epub*) epy $fx 2>&1 ;;
-	application/pgp-encrypted) WINIT_X11_SCALE_FACTOR=1 neovide --nofork $fx ;;
+#	application/pgp-encrypted) WINIT_X11_SCALE_FACTOR=1 neovide --nofork $fx ;;
+	application/pgp-encrypted) $EDITOR $fx ;;
         *) for f in $fx; do setsid -f $OPENER $f >/dev/null 2>&1; done;;
     esac
 }}
