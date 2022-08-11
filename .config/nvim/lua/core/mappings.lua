@@ -38,9 +38,6 @@ M.general = {
     ["<leader>n"] = { "<cmd> set nu! <CR>", "   toggle line number" },
     ["<leader>rn"] = { "<cmd> set rnu! <CR>", "   toggle relative number" },
 
-    -- update nvchad
-    -- ["<leader>uu"] = { "<cmd> :NvChadUpdate <CR>", "  update nvchad" },
-
     ["<leader>tt"] = {
       function()
         require("base46").toggle_theme()

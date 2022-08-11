@@ -75,21 +75,6 @@ autocmd("BufWritePost", {
   command = "!cd ~/.local/src/dwm; sudo -A make install",
 })
 
-autocmd("BufWritePost", {
-  pattern = "config.h",
-  command = "!cd ~/.local/src/st; sudo -A make install",
-})
-
-autocmd("BufWritePost", {
-  pattern = "config.h",
-  command = "!cd ~/.local/src/dwmblocks; sudo make install && {killall -q dwmblocks; setsid -f dwmblocks}",
-})
-
-autocmd("BufWritePost", {
-  pattern = "config.h",
-  command = "!cd ~/.local/src/dmenu; sudo make install",
-})
-
 ---------------------------------------
 
 -- store listed buffers in tab local var

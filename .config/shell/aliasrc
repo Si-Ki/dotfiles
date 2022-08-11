@@ -27,9 +27,9 @@ alias \
 	pip="python -m pip" \
 	py="python" \
 	warp="warp-cli" \
-	nv="WINIT_X11_SCALE_FACTOR=1 neovide --nofork"
 	manga="manga-cli" \
-	lf="lfub"
+	nv="WINIT_X11_SCALE_FACTOR=1 neovide --nofork" \ 
+	lf="lfub" \
 
 # Colorize commands when possible.
 alias \

@@ -7,11 +7,11 @@ g.nvchad_theme = config.ui.theme
 g.toggle_theme_icon = "   "
 g.transparency = config.ui.transparency
 g.theme_switcher_loaded = false
--- g.vimwiki_list = {
+-- g.vimwiki_list = ({
 --   path = "~/.local/share/nvim/vimwiki",
 --   syntax = "markdown",
 --   ext = ".md",
--- }
+-- })
 
 
 -- use filetype.lua instead of filetype.vim. it's enabled by default in neovim 0.8 (nightly)
@@ -21,7 +21,7 @@ if g.vim_version < 8 then
 end
 
 opt.laststatus = 3 -- global statusline
-opt.guifont = "JetBrains Mono:h10"
+opt.guifont = "JetBrainsMono Nerd Font:h10"
 opt.showmode = false
 opt.hlsearch = false
 
