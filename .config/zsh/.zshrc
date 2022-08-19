@@ -79,7 +79,6 @@ bindkey -s '^o' 'lfcd\n'
 bindkey -s '^a' 'bc -lq\n'
 bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
 bindkey -s '^b' 'cd ~/Books/ && epy "$(ls *.epub | fzf)"\n'
-bindkey -s '^h' 'tac ~/.cache/zsh/history | fzf\n'
 bindkey '^[[P' delete-char
 
 # Edit line in vim with ctrl-e:

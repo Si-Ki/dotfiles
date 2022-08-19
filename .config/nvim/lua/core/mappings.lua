@@ -34,6 +34,9 @@ M.general = {
     -- Copy all
     ["<C-c>"] = { "<cmd> %y+ <CR>", "  copy whole file" },
 
+    -- Replace all
+    ["<S-s>"] = { ":%s//g<Left><Left>", "Replace all"},
+
     -- line numbers
     ["<leader>n"] = { "<cmd> set nu! <CR>", "   toggle line number" },
     ["<leader>rn"] = { "<cmd> set rnu! <CR>", "   toggle relative number" },

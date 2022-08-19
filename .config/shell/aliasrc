@@ -28,7 +28,6 @@ alias \
 	py="python" \
 	warp="warp-cli" \
 	manga="manga-cli" \
-	nv="WINIT_X11_SCALE_FACTOR=1 neovide --nofork" \ 
 	lf="lfub" \
 
 # Colorize commands when possible.
@@ -42,8 +41,7 @@ alias \
 alias \
 	ka="killall" \
 	g="git" \
-	trem="transmission-remote" \
-	YT="youtube-viewer" \
+	trm="transmission-remote" \
 	sdn="shutdown -h now" \
 	e="$EDITOR" \
 	v="$EDITOR" \

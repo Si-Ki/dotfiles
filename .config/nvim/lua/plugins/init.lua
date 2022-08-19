@@ -4,10 +4,7 @@ local plugins = {
 
   ["nvim-lua/plenary.nvim"] = { module = "plenary" },
   ["vimwiki/vimwiki"] = {},
-  ["b0o/mapx.nvim"] = {
-    global = true,
-    whichkey = true,
-  },
+
   ["wbthomason/packer.nvim"] = {
     cmd = require("core.lazy_load").packer_cmds,
     config = function()
@@ -200,16 +197,17 @@ local plugins = {
   },
 
   -- Only load whichkey after all the gui
-  ["folke/which-key.nvim"] = {
-    disable = true,
-    module = "which-key",
-    config = function()
-      require "plugins.configs.whichkey"
-    end,
-    setup = function()
-      require("core.utils").load_mappings "whichkey"
-    end,
-  },
+  ["folke/which-key.nvim"] = {},
+  --   disable = true,
+  --   module = "which-key",
+  --   keys = "<leader>",
+  --   config = function()
+  --     require "plugins.configs.whichkey"
+  --   end,
+  --   setup = function()
+  --     require("core.utils").load_mappings "whichkey"
+  --   end,
+  -- },
 
   -- Speed up deffered plugins
   ["lewis6991/impatient.nvim"] = { module = "impatient" },

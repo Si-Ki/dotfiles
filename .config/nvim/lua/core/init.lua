@@ -1,4 +1,3 @@
-
 -- add binaries installed by mason.nvim to path
 local is_windows = vim.loop.os_uname().sysname == "Windows_NT"
 vim.env.PATH = vim.env.PATH .. (is_windows and ";" or ":") .. vim.fn.stdpath "data" .. "/mason/bin"
@@ -72,7 +71,7 @@ autocmd("BufWritePost", {
 -- Recomplie suckless software on config edit
 autocmd("BufWritePost", {
   pattern = "config.h",
-  command = "!cd ~/.local/src/dwm; sudo -A make install",
+  command = "!cd %:p:h ; sudo -A make install",
 })
 
 ---------------------------------------

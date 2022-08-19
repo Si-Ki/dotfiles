@@ -1,10 +1,21 @@
 !! Transparency (0-1):
-*.alpha: 1.0
+*.alpha : 0.83
 
 !! DPI settings
-Xft.dpi: 78
+Xft.dpi : 78
 
-!! Sxiv.font:JetBrainsMono\ Nerd\ Font:size=10
+! Sxiv settings
+Sxiv.font : JetBrainsMono\ Nerd\ Font:size=10
+
+! St settings
+st.font : JetBrainsMono\ Nerd\ Font:size=12
+
+! Dmenu settings
+ dmenu.font:Iosevka\ Nerd\ Font:size=12
+ dmenu.normbg : #1e222a
+ dmenu.normfg : #F6BBE7
+ dmenu.selbg : #444267
+ dmenu.selfg : #F6BBE7
 
 /* name		dark	light */
 /* black	0	8 */
@@ -98,10 +109,6 @@ Xft.dpi: 78
 /* *.color7: 	#c0caf5 */
 /* *.color15: 	#c0caf5 */
 
-*.piiink: #F6BBE7
-*.selborder: #c792ea
-*.normborder: #89ddff
-
 /* material */
 /* *.background:	#20202A */
 /* *.foreground:	#63718B */
@@ -139,34 +146,33 @@ Xft.dpi: 78
 #define base0D #82aaff
 #define base0E #c792ea
 #define base0F #ff5370
- *foreground:   base05
- *background:   base00
- *cursorColor:  base05
- *color0:       base01
- *color1:       base08
- *color2:       base0B
- *color3:       base0A
- *color4:       base0D
- *color5:       base0E
- *color6:       base0C
- *color7:       base05
- *color8:       base03
- *color9:       base08
- *color10:      base0B
- *color11:      base0A
- *color12:      base0D
- *color13:      base0E
- *color14:      base0C
- *color15:      base07
- *color16:      base09
- *color17:      base0F
- *color18:      base01
- *color19:      base02
- *color20:      base04
- *color21:      base06
+ *foreground:   base05  
+ *background:   base00  
+ *cursorColor:  base05  
+ *color0:       base01  
+ *color1:       base08  
+ *color2:       base0B  
+ *color3:       base0A  
+ *color4:       base0D  
+ *color5:       base0E  
+ *color6:       base0C  
+ *color7:       base05  
+ *color8:       base03  
+ *color9:       base08  
+ *color10:      base0B  
+ *color11:      base0A  
+ *color12:      base0D  
+ *color13:      base0E  
+ *color14:      base0C  
+ *color15:      base07  
+ *color16:      base09  
+ *color17:      base0F  
+ *color18:      base01  
+ *color19:      base02  
+ *color20:      base04  
+ *color21:      base06  
 
-! Chadwm theme
-
+! Chad theme
 #define base00 #282c34
 #define base01 #353b45
 #define base02 #3e4451
@@ -183,25 +189,27 @@ Xft.dpi: 78
 #define base0D #61afef
 #define base0E #c678dd
 #define base0F #be5046
+/* *.foreground:   base07  */
+/* *.background:   #1e222a */
+/* *.cursorColor:  base05  */
+/* *.color0:       base00  */
+/* *.color1:       base08  */
+/* *.color2:       base0B  */
+/* *.color3:       base0A  */
+/* *.color4:       base0D  */
+/* *.color5:       base0E  */
+/* *.color6:       base0C  */
+/* *.color7:       base05  */
+/* *.color8:       base03  */
+/* *.color9:       base08  */
+/* *.color10:      base0B  */
+/* *.color11:      base0A  */
+/* *.color12:      base0D  */
+/* *.color13:      base0E  */
+/* *.color14:      base0C  */
+/* *.color15:      base07  */
 
-*foreground:   base07
-*background:   #1e222a
-*cursorColor:  base05
-
-*color0:       base00
-*color1:       base08
-*color2:       base0B
-*color3:       base0A
-*color4:       base0D
-*color5:       base0E
-*color6:       base0C
-*color7:       base05
-
-*color8:       base03
-*color9:       base08
-*color10:      base0B
-*color11:      base0A
-*color12:      base0D
-*color13:      base0E
-*color14:      base0C
-*color15:      base07
+*.piiink: #F6BBE7
+*.selborder: #c792ea
+*.normborder: #89ddff
+*.normfg: #8796b0

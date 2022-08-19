@@ -4,7 +4,8 @@
 # If you use startx/xinit like a Chad, this file will also be sourced.
 
 xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!	# Uncomment to use Xresources colors/settings on startup
-screen &		# Sets up the displays as I want them.
+screen &		# Sets up the display(s)
+redshift -l 28.644800:77.216721 &
 unclutter --timeout 2 &
 remaps &		# run the remaps script, switching caps/esc and more; check it for more infoj
 setbg
