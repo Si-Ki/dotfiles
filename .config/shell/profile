@@ -8,6 +8,7 @@
 # Adds `~/.local/bin` to $PATH
 export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
 export PATH="$PATH:${$(find ~/.local/share/cargo/bin/ -type d -printf %p:)%%:}"
+export PATH="$PATH:${$(find ~/.local/share/go/bin/ -type d -printf %p:)%%:}"
 
 unsetopt PROMPT_SP
 
@@ -48,7 +49,15 @@ export ELECTRUMDIR="${XDG_DATA_HOME:-$HOME/.local/share}/electrum"
 # Other program settings:
 export DICS="/usr/share/stardict/dic/"
 export SUDO_ASKPASS="$HOME/.local/bin/dmenupass"
-export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
+export FZF_DEFAULT_OPTS='
+ --color=fg:#cbccc6,bg:#1f2430,hl:#707a8c
+ --color=fg+:#707a8c,bg+:#191e2a,hl+:#ffcc66
+ --color=info:#73d0ff,prompt:#707a8c,pointer:#cbccc6
+ --color=marker:#73d0ff,spinner:#73d0ff,header:#d4bfff
+ --height 40%
+ --border
+ --reverse
+ '
 export LESS=-R
 export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"
 export LESS_TERMCAP_md="$(printf '%b' '[1;36m')"

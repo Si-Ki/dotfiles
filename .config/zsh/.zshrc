@@ -18,11 +18,14 @@ HISTFILE=~/.cache/zsh/history
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc"
 
 # Basic auto/tab complete:
-autoload -U compinit
-zstyle ':completion:*' menu select
-zmodload zsh/complist
-compinit
-_comp_options+=(globdots)		# Include hidden files.
+# autoload -U compinit
+# zstyle ':completion:*' menu select
+# zmodload zsh/complist
+# compinit
+# _comp_options+=(globdots)		# Include hidden files.
+
+autoload -Uz +X compinit && compinit
+autoload -Uz +X bashcompinit && bashcompinit
 
 # vi mode
 bindkey -v
@@ -45,6 +48,14 @@ function zle-keymap-select () {
 }
 chst () {
     [ -z $1 ] && echo "no args provided!" || (curl -s cheat.sh/$1 | bat --style=plain)
+}
+# Install packages (change to pacman/AUR helper of your choice)
+in() {
+    yay -Slq | fzf -q "$1" -m --preview 'yay -Si {1}'| xargs -ro yay -S
+}
+# Remove installed packages (change to pacman/AUR helper of your choice)
+re() {
+    yay -Qq | fzf -q "$1" -m --preview 'yay -Qi {1}' | xargs -ro yay -Rns
 }
 adn () {
 	ep=${2:-1-}
