@@ -6,6 +6,7 @@ d   	~/Docs
 dt  	~/.local/share
 dat 	/data/
 ani 	/data/anime/
+bks   ~/.local/share/Books/
 torr 	/data/torrents/
 rr  	~/.local/src
 lib 	~/.local/lib
@@ -19,4 +20,4 @@ src 	~/.local/src
 vv  	~/Videos
 testing	~/Docs/testing
 phone 	~/phone/
-wal	~/Pictures/wal
+wall	~/Pictures/wal

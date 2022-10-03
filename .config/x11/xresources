@@ -1,5 +1,5 @@
-!! Transparency (0-1):
-*.alpha : 0.89
+! Transparency (0-1):
+*.alpha : 0.85
 
 !! DPI settings
 Xft.dpi : 78
@@ -10,10 +10,10 @@ Sxiv.font : JetBrainsMono\ Nerd\ Font:size=10
 stfuzzy.internalBorder: 100
 
 ! St settings
-st.font : JetBrainsMono\ Nerd\ Font:size=12
+st.font : JetBrains Mono Nerd Font:size=12
 
 ! Dmenu settings
- dmenu.font:Iosevka\ Nerd\ Font:size=12
+ dmenu.font:Iosevka\ Nerd\ Font:size=13
  dmenu.normbg : #1e222a
  dmenu.normfg : #F6BBE7
  dmenu.selbg : #444267
@@ -28,46 +28,6 @@ st.font : JetBrainsMono\ Nerd\ Font:size=12
 /* purple	5	13 */
 /* cyan		6	14 */
 /* white	7	15 */
-
-/* ! Dracula Xresources palette */
-/* *.foreground: #F8F8F2 */
-/* *.background: #282A36 */
-/* *.color0:     #000000 */
-/* *.color8:     #4D4D4D */
-/* *.color1:     #FF5555 */
-/* *.color9:     #FF6E67 */
-/* *.color2:     #50FA7B */
-/* *.color10:    #5AF78E */
-/* *.color3:     #F1FA8C */
-/* *.color11:    #F4F99D */
-/* *.color4:     #BD93F9 */
-/* *.color12:    #CAA9FA */
-/* *.color5:     #FF79C6 */
-/* *.color13:    #FF92D0 */
-/* *.color6:     #8BE9FD */
-/* *.color14:    #9AEDFE */
-/* *.color7:     #BFBFBF */
-/* *.color15:    #E6E6E6 */
-
-/* Crayon */
-/* *.foreground:#F8F8F2 */
-/* *.background:#282A36 */
-/* *.color0: 	#101112 */
-/* *.color1: 	#C48D62 */
-/* *.color2: 	#99AE63 */
-/* *.color3: 	#D8C27A */
-/* *.color4: 	#7495B6 */
-/* *.color5: 	#B59CD8 */
-/* *.color6: 	#8DC9C3 */
-/* *.color7: 	#BCC5D1 */
-/* *.color8: 	#586270 */
-/* *.color9: 	#B27B78 */
-/* *.color10:	#282C33 */
-/* *.color11:	#383E47 */
-/* *.color12:	#798494 */
-/* *.color13:	#D8D8D8 */
-/* *.color14:	#CC99B3 */
-/* *.color15:	#FDFEFF */
 
 /* Nord Theme */
 /* *.color0: 	#24283b */
@@ -100,7 +60,7 @@ st.font : JetBrainsMono\ Nerd\ Font:size=12
 /* *.color9:	#f7768e */
 /* *.color2:	#9ece6a */
 /* *.color10:	#9ece6a */
-/* *.color3: 	#E0AF68 */
+/* *.color3: 	#E0AF68*/
 /* *.color11: 	#E0AF68 */
 /* *.color4: 	#7AA2F7 */
 /* *.color12: 	#7AA2F7 */
@@ -148,31 +108,31 @@ st.font : JetBrainsMono\ Nerd\ Font:size=12
 #define base0D #82aaff
 #define base0E #c792ea
 #define base0F #ff5370
-/* *foreground:   base05   */
-/* *background:   base00   */
-/* *cursorColor:  base05   */
-/* *color0:       base01   */
-/* *color1:       base08   */
-/* *color2:       base0B   */
-/* *color3:       base0A   */
-/* *color4:       base0D   */
-/* *color5:       base0E   */
-/* *color6:       base0C   */
-/* *color7:       base05   */
-/* *color8:       base03   */
-/* *color9:       base08   */
-/* *color10:      base0B   */
-/* *color11:      base0A   */
-/* *color12:      base0D   */
-/* *color13:      base0E   */
-/* *color14:      base0C   */
-/* *color15:      base07   */
-/* *color16:      base09   */
-/* *color17:      base0F   */
-/* *color18:      base01   */
-/* *color19:      base02   */
-/* *color20:      base04   */
-/* *color21:      base06   */
+/* *foreground:   base05 */
+/* *background:   base00 */
+/* *cursorColor:  base05 */
+/* *color0:       base01 */
+/* *color1:       base08 */
+/* *color2:       base0B */
+/* *color3:       base0A */
+/* *color4:       base0D */
+/* *color5:       base0E */
+/* *color6:       base0C */
+/* *color7:       base05 */
+/* *color8:       base03 */
+/* *color9:       base08 */
+/* *color10:      base0B */
+/* *color11:      base0A */
+/* *color12:      base0D */
+/* *color13:      base0E */
+/* *color14:      base0C */
+/* *color15:      base07 */
+/* *color16:      base09 */
+/* *color17:      base0F */
+/* *color18:      base01 */
+/* *color19:      base02 */
+/* *color20:      base04 */
+/* *color21:      base06 */
 
 ! Chad theme
 #define base00 #282c34
@@ -191,27 +151,47 @@ st.font : JetBrainsMono\ Nerd\ Font:size=12
 #define base0D #61afef
 #define base0E #c678dd
 #define base0F #be5046
- *.foreground:   base07  
- *.background:   #1e222a 
- *.cursorColor:  base05  
- *.color0:       base00  
- *.color1:       base08  
- *.color2:       base0B  
- *.color3:       base0A  
- *.color4:       base0D  
- *.color5:       base0E  
- *.color6:       base0C  
- *.color7:       base05  
- *.color8:       base03  
- *.color9:       base08  
- *.color10:      base0B  
- *.color11:      base0A  
- *.color12:      base0D  
- *.color13:      base0E  
- *.color14:      base0C  
- *.color15:      base07  
+/* *.foreground:   base07  */
+/* *.background:   #1e222a */
+/* *.cursorColor:  base05  */
+/* *.color0:       base00  */
+/* *.color1:       base08  */
+/* *.color2:       base0B  */
+/* *.color3:       base0A  */
+/* *.color4:       base0D  */
+/* *.color5:       base0E  */
+/* *.color6:       base0C  */
+/* *.color7:       base05  */
+/* *.color8:       base03  */
+/* *.color9:       base08  */
+/* *.color10:      base0B  */
+/* *.color11:      base0A  */
+/* *.color12:      base0D  */
+/* *.color13:      base0E  */
+/* *.color14:      base0C  */
+/* *.color15:      base07  */
 
 *.piiink: #F6BBE7
 *.selborder: #c792ea
 *.normborder: #89ddff
 *.normfg: #8796b0
+
+! Yoru
+*.foreground:   #edeff0
+*.background:   #0c0e0f
+*.color0:       #232526
+*.color8:       #2c2e2f
+*.color1:       #df5b61
+*.color9:       #e8646a
+*.color2:       #78b892
+*.color10:      #81c19b
+*.color3:       #de8f78
+*.color11:      #e79881
+*.color4:       #6791c9
+*.color12:      #709ad2
+*.color5:       #bc83e3
+*.color13:      #c58cec
+*.color6:       #67afc1
+*.color14:      #70b8ca
+*.color7:       #e4e6e7
+*.color15:      #f2f4f5

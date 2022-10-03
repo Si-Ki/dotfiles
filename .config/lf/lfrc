@@ -108,6 +108,7 @@ map <c-r> reload
 map <c-s> set hidden!
 map <enter> shell
 map x $$f
+map P !wal -i $f
 map X !$f
 map o &mimeopen $f
 map O $mimeopen --ask $f

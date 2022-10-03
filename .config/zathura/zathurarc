@@ -14,5 +14,5 @@ map i recolor
 map p print
 map g goto top
 map b toggle_statusbar
-map n goto nextpage
-map N goto previouspage
+map n scroll full-down
+map N scroll full-up

@@ -14,6 +14,7 @@ done; unset command
 # Verbosity and settings that you pretty much just always are going to want.
 alias \
 	cp="cp -iv" \
+  nv="neovide" \
 	mv="mv -iv" \
 	rm="rm -vI" \
 	bc="bc -ql" \
@@ -40,20 +41,18 @@ alias \
 # These common commands are just too long! Abbreviate them.
 alias \
 	ka="killall" \
+  mov="mov-cli" \
 	g="git" \
 	trm="transmission-remote" \
 	sdn="shutdown -h now" \
 	e="$EDITOR" \
 	v="$EDITOR" \
 	p="pacman" \
-	xi="sudo xbps-install" \
-	xr="sudo xbps-remove -R" \
-	xq="xbps-query" \
 	z="zathura" \
 	l="ls -al"
 
 alias \
-	tracker="/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME" \
+	tracker="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME" \
 	pkf="pkgfile" \
 	magit="nvim -c MagitOnly" \
 	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \

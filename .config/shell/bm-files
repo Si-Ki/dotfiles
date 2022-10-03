@@ -5,14 +5,16 @@ bf	${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-files	# This file, a list of bookm
 bd	${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs		# A list of bookmarked directories similar to this file
 cfx	${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources	# Colors, themes and variables for X11
 cfb	~/.local/src/dwmblocks/config.h				# dwmblocks: the status bar for dwm
-cfd	~/.local/src/dwm/config.h				# dwm config file.
-cfst	~/.local/src/st/config.h				# st config file.
-cfdm	~/.local/src/dmenu/config.h				# dmenu config file.
+cfal  ~/.config/alacritty/alacritty.yml # alacritty config
 
 # These do not update automatically, but on the next new instance of a program:
 
+cfd	~/.local/src/dwm/config.h				# dwm config file.
+cfst	~/.local/src/st/config.h				# st config file.
+cfdm	~/.local/src/dmenu/config.h				# dmenu config file.
 cfv	${XDG_CONFIG_HOME:-$HOME/.config}/nvim/init.vim		# vim/neovim config
 cfz	$ZDOTDIR/.zshrc						# zsh (shell) config
+cff $ZDOTDIR/functions.zsh
 cfa	${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc		# aliases used by zsh (and potentially other shells)
 cfp	${XDG_CONFIG_HOME:-$HOME/.config}/shell/profile		# profile file for login settings for zsh
 cfm	${XDG_CONFIG_HOME:-$HOME/.config}/mutt/muttrc		# mutt (email client) config
