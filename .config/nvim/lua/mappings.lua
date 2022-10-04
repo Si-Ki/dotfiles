@@ -31,7 +31,6 @@ set('n', '<leader>fh', builtin.help_tags, {})
 set('n', '<leader>cm', '<cmd> Telescope git_commits <CR>', {})
 set('n', '<leader>gt', '<cmd> Telescope git_status <CR>', {})
 
-
 -- Barbar binds
 -- Move to previous/next
 map('n', '<Tab>', '<Cmd>BufferNext<CR>', opts)
