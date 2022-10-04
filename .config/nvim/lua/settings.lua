@@ -8,6 +8,7 @@ set.expandtab = true
 set.smarttab = true
 set.tabstop = 2
 set.shiftwidth = 2
+set.timeoutlen = 300
 
 set.hlsearch = false
 set.incsearch = true

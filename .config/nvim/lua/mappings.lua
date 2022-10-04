@@ -16,12 +16,13 @@ map('n', '<S-s>', ':%s//g<Left><Left>', {}) -- Replace all
 map('n', '<leader>m', ':Mason<CR>', {}) -- Replace all
 
 map('n', '<leader>ss', '<cmd> execute \'silent! write !sudo -A tee % >/dev/null\' <bar> edit! <CR>\'', opts) -- Saving files
-map('n', '<C-s>', ':w<CR>:luafile %<CR>', {})
+map('n', '<C-s>', ':luafile %<CR>', {})
 
 map('n', '<leader>s', '<cmd> !clear && shellcheck -x %<CR>', opts)
 
 -- Telescope binds
 local builtin = require('telescope.builtin')
+set('n', '<leader>fr', builtin.oldfiles, {})
 set('n', '<leader>tt', builtin.colorscheme, {})
 set('n', '<leader>ff', builtin.find_files, {})
 set('n', '<leader>fw', builtin.live_grep, {})
