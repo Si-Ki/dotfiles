@@ -2,11 +2,12 @@ local set = vim.opt
 local cmd = vim.cmd
 local autocmd = vim.api.nvim_create_autocmd
 local api = vim.api
+local g = vim.g
 
 set.expandtab = true
 set.smarttab = true
-set.tabstop = 4
-set.shiftwidth = 4
+set.tabstop = 2
+set.shiftwidth = 2
 
 set.hlsearch = false
 set.incsearch = true
@@ -26,6 +27,12 @@ set.relativenumber = true
 set.cursorline = true
 
 set.hidden = true
+
+g.vimwiki_list = {{
+  path = "~/.local/share/nvim/vimwiki",
+  syntax = "markdown",
+  ext = ".md",
+}}
 
 cmd("colorscheme duskfox")
 

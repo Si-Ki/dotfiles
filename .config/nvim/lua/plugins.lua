@@ -1,5 +1,12 @@
-return require'packer'.startup(function()
+local fn = vim.fn
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+if fn.empty(fn.glob(install_path)) > 0 then
+  Packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+  vim.cmd [[packadd packer.nvim]]
+end
+require'packer'.startup(function(use)
     use 'wbthomason/packer.nvim'
+    use 'rust-lang/rust.vim'
     use 'kyazdani42/nvim-web-devicons'
     use {
       'kyazdani42/nvim-tree.lua',
@@ -11,16 +18,32 @@ return require'packer'.startup(function()
     use 'EdenEast/nightfox.nvim'
     use 'vimwiki/vimwiki'
 
-    use 'neovim/nvim-lspconfig'
-    use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
-    use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
-    use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
-    use 'L3MON4D3/LuaSnip' -- Snippets plugin
-    use 'onsails/lspkind.nvim'
-    use 'rafamadriz/friendly-snippets'
+    use { "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim", "neovim/nvim-lspconfig", }
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-nvim-lua'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+    use 'norcalli/nvim-colorizer.lua'
+    use 'hrsh7th/cmp-cmdline'
+    use 'hrsh7th/nvim-cmp'
+    use 'saadparwaiz1/cmp_luasnip'
+    use 'L3MON4D3/LuaSnip'
+    use "rafamadriz/friendly-snippets"
 
-    use 'lukas-reineke/indent-blankline.nvim' 
+    use 'lukas-reineke/indent-blankline.nvim'
     use 'lewis6991/gitsigns.nvim'
+
+    use {
+      'lewis6991/impatient.nvim',
+      module = "impatient"
+    }
+
+    use {
+      'numToStr/Comment.nvim',
+      config = function()
+      require('Comment').setup()
+    end
+    }
 
     use {
       'romgrk/barbar.nvim',
@@ -38,7 +61,7 @@ return require'packer'.startup(function()
         run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
     }
 
-    use { 
+    use {
         "nvim-telescope/telescope.nvim", tag = '0.1.0',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
@@ -50,4 +73,7 @@ return require'packer'.startup(function()
         require("which-key").setup {}
     end
     }
+    if packer_bootstrap then
+      require('packer').sync()
+    end
 end)

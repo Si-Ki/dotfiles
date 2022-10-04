@@ -12,27 +12,30 @@ map('n', '<C-j>', '<C-w>j', {})
 map('n', '<C-k>', '<C-w>k', {})
 map('n', '<C-l>', '<C-w>l', {})
 
--- Replace all
-map('n', '<S-s>', ':%s//g<Left><Left>', {})
+map('n', '<S-s>', ':%s//g<Left><Left>', {}) -- Replace all
+map('n', '<leader>m', ':Mason<CR>', {}) -- Replace all
 
--- Saving files
-map('n', '<leader>ss', '<cmd> execute \'silent! write !sudo -A tee % >/dev/null\' <bar> edit! <CR>\'', opts)
+map('n', '<leader>ss', '<cmd> execute \'silent! write !sudo -A tee % >/dev/null\' <bar> edit! <CR>\'', opts) -- Saving files
 map('n', '<C-s>', ':w<CR>:luafile %<CR>', {})
 
 map('n', '<leader>s', '<cmd> !clear && shellcheck -x %<CR>', opts)
 
 -- Telescope binds
 local builtin = require('telescope.builtin')
-set('n', '<leader>tt', ':Telescope colorscheme<CR>', {})
+set('n', '<leader>tt', builtin.colorscheme, {})
 set('n', '<leader>ff', builtin.find_files, {})
 set('n', '<leader>fw', builtin.live_grep, {})
 set('n', '<leader>fb', builtin.buffers, {})
 set('n', '<leader>fh', builtin.help_tags, {})
+-- git stuff
+set('n', '<leader>cm', '<cmd> Telescope git_commits <CR>', {})
+set('n', '<leader>gt', '<cmd> Telescope git_status <CR>', {})
+
 
 -- Barbar binds
 -- Move to previous/next
-map('n', '<Tab>', '<Cmd>BufferPrevious<CR>', opts)
-map('n', '<S-Tab>', '<Cmd>BufferNext<CR>', opts)
+map('n', '<Tab>', '<Cmd>BufferNext<CR>', opts)
+map('n', '<S-Tab>', '<Cmd>BufferPrevious<CR>', opts)
 -- Goto buffer in position...
 map('n', '<A-1>', '<Cmd>BufferGoto 1<CR>', opts)
 map('n', '<A-2>', '<Cmd>BufferGoto 2<CR>', opts)
