@@ -28,7 +28,11 @@ require'packer'.startup(function(use)
     use 'hrsh7th/nvim-cmp'
     use 'saadparwaiz1/cmp_luasnip'
     use 'L3MON4D3/LuaSnip'
-    use "rafamadriz/friendly-snippets"
+    use 'rafamadriz/friendly-snippets'
+    use {
+      "windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
+    }
 
     use 'lukas-reineke/indent-blankline.nvim'
     use 'lewis6991/gitsigns.nvim'
