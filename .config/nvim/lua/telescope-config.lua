@@ -45,6 +45,9 @@ require('telescope').setup{
     buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
     mappings = {
       n = { ["q"] = require("telescope.actions").close },
+      i = { ["<C-j>"] = require("telescope.actions").preview_scrolling_down,
+            ["<C-k>"] = require("telescope.actions").preview_scrolling_up,
+      },
     },
   },
 

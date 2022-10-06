@@ -15,7 +15,10 @@ require'packer'.startup(function(use)
       },
       tag = 'nightly' -- optional, updated every week. (see issue #1193)
     }
+    -- Colorschemes
     use 'EdenEast/nightfox.nvim'
+    use { "catppuccin/nvim", as = "catppuccin" }
+
     use 'vimwiki/vimwiki'
 
     use { "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim", "neovim/nvim-lspconfig", }
@@ -60,6 +63,7 @@ require'packer'.startup(function(use)
     }
 
     use ('nvim-treesitter/nvim-treesitter-refactor')
+    use ('ap/vim-css-color')
     use {
         'nvim-treesitter/nvim-treesitter',
         run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
