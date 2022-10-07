@@ -1,32 +1,44 @@
-local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-
--- Check if packer.nvim is installed
--- Run PackerCompile if there are changes in this file
-local function packer_init()
+local ensure_packer = function()
   local fn = vim.fn
-  local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
+  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
   if fn.empty(fn.glob(install_path)) > 0 then
-    packer_bootstrap = fn.system {
-      "git",
-      "clone",
-      "--depth",
-      "1",
-      "https://github.com/wbthomason/packer.nvim",
-      install_path,
-    }
+    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
     vim.cmd [[packadd packer.nvim]]
+    return true
   end
-  vim.cmd "autocmd BufWritePost plugins.lua source <afile> | PackerCompile"
+  return false
 end
 
-if fn.empty(fn.glob(install_path)) > 0 then
-  Packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-  vim.cmd [[packadd packer.nvim]]
+local packer_bootstrap = ensure_packer()
+
+-- Reload packer on saving this file
+vim.cmd [[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+  augroup end
+]]
+
+local status_ok, packer = pcall(require, "packer")
+if not status_ok then
+  return
 end
-require'packer'.startup(function(use)
-    use 'wbthomason/packer.nvim'
-    use 'rust-lang/rust.vim'
+
+--Have packer in a popup window
+packer.init {
+  display = {
+    open_fn = function()
+      return require("packer.util").float { border = "rounded" }
+    end,
+  },
+}
+
+return require('packer').startup(function(use)
+    use { 'wbthomason/packer.nvim' }
+    use { 'nvim-lua/plenary.nvim' }
+    use 'lewis6991/impatient.nvim'
+
+    use { 'rust-lang/rust.vim', ft = '.rs' }
     use 'kyazdani42/nvim-web-devicons'
     use {
       'kyazdani42/nvim-tree.lua',
@@ -40,29 +52,55 @@ require'packer'.startup(function(use)
     use { "catppuccin/nvim", as = "catppuccin" }
 
     use 'vimwiki/vimwiki'
-
-    use { "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim", "neovim/nvim-lspconfig", }
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/cmp-nvim-lua'
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-path'
     use 'norcalli/nvim-colorizer.lua'
+
+    use {
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
+      "neovim/nvim-lspconfig",
+    }
+
+    -- Load cmp stuff in insert mode only.
+
+    use {
+      'rafamadriz/friendly-snippets',
+      module = { "cmp", "cmp_nvim_lsp" },
+      event = "InsertEnter"
+    }
+
+    use {
+      'hrsh7th/nvim-cmp',
+      after = "friendly-snippets",
+    }
+
+    use {
+      'L3MON4D3/LuaSnip',
+      wants = "friendly-snippets",
+      after = "nvim-cmp"
+    }
+
     use 'hrsh7th/cmp-cmdline'
-    use 'hrsh7th/nvim-cmp'
-    use 'saadparwaiz1/cmp_luasnip'
-    use 'L3MON4D3/LuaSnip'
-    use 'rafamadriz/friendly-snippets'
+    use {'saadparwaiz1/cmp_luasnip', after = "LuaSnip" }
+    use {'hrsh7th/cmp-nvim-lua', after = "cmp_luasnip" }
+    use {'hrsh7th/cmp-nvim-lsp', after = "cmp-nvim-lua" }
+    use {'hrsh7th/cmp-buffer', after = "cmp-nvim-lsp" }
+    use {'hrsh7th/cmp-path', after = "cmp-buffer" }
+
     use {
       "windwp/nvim-autopairs",
-        config = function() 
+      after = "nvim-cmp",
+        config = function()
           require("nvim-autopairs").setup()
         end
     }
 
     use 'lukas-reineke/indent-blankline.nvim'
-    use 'lewis6991/gitsigns.nvim'
+    use {
+    'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
+    config = function() require('gitsigns').setup() end
+    }
 
-    use 'lewis6991/impatient.nvim'
+    use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 
     use {
       'numToStr/Comment.nvim',
@@ -84,31 +122,29 @@ require'packer'.startup(function(use)
     use ('nvim-treesitter/nvim-treesitter-refactor')
     use {
         'nvim-treesitter/nvim-treesitter',
-        run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
-    }
+        run = ":TSUpdate"
+      }
 
     use {
         "nvim-telescope/telescope.nvim", tag = '0.1.0',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
-    use 'nvim-lua/plenary.nvim'
     use 'BurntSushi/ripgrep'
     use {
         "folke/which-key.nvim",
-    config = function()
-        require("which-key").setup {}
-    end
+        config = function()
+            require("which-key").setup {}
+        end
     }
 
     use {
-      "goolord/alpha-nvim",
-			on = "VimEnter",
-      config = function()
-        require("alpha-config").setup()
-      end,
+        "goolord/alpha-nvim",
+        on = "VimEnter",
+        config = function()
+            require("alpha-config").setup()
+        end,
     }
-
-    if packer_bootstrap then
-      require('packer').sync()
-    end
+  if packer_bootstrap then
+    require('packer').sync()
+  end
 end)

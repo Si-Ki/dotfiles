@@ -1,14 +1,18 @@
+vim.defer_fn(function()
+  pcall(require, "impatient")
+end, 0)
+
+require('plugins')
 require('barbar-config')
 require('lualine-config')
 require('mappings')
-require('plugins')
 require('neovim-tree')
 require('treesitter')
 require('mason-config')
 require('cmp-config')
 require('comment-config')
+require('lspconfig')
 require('telescope-config')
-require('impatient')
 
 -- SETTINGS
 local set = vim.opt
@@ -33,7 +37,7 @@ set.wrap = true
 set.scrolloff = 5
 set.fileencoding = 'utf-8'
 set.termguicolors = true
-set.clipboard = ""
+set.clipboard = "unnamedplus"
 
 set.number = true
 set.relativenumber = true
@@ -41,6 +45,9 @@ set.cursorline = true
 
 set.hidden = true
 
+g.mkdp_auto_close = 1
+g.mkdp_refresh_slow = 1
+g.mkdp_browser = '/usr/bin/librewolf'
 g.vimwiki_list = {{
   path = "~/.local/share/nvim/vimwiki",
   syntax = "markdown",
