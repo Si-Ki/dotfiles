@@ -53,7 +53,7 @@ let g:airline_theme = "iceberg"
 
 let g:material_theme_style = "palenight"
 colorscheme material
-"hi Normal guibg=NONE ctermbg=NONE
+hi Normal guibg=NONE ctermbg=NONE
 
 set title
 set go=a

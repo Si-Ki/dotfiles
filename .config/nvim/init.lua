@@ -8,12 +8,12 @@ require('mason-config')
 require('cmp-config')
 require('comment-config')
 require('telescope-config')
+require('impatient')
 
 -- SETTINGS
 local set = vim.opt
 local cmd = vim.cmd
 local autocmd = vim.api.nvim_create_autocmd
-local api = vim.api
 local g = vim.g
 
 set.expandtab = true
@@ -29,11 +29,11 @@ set.smartcase = true
 
 set.splitbelow = true
 set.splitright = true
-set.wrap = false
+set.wrap = true
 set.scrolloff = 5
 set.fileencoding = 'utf-8'
 set.termguicolors = true
-set.clipboard = "unnamedplus"
+set.clipboard = ""
 
 set.number = true
 set.relativenumber = true
@@ -47,8 +47,10 @@ g.vimwiki_list = {{
   ext = ".md",
 }}
 
-g.catppuccin_flavour = "macchiato"
+require("catppuccin").setup({
+  transparent_background = true,})
 
+g.catppuccin_flavour = "mocha"
 cmd("colorscheme catppuccin")
 
 autocmd("BufEnter", {
@@ -78,3 +80,8 @@ autocmd("BufWritePost", {
   pattern = "config.h",
   command = "!cd %:p:h ; sudo -A make install",
 })
+
+-- remember cursor pos
+vim.cmd [[autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]]
+vim.cmd [[autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif]]
+vim.cmd [[autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o]]

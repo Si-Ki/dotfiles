@@ -1,5 +1,25 @@
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+
+-- Check if packer.nvim is installed
+-- Run PackerCompile if there are changes in this file
+local function packer_init()
+  local fn = vim.fn
+  local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
+  if fn.empty(fn.glob(install_path)) > 0 then
+    packer_bootstrap = fn.system {
+      "git",
+      "clone",
+      "--depth",
+      "1",
+      "https://github.com/wbthomason/packer.nvim",
+      install_path,
+    }
+    vim.cmd [[packadd packer.nvim]]
+  end
+  vim.cmd "autocmd BufWritePost plugins.lua source <afile> | PackerCompile"
+end
+
 if fn.empty(fn.glob(install_path)) > 0 then
   Packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
   vim.cmd [[packadd packer.nvim]]
@@ -34,16 +54,15 @@ require'packer'.startup(function(use)
     use 'rafamadriz/friendly-snippets'
     use {
       "windwp/nvim-autopairs",
-        config = function() require("nvim-autopairs").setup {} end
+        config = function() 
+          require("nvim-autopairs").setup()
+        end
     }
 
     use 'lukas-reineke/indent-blankline.nvim'
     use 'lewis6991/gitsigns.nvim'
 
-    use {
-      'lewis6991/impatient.nvim',
-      module = "impatient"
-    }
+    use 'lewis6991/impatient.nvim'
 
     use {
       'numToStr/Comment.nvim',
@@ -63,7 +82,6 @@ require'packer'.startup(function(use)
     }
 
     use ('nvim-treesitter/nvim-treesitter-refactor')
-    use ('ap/vim-css-color')
     use {
         'nvim-treesitter/nvim-treesitter',
         run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
@@ -81,6 +99,15 @@ require'packer'.startup(function(use)
         require("which-key").setup {}
     end
     }
+
+    use {
+      "goolord/alpha-nvim",
+			on = "VimEnter",
+      config = function()
+        require("alpha-config").setup()
+      end,
+    }
+
     if packer_bootstrap then
       require('packer').sync()
     end

@@ -1,6 +1,7 @@
 local map = vim.api.nvim_set_keymap
 local set = vim.keymap.set
 local opts = { noremap = true, silent = true }
+local opts1 = { noremap = true, silent = true, expr = true }
 
 vim.g.mapleader = ' '
 
@@ -13,12 +14,20 @@ map('n', '<C-k>', '<C-w>k', {})
 map('n', '<C-l>', '<C-w>l', {})
 
 map('n', '<S-s>', ':%s//g<Left><Left>', {}) -- Replace all
-map('n', '<leader>m', ':Mason<CR>', {}) -- Replace all
+map('n', '<leader>m', ':Mason<CR>', {})
 
 map('n', '<leader>ss', '<cmd> execute \'silent! write !sudo -A tee % >/dev/null\' <bar> edit! <CR>\'', opts) -- Saving files
 map('n', '<C-s>', ':luafile %<CR>', {})
 
 map('n', '<leader>s', '<cmd> !clear && shellcheck -x %<CR>', opts)
+
+-- Center search results
+map("n", "n", "nzz", opts)
+map("n", "N", "Nzz", opts)
+
+-- Better indent
+map("v", "<", "<gv", opts)
+map("v", ">", ">gv", opts)
 
 -- Telescope binds
 local builtin = require('telescope.builtin')
