@@ -1,4 +1,5 @@
 set sandbox none
+set recolor
 set statusbar-h-padding 0
 set statusbar-v-padding 0
 set page-padding 1
@@ -16,3 +17,6 @@ map g goto top
 map b toggle_statusbar
 map n scroll full-down
 map N scroll full-up
+
+
+include catppuccin-mocha

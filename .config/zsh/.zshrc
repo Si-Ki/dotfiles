@@ -1,6 +1,6 @@
 # Enable colors and change prompt:
 autoload -U colors && colors	# Load colors
-PS1="%B%{$fg[blue]%}{%{$fg[magenta]%}%~%{$fg[pink]%}}%{$reset_color%}%b "
+PS1="%B%{$fg[blue]%}{%{$fg[magenta]%}%~%{$fg[white]%}}%{$reset_color%}%b "
 setopt autocd		# Automatically cd into typed directory.
 stty stop undef		# Disable ctrl-s to freeze terminal.
 setopt interactive_comments
@@ -10,11 +10,11 @@ HISTSIZE=10000000
 SAVEHIST=10000000
 HISTFILE=~/.cache/zsh/history
 
-# Load aliases and shortcuts if existent.
+# Load aliases, functions and shortcuts if existent.
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc"
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc"
-source "${XDG_CONFIG_HOME}/zsh/functions.zsh"
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/functions.zsh" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/functions.zsh"
 
 autoload -Uz +X compinit && compinit
 autoload -Uz +X bashcompinit && bashcompinit
@@ -25,8 +25,9 @@ export KEYTIMEOUT=1
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 bindkey -s '^o' 'lfcd\n'
+bindkey -s '^w' 'open_with_mpv\n'
 bindkey -s '^a' 'bc -lq\n'
-bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
+bindkey -s '^g' 'cd "$(fd -H | fzf)"\n'
 bindkey -s '^n' 'nvim "$(fzf)"\n'
 bindkey '^[[P' delete-char
 
@@ -34,6 +35,9 @@ bindkey '^[[P' delete-char
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
+source frappe.sh
+
 fetch
 # Load syntax highlighting; should be last.
+source /home/noob/.config/zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh 2>/dev/null

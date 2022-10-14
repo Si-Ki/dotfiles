@@ -24,10 +24,11 @@ alias \
 	ffmpeg="ffmpeg -hide_banner" \
 	aur="baph -n" \
 	sv="systemctl" \
-	betdis="betterdiscordctl --d-modules ~/.config/discord/0.0.17/modules/ install" \
+	betdis="betterdiscordctl --d-modules ~/.config/discord/0.0.20/modules/ install" \
 	pip="python -m pip" \
 	py="python" \
-	warp="warp-cli" \
+	wcon="warp-cli connect" \
+	wdis="warp-cli disconnect" \
 	manga="manga-cli" \
 	lf="lfub" \
 
@@ -52,7 +53,7 @@ alias \
 	l="ls -al"
 
 alias \
-	tracker="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME" \
+	tracker="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME" \ # Manage dotfiles
 	pkf="pkgfile" \
 	magit="nvim -c MagitOnly" \
 	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \

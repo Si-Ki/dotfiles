@@ -1,82 +1,26 @@
 [global]
 
-    # Which monitor should the notifications be displayed on.
     monitor = 0
     font = JetBrainsMono 12
     ### Geometry ###
-
     width = 300
     height = 300
     origin = top-right
     offset = 12x31
-    scale = 0		# Scale factor. It is auto-detected if value is 0.
-
-    indicate_hidden = yes		# Show how many messages are currently hidden (because of geometry).
-
-    # Shrink window if it's smaller than the width.  Will be ignored if
-    # width is 0.
-    shrink = no
-
+    indicate_hidden = yes
+    shrink = yes
     transparency = 10		# Possible Values (0-100)
-
-    # The height of the entire notification.  If the height is smaller
-    # than the font height and padding combined, it will be raised
-    # to the font height and padding.
     notification_height = 0
-
-    # Draw a line of "separator_height" pixel height between two
-    # notifications.
-    # Set to 0 to disable.
     separator_height = 2
-
-    # Padding between text and separator.
     padding = 4
-
-    # Horizontal padding.
     horizontal_padding = 4
-
-    # Defines width in pixels of frame around the notification window.
-    # Set to 0 to disable.
     frame_width = 2
-
-    # Defines color of the frame around the notification window.
     frame_color = "#798494"
-
-    # Define a color for the separator.
-    # possible values are:
-    #  * auto: dunst tries to find a color fitting to the background;
-    #  * foreground: use the same color as the foreground;
-    #  * frame: use the same color as the frame;
-    #  * anything else will be interpreted as a X color.
     separator_color = auto
-
-    # Sort messages by urgency.
     sort = yes
-
-    # Don't remove messages, if the user is idle (no mouse or keyboard input)
-    # for longer than idle_threshold seconds.
-    # Set to 0 to disable.
-    # A client can set the 'transient' hint to bypass this. See the rules
-    # section for how to disable this if necessary
     idle_threshold = 120
-
-    ### Text ###
-
-    # The spacing between lines.  If the height is smaller than the
-    # font height, it will get raised to the font height.
     line_height = 0
-
-    # Possible values are:
-    # full: Allow a small subset of html markup in notifications:
-    #        <b>bold</b>
-    #        <i>italic</i>
-    #        <s>strikethrough</s>
-    #        <u>underline</u>
-    #
-    # It's important to note that markup inside the format option will be parsed
-    # regardless of what this is set to.
     markup = full
-
     # The format of the message.  Possible variables are:
     #   %a  appname
     #   %s  summary

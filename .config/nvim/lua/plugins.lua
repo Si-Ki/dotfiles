@@ -1,3 +1,7 @@
+local M = {}
+
+function M.setup()
+
 local ensure_packer = function()
   local fn = vim.fn
   local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
@@ -11,140 +15,231 @@ end
 
 local packer_bootstrap = ensure_packer()
 
--- Reload packer on saving this file
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]]
+	-- packer.nvim configuration
+	local conf = {
+		profile = {
+			enable = true,
+			threshold = 0, -- the amount in ms that a plugins load time must be over for it to be included in the profile
+		},
 
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-  return
-end
+		display = {
+			open_fn = function ()
+				return require("packer.util").float { border = "rounded" }
+			end,
+		},
+	}
 
---Have packer in a popup window
-packer.init {
-  display = {
-    open_fn = function()
-      return require("packer.util").float { border = "rounded" }
+	-- Check if packer.nvim is installed
+	-- Run PackerCompile if there are changes in this file
+	local function packer_init()
+		local fn = vim.fn
+		local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
+		if fn.empty(fn.glob(install_path)) > 0 then
+			packer_bootstrap = fn.system {
+				"git",
+				"clone",
+				"--depth",
+				"1",
+				"https://github.com/wbthomason/packer.nvim",
+				install_path,
+			}
+			vim.cmd [[packadd packer.nvim]]
+		end
+		vim.cmd "autocmd BufWritePost plugins.lua source <afile> | PackerSync"
+	end
+
+	-- Plugins
+local function plugins(use)
+  use { 'wbthomason/packer.nvim' }
+  use { 'nvim-lua/plenary.nvim', module = "plenary" }
+  use 'lewis6991/impatient.nvim'
+
+-- Better Icons
+  use {
+    'kyazdani42/nvim-web-devicons',
+    module = "nvim-web-devicons",
+    config = function ()
+      require("nvim-web-devicons").setup{ default = true}
     end,
-  },
-}
+  }
 
-return require('packer').startup(function(use)
-    use { 'wbthomason/packer.nvim' }
-    use { 'nvim-lua/plenary.nvim' }
-    use 'lewis6991/impatient.nvim'
+  use {
+  'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
+  config = function () require('gitsigns').setup() end
+  }
 
-    use { 'rust-lang/rust.vim', ft = '.rs' }
-    use 'kyazdani42/nvim-web-devicons'
-    use {
-      'kyazdani42/nvim-tree.lua',
-      requires = {
-        'kyazdani42/nvim-web-devicons', -- optional, for file icons
-      },
-      tag = 'nightly' -- optional, updated every week. (see issue #1193)
-    }
-    -- Colorschemes
-    use 'EdenEast/nightfox.nvim'
-    use { "catppuccin/nvim", as = "catppuccin" }
+-- File Browser
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = { 'kyazdani42/nvim-web-devicons' },
+    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+    config = function ()
+      require("config.nvim-tree").setup()
+    end,
+  }
 
-    use 'vimwiki/vimwiki'
-    use 'norcalli/nvim-colorizer.lua'
+  -- Colorschemes
+  use { "lunarvim/synthwave84.nvim" }
+  use 'EdenEast/nightfox.nvim'
+  use { "catppuccin/nvim", as = "catppuccin" }
 
-    use {
-      "williamboman/mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
-      "neovim/nvim-lspconfig",
-    }
+-- Autocompletion
 
-    -- Load cmp stuff in insert mode only.
+	use {
+		"hrsh7th/nvim-cmp",
+		config = function ()
+			require("config.cmp").setup()
+		end,
+	}
 
-    use {
-      'rafamadriz/friendly-snippets',
-      module = { "cmp", "cmp_nvim_lsp" },
-      event = "InsertEnter"
-    }
+	use {
+		"hrsh7th/cmp-buffer",
+	}
 
-    use {
-      'hrsh7th/nvim-cmp',
-      after = "friendly-snippets",
-    }
+	use {
+		"hrsh7th/cmp-nvim-lsp",
+	}
 
-    use {
-      'L3MON4D3/LuaSnip',
-      wants = "friendly-snippets",
-      after = "nvim-cmp"
-    }
+	use {
+		"danymat/neogen",
+		config = function ()
+			require('neogen').setup {}
+		end,
+		requires = "nvim-treesitter/nvim-treesitter",
+	}
 
-    use 'hrsh7th/cmp-cmdline'
-    use {'saadparwaiz1/cmp_luasnip', after = "LuaSnip" }
-    use {'hrsh7th/cmp-nvim-lua', after = "cmp_luasnip" }
-    use {'hrsh7th/cmp-nvim-lsp', after = "cmp-nvim-lua" }
-    use {'hrsh7th/cmp-buffer', after = "cmp-nvim-lsp" }
-    use {'hrsh7th/cmp-path', after = "cmp-buffer" }
+-- Lsp stuff
+	use {
+		"neovim/nvim-lspconfig",
+	}
+	use {
+		"jose-elias-alvarez/null-ls.nvim",
+	}
+	use {
+		"RRethy/vim-illuminate",
+	}
 
-    use {
-      "windwp/nvim-autopairs",
-      after = "nvim-cmp",
-        config = function()
-          require("nvim-autopairs").setup()
-        end
-    }
+-- Snippets
+	use {
+		"L3MON4D3/LuaSnip",
+	}
 
-    use 'lukas-reineke/indent-blankline.nvim'
-    use {
-    'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
-    config = function() require('gitsigns').setup() end
-    }
+	use {
+		"rafamadriz/friendly-snippets",
+	}
 
-    use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+-- Vimwiki
+  use 'vimwiki/vimwiki'
 
-    use {
-      'numToStr/Comment.nvim',
-      config = function()
+-- Colorize hexcodes
+
+  use 'ap/vim-css-color'
+
+-- mason stuff
+  use {
+    "williamboman/mason.nvim",
+    config = function ()
+      require("config.lsp.mason").setup()
+    end,
+  }
+
+  use { "williamboman/mason-lspconfig.nvim" }
+
+-- AutoPair
+  use {
+    "windwp/nvim-autopairs",
+    after = "nvim-cmp",
+      config = function ()
+        require("nvim-autopairs").setup()
+      end
+  }
+
+-- indent-blankline
+  use {
+    'lukas-reineke/indent-blankline.nvim',
+    event = "BufReadPre",
+  }
+
+-- Markdown previews
+  use {
+    "iamcco/markdown-preview.nvim",
+    cmd = "MarkdownPreview",
+    run = "cd app && npm install",
+    setup = function ()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+    ft = "markdown",
+  }
+
+-- Ez comments
+  use {
+    'numToStr/Comment.nvim',
+    config = function ()
       require('Comment').setup()
     end
+  }
+
+-- Bufferbar
+  use {
+    'romgrk/barbar.nvim',
+    requires = {'kyazdani42/nvim-web-devicons'},
+    config = function ()
+      require("config.barbar").setup()
+    end
+  }
+
+-- Lualine
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function ()
+      require("config.lualine").setup()
+    end,
+  }
+
+-- Treesitter
+  use {
+      'nvim-treesitter/nvim-treesitter',
+      run = ":TSUpdate",
+      config = function ()
+        require("config.treesitter").setup()
+      end,
     }
 
-    use {
-      'romgrk/barbar.nvim',
-      requires = {'kyazdani42/nvim-web-devicons'}
-    }
+-- Telescope
+  use {
+      "nvim-telescope/telescope.nvim",
+      tag = '0.1.0',
+      requires = {'nvim-lua/plenary.nvim'},
+      config = function ()
+        require("config.telescope").setup()
+      end,
+  }
 
-    use {
-      'nvim-lualine/lualine.nvim',
-      requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-    }
+  use {
+    "goolord/alpha-nvim",
+    config = 'require("config.alpha")',
+  }
 
-    use ('nvim-treesitter/nvim-treesitter-refactor')
-    use {
-        'nvim-treesitter/nvim-treesitter',
-        run = ":TSUpdate"
-      }
+-- Which key
+  use {
+      "folke/which-key.nvim",
+      config = function ()
+          require("config.which-key").setup()
+      end
+  }
 
-    use {
-        "nvim-telescope/telescope.nvim", tag = '0.1.0',
-        requires = { {'nvim-lua/plenary.nvim'} }
-    }
-    use 'BurntSushi/ripgrep'
-    use {
-        "folke/which-key.nvim",
-        config = function()
-            require("which-key").setup {}
-        end
-    }
-
-    use {
-        "goolord/alpha-nvim",
-        on = "VimEnter",
-        config = function()
-            require("alpha-config").setup()
-        end,
-    }
-  if packer_bootstrap then
-    require('packer').sync()
+if packer_bootstrap then
+      print "Restart Neovim required after installation!"
+      require("packer").sync()
+    end
   end
-end)
+
+  packer_init()
+
+  local packer = require "packer"
+  packer.init(conf)
+  packer.startup(plugins)
+end
+
+return M

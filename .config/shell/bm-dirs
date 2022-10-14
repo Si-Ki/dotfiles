@@ -4,10 +4,10 @@ cf  	~/.config
 D   	~/Downloads
 d   	~/Docs
 dt  	~/.local/share
-dat 	/data/
-ani 	/data/anime/
+dat 	~/Data/
+ani 	~/Data/anime/
 bks   ~/.local/share/Books/
-torr 	/data/torrents/
+torr 	~/Data/torrents/
 rr  	~/.local/src
 lib 	~/.local/lib
 h   	~
@@ -19,5 +19,4 @@ sc  	~/.local/bin
 src 	~/.local/src
 vv  	~/Videos
 testing	~/Docs/testing
-phone 	~/phone/
 wall	~/Pictures/wal

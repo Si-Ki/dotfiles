@@ -1,4 +1,5 @@
 #show-read-feeds no
+include ~/.config/newsboat/dark
 auto-reload yes
 
 external-url-viewer "urlscan -dc -r 'linkhandler {}'"
