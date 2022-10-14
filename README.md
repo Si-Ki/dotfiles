@@ -1,4 +1,4 @@
 # Dotfiles
 
 ### Tasks
-- [ ] Make a script to auto deploy, any suggestions are welcome ☮️
+- [ ] Make a script to auto deploy.
