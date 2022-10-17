@@ -5,7 +5,7 @@ D   	~/Downloads
 d   	~/Docs
 dt  	~/.local/share
 dat 	~/Data/
-ani 	~/Data/anime/
+ani 	~/Data/videos/anime/
 bks   ~/.local/share/Books/
 torr 	~/Data/torrents/
 rr  	~/.local/src
@@ -16,7 +16,6 @@ mn  	/mnt
 pp  	~/Pictures
 ss  	~/Pictures/ss
 sc  	~/.local/bin
-src 	~/.local/src
-vv  	~/Videos
+vv  	~/Data/videos
 testing	~/Docs/testing
 wall	~/Pictures/wal

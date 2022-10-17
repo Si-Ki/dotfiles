@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# i3lock -k --blur=8 --bar-indicator --bar-orientation=horizontal --bar-direction=2 --bar-base-width=5 --bar-total-width=400 --bar-pos=640:600 --bar-color=#444267 --radius=200 --ring-width=13 --no-verify
+
+i3lock -k --indicator --time-pos=150:895 --time-size=27 --blur=8 --ind-pos=50:900 --ring-color=#444267 --separator-color=#63718b --verif-color=#c497b3 --ringver-color=#98c379 --wrong-color=#f07178 --time-color=#EBB9B9 --date-color=#EBB9B9 --radius=20 --ring-width=5 --verif-text="" --wrong-text="" --noinput-text=""
