@@ -24,7 +24,7 @@ local packer_bootstrap = ensure_packer()
 
 		display = {
 			open_fn = function ()
-				return require("packer.util").float { border = "rounded" }
+				return require("packer.util").float ()
 			end,
 		},
 	}
@@ -59,7 +59,7 @@ local function plugins(use)
     'kyazdani42/nvim-web-devicons',
     module = "nvim-web-devicons",
     config = function ()
-      require("nvim-web-devicons").setup{ default = true}
+      require("nvim-web-devicons").setup{ default = true }
     end,
   }
 
@@ -74,12 +74,11 @@ local function plugins(use)
     requires = { 'kyazdani42/nvim-web-devicons' },
     cmd = { "NvimTreeToggle", "NvimTreeFocus" },
     config = function ()
-      require("config.nvim-tree").setup()
+      require("config.nvim-tree")
     end,
   }
 
   -- Colorschemes
-  use { "lunarvim/synthwave84.nvim" }
   use 'EdenEast/nightfox.nvim'
   use { "catppuccin/nvim", as = "catppuccin" }
 
@@ -109,15 +108,28 @@ local function plugins(use)
 	}
 
 -- Lsp stuff
-	use {
-		"neovim/nvim-lspconfig",
-	}
-	use {
-		"jose-elias-alvarez/null-ls.nvim",
-	}
-	use {
-		"RRethy/vim-illuminate",
-	}
+
+use {
+			"neovim/nvim-lspconfig",
+			config = function()
+				require("config.lsp")
+			end,
+		}
+		use {
+			"jose-elias-alvarez/null-ls.nvim",
+		}
+		use {
+			"RRethy/vim-illuminate",
+		}
+		use {
+			"williamboman/mason.nvim",
+			config = function()
+				require("config.lsp.mason").setup()
+			end,
+		}
+		use {
+			"williamboman/mason-lspconfig.nvim",
+		}
 
 -- Snippets
 	use {
@@ -134,16 +146,6 @@ local function plugins(use)
 -- Colorize hexcodes
 
   use 'ap/vim-css-color'
-
--- mason stuff
-  use {
-    "williamboman/mason.nvim",
-    config = function ()
-      require("config.lsp.mason").setup()
-    end,
-  }
-
-  use { "williamboman/mason-lspconfig.nvim" }
 
 -- AutoPair
   use {
@@ -212,13 +214,15 @@ local function plugins(use)
       tag = '0.1.0',
       requires = {'nvim-lua/plenary.nvim'},
       config = function ()
-        require("config.telescope").setup()
+        require("config.telescope")
       end,
   }
 
   use {
     "goolord/alpha-nvim",
-    config = 'require("config.alpha")',
+    config = function ()
+      require("config.alpha").setup()
+    end
   }
 
 -- Which key

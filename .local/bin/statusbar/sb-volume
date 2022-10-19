@@ -13,20 +13,25 @@ case $BLOCK_BUTTON in
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
-[ $(pamixer --get-mute) = true ] && echo  && exit
+vol="$(wpctl get-volume @DEFAULT_AUDIO_SINK@)"
 
-vol="$(pamixer --get-volume)"
+[ "$vol" != "${vol%\[MUTED\]}" ] && echo 婢 && exit
 
-if [ "$vol" -gt "75" ]; then
-	icon="  "
-elif [ "$vol" -gt "50" ]; then
-	icon="墳 "
-elif [ "$vol" -gt "25" ]; then
-	icon=" "
-elif [ "$vol" -gt "0" ]; then
-  icon=" "
-else
-        echo  && exit
-fi
+vol="${vol#Volume: }"
+split() {
+	# For ommiting the . without calling and external program.
+	IFS=$2
+	set -- $1
+	printf '%s' "$@"
+}
+vol="$(split "$vol" ".")"
+vol="${vol##0}"
+
+case 1 in
+	$((vol >= 70)) ) icon=" " ;;
+	$((vol >= 30)) ) icon="墳 " ;;
+	$((vol >= 1)) ) icon="奔 " ;;
+	* ) echo 婢 && exit ;;
+esac
 
 echo "$icon$vol%"

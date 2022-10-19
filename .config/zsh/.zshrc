@@ -39,5 +39,5 @@ source frappe.sh
 
 fetch
 # Load syntax highlighting; should be last.
-source /home/noob/.config/zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
+#source /home/noob/.config/zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh 2>/dev/null

@@ -3,7 +3,6 @@ vim.defer_fn(function()
 end, 0)
 
 require('plugins').setup()
-require('config.lsp').setup()
 
 -- Until i figure out a better way to do this.
 vim.g.vimwiki_list = {{
