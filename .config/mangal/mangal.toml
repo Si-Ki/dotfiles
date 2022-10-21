@@ -1,0 +1,6 @@
+downloader.path = "~/.local/share/Books/manga/"
+downloader.default_source = "Mangapill"
+downloader.download_cover = true
+formats.use = "pdf"
+reader.pdf = "zathura"
+reader.read_in_browser = false
