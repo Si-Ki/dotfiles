@@ -1,0 +1,41 @@
+colors:
+  # Default colors
+  primary:
+    foreground: "0xff007c"
+  cursor:
+    text:   "0x03d8f3"
+    cursor: "0xff007c"
+  normal:
+    black:   "0x000000"
+    red:     "0xff007c"
+    green:   "0x00ffc8"
+    yellow:  "0xFCEE0C"
+    blue:    "0x03d8f3"
+    magenta: "0xff0055"
+    cyan:    "0x4EC9B0"
+    white:   "0xD8DEE9"
+
+cursor:
+  style:
+    shape: Underline
+    blinking: Always
+
+window:
+  padding:
+    x: 2
+    y: 2
+  dynamic_padding: true
+
+font: 
+  normal:
+    # family: "FiraCode Nerd Font"
+    # family: "ComicCodeLigatures"
+    # family: "PxPlus IBM VGA8"
+    # family: "Audiowide"
+    family: "JetBrains Mono Nerd Font"
+    # family: "Tomorrow"
+
+  size: 12
+  offset:
+    x: 0
+    y: 0
