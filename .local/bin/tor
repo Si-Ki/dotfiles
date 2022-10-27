@@ -21,5 +21,5 @@ name_seed=$(printf "%s" "$data" | sed -nE 's/.*name":"(.*)","info_hash.*seeders"
 sel=$(display "$size" "$name_seed" | fzf --prompt="select torrent >" | cut -d" " -f3-)
 [ -z "$sel" ] && printf "\33[2K\r\033[1;31mNo Torrent Selected" && exit 0 || printf "\33[2K\r\033[1;32mSelected \033[0m$sel\n"
 magnet="magnet:?xt=urn:btih:$(printf "%s" "$data" | sed -nE 's/.*name":"(.*)","info_hash":"(.*)",.*leech.*/\2\t\1/p' | sed -n "s/\t$sel//p" | head -1)"
-echo "$magnet" | xclip -sel c
-trad "$magnet"
+# echo "$magnet" | xclip -sel c
+trad "$magnet" > /dev/null

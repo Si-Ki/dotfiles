@@ -4,7 +4,7 @@
 # choose the kind of screenshot to take, including copying the image or even
 # highlighting an area to copy. scrotcucks on suicidewatch right now.
 
-case "$(printf "Selection (save)\\nFullscreen (save)\\nHighlight\\nFullscreen\\nBlur" | dmenu -l 6 -i)" in
+case "$(printf "Fullscreen\\nSelection (save)\\nHighlight\\nFullscreen (save)\\nBlur" | dmenu -l 6 -i)" in
   "Selection (save)") scrot -s ~/Pictures/ss/$(date '+%y%m%d-%H%M-%S').png ;;
   "Highlight") scrot -shole '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f' ;;
   "Blur") scrot -sblur '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f' ;;

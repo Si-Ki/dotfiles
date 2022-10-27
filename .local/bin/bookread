@@ -19,12 +19,12 @@ fi
 picker
 
 # Get filetype
-filetype="$(file -b "$sel_file" | cut -d' ' -f1)"
+filetype="$(file --mime-type -b "$sel_file")"
 
 # Open file
 case "$filetype" in
-  EPUB) $TERMINAL -c epyterm -n epyterm -f "Iosevka Nerd Font:size=19" -e epy "$sel_file"
+  application/epub+zip ) $TERMINAL -c epyterm -n epyterm -f "Iosevka Nerd Font:size=19" -e epy "$sel_file"
   ;;
-  PDF) zathura "$sel_file"
+  application/pdf ) zathura "$sel_file"
   ;;
 esac
