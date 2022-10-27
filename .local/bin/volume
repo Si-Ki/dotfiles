@@ -1,0 +1,5 @@
+#!/bin/sh
+
+icon=
+pamixer --get-mute | sh && icon=🔇
+dunstify -h int:value:$(pamixer --get-volume) "$icon" -t 1000 -r 123
