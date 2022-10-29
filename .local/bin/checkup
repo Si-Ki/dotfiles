@@ -7,7 +7,7 @@ sudo pacman -Syyuw --noconfirm || dunstify "Error downloading updates. Check you
 
 if pacman -Qu | grep -v "\[ignored\]"
 then
-  act=$(dunstify "🎁 Repository Sync" "Updates available." --action="default,Click to update.") -r 6969
+  act=$(dunstify "🎁 Repository Sync" "Updates available." --action="default,Click to update." -r 6969)
 else
   dunstify "📦 Repository Sync" "Sync complete. No new packages for update." -r 6969
 fi
