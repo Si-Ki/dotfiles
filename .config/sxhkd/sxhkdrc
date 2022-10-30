@@ -1,0 +1,115 @@
+/* F-keys */
+
+super + F1
+  for i in $(seq 7);do notify-send "$(date "+%H:%M:%S | %a, %d/%m/%Y ")" -r 3 -t 1200 &;sleep 1;done
+
+super + F4
+  st -e pulsemixer
+
+super + F6
+  torwrap
+
+super + F7
+  td-toggle
+
+super + F9 
+  dmenumount
+
+super + F9 
+  dmenuumount
+
+super + F11
+  mpv --vf=hflip,rotate=0 --no-cache --no-osc --no-input-default-bindings --profile=low-latency --input-conf=/dev/null --title=webcam /dev/video0
+
+super + F12
+  checkup
+
+
+/* Reload stuff */
+
+super + shift + q
+  kill -USR1 $(pidof sxhkd)
+
+super + F5
+  kill -HUP "$(pgrep -u "$USER" "\bdwm$")" 
+
+
+/* Lock */
+
+super + Escape
+  lock
+
+
+/* Dmenu Scripts */
+
+alt + space
+  dmenu_run -i
+
+super + grave
+  demoji
+
+super + shift + h
+  dhandler
+
+super + BackSpace
+  sysact
+
+super + p
+  passmenu
+
+super + b
+  bookread
+
+super + Print
+  drec
+
+super + Delete
+  drec kill
+
+super + Scroll_Lock
+  killall screenkey || screenkey -f JetBrainsMono\ Nerd\ Font &
+  
+/* Screenshot */
+
+super + shift + x 
+  screenshot
+
+super + shift + s
+  scrot -s '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'
+
+
+/* Apps */
+
+super + Return
+  st
+
+super + w
+  $BROWSER
+
+super + shift + w
+  st -e doas nmtui
+
+ctrl + Escape 
+  st -e btop
+
+
+/* Media keys */
+
+XF86AudioMute
+  pamixer -t; volume; kill -34 $(cat ~/.cache/pidofbar)
+
+XF86AudioRaiseVolume
+  pamixer --allow-boost -i 3; volume; kill -34 $(cat ~/.cache/pidofbar)
+  
+
+XF86AudioLowerVolume
+  pamixer --allow-boost -d 3; volume; kill -34 $(cat ~/.cache/pidofbar)
+
+XF86AudioPrev
+  playerctl pervious
+
+XF86AudioNext
+  playerctl next
+
+XF86AudioPlay
+  playerctl play-pause
