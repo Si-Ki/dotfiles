@@ -1,26 +1,28 @@
 colors:
   # Default colors
   primary:
-    foreground: "0xff007c"
+    background: "#1e1e1e"
+    foreground: "#cdd6f4"
   cursor:
-    text:   "0x03d8f3"
-    cursor: "0xff007c"
+    text:   "#cad3f5"
+    cursor: "#cdd6f4"
   normal:
-    black:   "0x000000"
-    red:     "0xff007c"
-    green:   "0x00ffc8"
-    yellow:  "0xFCEE0C"
-    blue:    "0x03d8f3"
-    magenta: "0xff0055"
-    cyan:    "0x4EC9B0"
-    white:   "0xD8DEE9"
+    black:   "#45475a"
+    red:     "#f38bab"
+    green:   "#a6e3a1"
+    yellow:  "#f9e2af"
+    blue:    "#89b4fa"
+    magenta: "#f5c2e7"
+    cyan:    "#94e2d5"
+    white:   "#bac2de"
 
 cursor:
   style:
     shape: Underline
-    blinking: Always
+    blinking: never
 
 window:
+  opacity: 0.7
   padding:
     x: 2
     y: 2
@@ -35,7 +37,7 @@ font:
     family: "JetBrains Mono Nerd Font"
     # family: "Tomorrow"
 
-  size: 12
+  size: 10
   offset:
     x: 0
     y: 0
