@@ -7,40 +7,9 @@ vim.cmd "silent! command! NvChadUpdate lua require('nvchad').update_nvchad()"
 vim.cmd "silent! command! NvChadSnapshotCreate lua require('nvchad').snap_create()"
 vim.cmd "silent! command! NvChadSnapshotDelete lua require('nvchad').snap_delete()"
 vim.cmd "silent! command! NvChadSnapshotCheckout lua require('nvchad').snap_checkout()"
-vim.cmd [[autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]]
-vim.cmd [[autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif]]
-vim.cmd [[autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o]]
 
 -- autocmds
 local autocmd = vim.api.nvim_create_autocmd
-
-autocmd("BufEnter", {
-    pattern = "*",
-    command = "set fo-=c fo-=r fo-=o",
-})
-
--- When shortcut files are updated, renew shell and lf configs with new stuff
-autocmd("BufWritePost", {
-  pattern = { "bm-dirs", "bm-files" },
-  command = "!shortcuts",
-})
-
--- Run xrdb when Xdefaults or Xresources are updated
-autocmd({ "BufRead", "BufNewFile" }, {
-  pattern = { "Xresources", "xresources", "Xdefaults", "xdefaults" },
-  command = "set filetype=xdefaults",
-})
-
-autocmd("BufWritePost", {
-  pattern = { "Xresources", "xresources", "Xdefaults", "xdefaults" },
-  command = "!xrdb %",
-})
-
--- Recomplie suckless software on config edit
-autocmd("BufWritePost", {
-  pattern = "config.h",
-  command = "!cd %:p:h ; sudo -A make install",
-})
 
 -- dont list quickfix buffers
 autocmd("FileType", {

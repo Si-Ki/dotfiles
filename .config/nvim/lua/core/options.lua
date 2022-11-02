@@ -33,7 +33,6 @@ opt.mouse = "a"
 
 -- Numbers
 opt.number = true
-opt.relativenumber = true
 opt.numberwidth = 2
 opt.ruler = false
 
@@ -52,7 +51,7 @@ opt.updatetime = 250
 
 -- go to previous/next line with h,l,left arrow and right arrow
 -- when cursor reaches end/beginning of line
--- opt.whichwrap:append "<>[]hl"
+opt.whichwrap:append "<>[]hl"
 
 g.mapleader = " "
 

@@ -1,4 +1,5 @@
 local present, telescope = pcall(require, "telescope")
+local action = require "telescope.actions"
 
 if not present then
   return
@@ -55,7 +56,11 @@ local options = {
     -- Developer configurations: Not meant for general override
     buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
     mappings = {
-      n = { ["q"] = require("telescope.actions").close },
+      n = { ["q"] = action.close },
+      i = {
+        ["<C-j>"] = action.move_selection_next,
+        ["<C-k>"] = action.move_selection_previous
+      },
     },
   },
 

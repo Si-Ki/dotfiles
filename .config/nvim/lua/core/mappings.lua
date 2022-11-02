@@ -32,12 +32,19 @@ M.general = {
     ["n"] = { "nzz", "Next hit" },
     ["N"] = { "Nzz", "Previous hit" },
 
+    ["<leader>m"] = { "<cmd> Mason <CR>", "Mason"},
+    ["<leader>ps"] = { "<cmd> PackerSync <CR>", "PackerSync"},
+
     -- save
-    ["<C-s>"] = { "<cmd> w <CR>", "save file" },
-    ["<leader>ss"] = { "<cmd> !clear && shellcheck -x % <CR>", "save file" },
+    ["<C-s>"] = { "<cmd>luafile %<CR>", "save file" },
+    ["<leader>h"] = { "<cmd> !clear && shellcheck -x % <CR>", "save file" },
+    -- ["<leader>ss"] = { "<cmd>execute \'silent! write !doasask tee % >/dev/null\'<CR>", "doas save file" },
 
     -- Copy all
     ["<C-c>"] = { "<cmd> %y+ <CR>", "copy whole file" },
+
+    -- Replace all
+    ["<S-s>"] = {":%s//g<Left><Left>", "replace all"},
 
     -- line numbers
     ["<leader>n"] = { "<cmd> set nu! <CR>", "toggle line number" },

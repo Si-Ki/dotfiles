@@ -155,7 +155,7 @@ local plugins = {
     disable = false,
     config = function()
       require "plugins.configs.alpha"
-    end,true
+    end,
   },
 
   ["numToStr/Comment.nvim"] = {
