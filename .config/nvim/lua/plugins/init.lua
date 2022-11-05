@@ -12,6 +12,7 @@ local plugins = {
   },
 
   ["NvChad/extensions"] = { module = { "telescope", "nvchad" } },
+  ["kmonad/kmonad-vim"] = {},
 
   ["NvChad/base46"] = {
     config = function()

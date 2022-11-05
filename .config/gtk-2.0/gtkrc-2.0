@@ -1,14 +1,14 @@
 # DO NOT EDIT! This file will be overwritten by LXAppearance.
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
-include "/home/noob/.gtkrc-2.0.mine"
-gtk-theme-name="Dracula"
-gtk-icon-theme-name="ePapirus"
-gtk-font-name="JetBrainsMono Nerd Font 10"
+include "/home/siki/.gtkrc-2.0.mine"
+gtk-theme-name="Catppuccin-Mocha-Red"
+gtk-icon-theme-name="Adwaita"
+gtk-font-name="JetBrainsMono Nerd Font Mono 9"
 gtk-cursor-theme-name="capitaine-cursors"
 gtk-cursor-theme-size=0
-gtk-toolbar-style=GTK_TOOLBAR_TEXT
-gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR
+gtk-toolbar-style=GTK_TOOLBAR_ICONS
+gtk-toolbar-icon-size=GTK_ICON_SIZE_MENU
 gtk-button-images=0
 gtk-menu-images=1
 gtk-enable-event-sounds=1

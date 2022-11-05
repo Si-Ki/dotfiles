@@ -1,24 +1,37 @@
-! Transparency (0-1):
-*.alpha : 0.9
+! Transparency (0-1):				
+*.alpha :				 0.9
 
 !! DPI settings
-Xft.dpi : 78
+Xft.dpi :				 78
 
 ! Sxiv settings
-Sxiv.font : JetBrainsMono\ Nerd\ Font:size=10
+Sxiv.font :				 JetBrains\ Mono\ Nerd\ Font:				size=10
 
-stfuzzy.internalBorder: 100
+stfuzzy.internalBorder:				 100
 
-! St settings
-*.font : JetBrains Mono Nerd Font:size=12
-! dwm.font: Iosevka Nerd Font:size=14
+! settings
+*.font :				 JetBrains Mono Nerd Font:				size=12
+
+! DWM settings
+! dwm.borderpx:				 0
+! dwm.sanp:				 0
+! dwm.gappih:				 10
+! dwm.gappiv:				 10
+! dwm.gappoh:				 10
+! dwm.gappov:				 10
+! dwm.swallowfloating:				 0
+! dwm.showbar:				 0
+! dwm.topbar:				 1
+! dwm.nmaster:				 1
+! dwm.mfact:				 0.55
+
 
 ! Dmenu settings
- dmenu.font:Iosevka\ Nerd\ Font:size=13
- dmenu.normbg : #1e222a
- dmenu.normfg : #F6BBE7
- dmenu.selbg : #444267
- dmenu.selfg : #F6BBE7
+ dmenu.font:				JetBrains\ Mono\ Nerd\ Font:				size=12
+ dmenu.normbg :				 #1E1E2E
+ dmenu.normfg :				 #CDD6F4
+ dmenu.selbg :				 #444267
+ dmenu.selfg :				 #CDD6F4
 
 /* name		dark	light */
 /* black	0	8 */
@@ -30,67 +43,46 @@ stfuzzy.internalBorder: 100
 /* cyan		6	14 */
 /* white	7	15 */
 
-/* Nord Theme */
-/* *.color0: 	#24283b */
-/* *.color1: 	#f7768e */
-/* *.color2: 	#A3BE8C */
-/* *.color3: 	#EBCB8B */
-/* *.color4: 	#81A1C1 */
-/* *.color5: 	#B48EAD */
-/* *.color6: 	#88C0D0 */
-/* *.color7: 	#E5E9F0 */
-/* *.color8: 	#24283b */
-/* *.color9: 	#f7768e */
-/* *.color10:	#A3BE8C */
-/* *.color11:	#EBCB8B */
-/* *.color12:	#81A1C1 */
-/* *.color13:	#B48EAD */
-/* *.color14:	#8FBCBB */
-/* *.color15:	#ECEFF4 */
-/* *.foreground:  #c0caf5 */
-/* *.background: 	#16161e */
-/* *.cursorColor: #c0caf5 */
-
  /* Tokyo Night 1 */
-/* *.foreground:  #c0caf5 */
-/* *.background: 	#16161e */
-/* *.cursorColor: #c0caf5 */
-/* *.color0:	#24283b */
-/* *.color8:	#24283b */
-/* *.color1:	#f7768e */
-/* *.color9:	#f7768e */
-/* *.color2:	#9ece6a */
-/* *.color10:	#9ece6a */
-/* *.color3: 	#E0AF68*/
-/* *.color11: 	#E0AF68 */
-/* *.color4: 	#7AA2F7 */
-/* *.color12: 	#7AA2F7 */
-/* *.color5: 	#F6BBE7 */
-/* *.color13: 	#c3a4f8 */
-/* *.color6: 	#95C2D1 */
-/* *.color14: 	#95C2D1 */
-/* *.color7: 	#c0caf5 */
-/* *.color15: 	#c0caf5 */
+/* *.foreground:		  #c0caf5 */
+/* *.background:		 	#16161e */
+/* *.cursorColor:		  #c0caf5 */
+/* *.color0:					#24283b */
+/* *.color8:					#24283b */
+/* *.color1:					#f7768e */
+/* *.color9:					#f7768e */
+/* *.color2:					#9ece6a */
+/* *.color10:					#9ece6a */
+/* *.color3:				 	#E0AF68*/
+/* *.color11:				 	#E0AF68 */
+/* *.color4:				 	#7AA2F7 */
+/* *.color12:				 	#7AA2F7 */
+/* *.color5:				 	#F6BBE7 */
+/* *.color13:				 	#c3a4f8 */
+/* *.color6:				 	#95C2D1 */
+/* *.color14:				 	#95C2D1 */
+/* *.color7:				 	#c0caf5 */
+/* *.color15:				 	#c0caf5 */
 
 /* material */
-/* *.background:	#20202A */
-/* *.foreground:	#63718B */
-/* *.color0:	#3b3b4d */
-/* *.color1:	#EBB9B9 */
-/* *.color2:	#B1DBA4 */
-/* *.color3:	#E6DFB8 */
-/* *.color4:	#B8DEEB */
-/* *.color5:	#F6BBE7 */
-/* *.color6:	#CDDBF9 */
-/* *.color7:	#C6D0E9 */
-/* *.color8:	#3b3b4d */
-/* *.color9:	#cc9b9d */
-/* *.color10:	#a3ccad */
-/* *.color11:	#d1ba97 */
-/* *.color12:	#B8C9EA */
-/* *.color13:	#c497b3 */
-/* *.color14:	#95C2D1 */
-/* *.color15:	#63718b */
+/* *.background:			#20202A */
+/* *.foreground:			#63718B */
+/* *.color0:					#3b3b4d */
+/* *.color1:					#EBB9B9 */
+/* *.color2:					#B1DBA4 */
+/* *.color3:					#E6DFB8 */
+/* *.color4:					#B8DEEB */
+/* *.color5:					#F6BBE7 */
+/* *.color6:					#CDDBF9 */
+/* *.color7:					#C6D0E9 */
+/* *.color8:					#3b3b4d */
+/* *.color9:					#cc9b9d */
+/* *.color10:					#a3ccad */
+/* *.color11:					#d1ba97 */
+/* *.color12:					#B8C9EA */
+/* *.color13:					#c497b3 */
+/* *.color14:					#95C2D1 */
+/* *.color15:					#63718b */
 
 ! ! Material Palenight
 ! #define base00 #292d3e
@@ -109,31 +101,31 @@ stfuzzy.internalBorder: 100
 ! #define base0D #82aaff
 ! #define base0E #c792ea
 ! #define base0F #ff5370
-!  *foreground:   base05 
-!  *background:   base00 
-!  *cursorColor:  base05 
-!  *color0:       base01 
-!  *color1:       base08 
-!  *color2:       base0B 
-!  *color3:       base0A 
-!  *color4:       base0D 
-!  *color5:       base0E 
-!  *color6:       base0C 
-!  *color7:       base05 
-!  *color8:       base03 
-!  *color9:       base08 
-!  *color10:      base0B 
-!  *color11:      base0A 
-!  *color12:      base0D 
-!  *color13:      base0E 
-!  *color14:      base0C 
-!  *color15:      base07 
-!  *color16:      base09 
-!  *color17:      base0F 
-!  *color18:      base01 
-!  *color19:      base02 
-!  *color20:      base04 
-!  *color21:      base06 
+!  *foreground:				   base05 
+!  *background:				   base00 
+!  *cursorColor:				 base05 
+!  *color0:				       base01 
+!  *color1:				       base08 
+!  *color2:				       base0B 
+!  *color3:				       base0A 
+!  *color4:				       base0D 
+!  *color5:				       base0E 
+!  *color6:				       base0C 
+!  *color7:				       base05 
+!  *color8:				       base03 
+!  *color9:				       base08 
+!  *color10:				      base0B 
+!  *color11:				      base0A 
+!  *color12:				      base0D 
+!  *color13:				      base0E 
+!  *color14:				      base0C 
+!  *color15:				      base07 
+!  *color16:				      base09 
+!  *color17:				      base0F 
+!  *color18:				      base01 
+!  *color19:				      base02 
+!  *color20:				      base04 
+!  *color21:				      base06 
 
 ! Chad theme
 ! #define base00 #282c34
@@ -152,107 +144,107 @@ stfuzzy.internalBorder: 100
 ! #define base0D #61afef
 ! #define base0E #c678dd
 ! #define base0F #be5046
-! *.foreground:   base07 
-! *.background:   #1e222a
-! *.cursorColor:  base05 
-! *.color0:       base00 
-! *.color1:       base08 
-! *.color2:       base0B 
-! *.color3:       base0A 
-! *.color4:       base0D 
-! *.color5:       base0E 
-! *.color6:       base0C 
-! *.color7:       base05 
-! *.color8:       base03 
-! *.color9:       base08 
-! *.color10:      base0B 
-! *.color11:      base0A 
-! *.color12:      base0D 
-! *.color13:      base0E 
-! *.color14:      base0C 
-! *.color15:      base07 
+! *.foreground:	 base07 
+! *.background:	 #1e222a
+! *.cursorColor: base05 
+! *.color0:			 base00 
+! *.color1:			 base08 
+! *.color2:			 base0B 
+! *.color3:			 base0A 
+! *.color4:			 base0D 
+! *.color5:			 base0E 
+! *.color6:			 base0C 
+! *.color7:			 base05 
+! *.color8:			 base03 
+! *.color9:			 base08 
+! *.color10:		 base0B 
+! *.color11:		 base0A 
+! *.color12:		 base0D 
+! *.color13:		 base0E 
+! *.color14:		 base0C 
+! *.color15:		 base07 
 
-*.piiink: #F6BBE7
-*.selborder: #c792ea
-*.normborder: #89ddff
-*.normfg: #8796b0
+*.piiink:				   #F6BBE7
+*.selborder:			 #c792ea
+*.normborder:			 #89ddff
+*.normfg:				   #8796b0
 
 ! Yoru
-! *.foreground:   #edeff0
-! *.background:   #0c0e0f
-! *.color0:       #232526
-! *.color8:       #2c2e2f
-! *.color1:       #df5b61
-! *.color9:       #e8646a
-! *.color2:       #78b892
-! *.color10:      #81c19b
-! *.color3:       #de8f78
-! *.color11:      #e79881
-! *.color4:       #6791c9
-! *.color12:      #709ad2
-! *.color5:       #bc83e3
-! *.color13:      #c58cec
-! *.color6:       #67afc1
-! *.color14:      #70b8ca
-! *.color7:       #e4e6e7
-! *.color15:      #f2f4f5
+! *.foreground:	   #edeff0
+! *.background:	   #0c0e0f
+! *.color0:			   #232526
+! *.color8:			   #2c2e2f
+! *.color1:			   #df5b61
+! *.color9:			   #e8646a
+! *.color2:			   #78b892
+! *.color10:		   #81c19b
+! *.color3:			   #de8f78
+! *.color11:		   #e79881
+! *.color4:			   #6791c9
+! *.color12:		   #709ad2
+! *.color5:			   #bc83e3
+! *.color13:		   #c58cec
+! *.color6:			   #67afc1
+! *.color14:		   #70b8ca
+! *.color7:			   #e4e6e7
+! *.color15:		   #f2f4f5
 
 ! catppuccin frappe 
-! *background: #303446
-! *foreground: #C6D0F5
-! *color0: #51576D
-! *color8: #626880
-! *color1: #E78284
-! *color9: #E78284
-! *color2: #A6D189
-! *color10: #A6D189
-! *color3: #E5C890
-! *color11: #E5C890
-! *color4: #8CAAEE
-! *color12: #8CAAEE
-! *color5: #F4B8E4
-! *color13: #F4B8E4
-! *color6: #81C8BE
-! *color14: #81C8BE
-! *color7: #B5BFE2
-! *color15: #A5ADCE
+! *background:		 #303446
+! *foreground:		 #C6D0F5
+! *color0:				 #51576D
+! *color8:				 #626880
+! *color1:				 #E78284
+! *color9:				 #E78284
+! *color2:				 #A6D189
+! *color10:				 #A6D189
+! *color3:				 #E5C890
+! *color11:				 #E5C890
+! *color4:				 #8CAAEE
+! *color12:				 #8CAAEE
+! *color5:				 #F4B8E4
+! *color13:				 #F4B8E4
+! *color6:				 #81C8BE
+! *color14:				 #81C8BE
+! *color7:				 #B5BFE2
+! *color15:				 #A5ADCE
 
 ! catppuccin macchiato
-! *background: #24273A
-! *foreground: #CAD3F5
-! *color0: #494D64
-! *color8: #5B6078
-! *color1: #ED8796
-! *color9: #ED8796
-! *color2: #A6DA95
-! *color10: #A6DA95
-! *color3: #EED49F
-! *color11: #EED49F
-! *color4: #8AADF4
-! *color12: #8AADF4
-! *color5: #F5BDE6
-! *color13: #F5BDE6
-! *color6: #8BD5CA
-! *color14: #8BD5CA
-! *color7: #B8C0E0
-! *color15: #A5ADCB
+! *background:		 #24273A
+! *foreground:		 #CAD3F5
+! *color0:				 #494D64
+! *color8:				 #5B6078
+! *color1:				 #ED8796
+! *color9:				 #ED8796
+! *color2:				 #A6DA95
+! *color10:				 #A6DA95
+! *color3:				 #EED49F
+! *color11:				 #EED49F
+! *color4:				 #8AADF4
+! *color12:				 #8AADF4
+! *color5:				 #F5BDE6
+! *color13:				 #F5BDE6
+! *color6:				 #8BD5CA
+! *color14:				 #8BD5CA
+! *color7:				 #B8C0E0
+! *color15:				 #A5ADCB
 
 ! catppuccin mocha
- *background: #1E1E2E
- *foreground: #CDD6F4
- *color0: #45475A
- *color8: #585B70
- *color1: #F38BA8
- *color9: #F38BA8
- *color2: #A6E3A1
- *color10: #A6E3A1
- *color3: #F9E2AF
- *color11: #F9E2AF
- *color4: #89B4FA
- *color12: #89B4FA
- *color5: #F5C2E7
- *color13: #F5C2E7
- *color6: #94E2D5
- *color14: #94E2D5
- *color7: #BAC2DE
- *color15: #A6ADC8
+*background:		 #1E1E2E
+*foreground:		 #CDD6F4
+*color0:				 #45475A
+*color8:				 #585B70
+*color1:				 #F38BA8
+*color9:				 #F38BA8
+*color2:				 #A6E3A1
+*color10:				 #A6E3A1
+*color3:				 #F9E2AF
+*color11:				 #F9E2AF
+*color4:				 #89B4FA
+*color12:				 #89B4FA
+*color5:				 #F5C2E7
+*color13:				 #F5C2E7
+*color6:				 #94E2D5
+*color14:				 #94E2D5
+*color7:				 #BAC2DE
+*color15:				 #A6ADC8

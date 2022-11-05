@@ -1,4 +1,4 @@
-#files: 807	version: 5.9
+#files: 817	version: 5.9
 
 _comps=(
 '-' '_precommand'
@@ -133,6 +133,7 @@ _comps=(
 'cabal' '_cabal'
 'cal' '_cal'
 'calendar' '_calendar'
+'cargo' '_cargo'
 'cat' '_cat'
 'catchsegv' '_precommand'
 'cc' '_gcc'
@@ -358,6 +359,8 @@ _comps=(
 'fold' '_fold'
 'folder' '_mh'
 'folders' '_mh'
+'foot' '_foot'
+'footclient' '_footclient'
 'fortune' '_fortune'
 'forw' '_mh'
 'fprev' '_mh'
@@ -1053,6 +1056,7 @@ _comps=(
 'resolvectl' '_resolvectl'
 'restart' '_initctl'
 'retawq' '_webbrowser'
+'rg' '_rg'
 'rgrep' '_grep'
 'rgview' '_vim'
 'rgvim' '_vim'
@@ -1081,6 +1085,7 @@ _comps=(
 'run-help' '_run-help'
 'rup' '_hosts'
 'rusage' '_precommand'
+'rustup' '_rustup'
 'rview' '_vim'
 'rvim' '_vim'
 'rwho' '_hosts'
@@ -1170,6 +1175,7 @@ _comps=(
 'ssh-keygen' '_ssh'
 'ssh-keyscan' '_ssh'
 'star' '_tar'
+'starship' '_starship'
 'start' '_initctl'
 'stat' '_stat'
 'status' '_initctl'
@@ -1199,6 +1205,7 @@ _comps=(
 'svnliteadmin' '_subversion'
 'swaks' '_swaks'
 'swanctl' '_swanctl'
+'swaylock' '_swaylock'
 'swift' '_swift'
 'swiftc' '_swift'
 'sync' '_nothing'
@@ -1424,6 +1431,8 @@ _comps=(
 'whom' '_mh'
 'wiggle' '_wiggle'
 'wipefs' '_wipefs'
+'wl-copy' '_wl-copy'
+'wl-paste' '_wl-paste'
 'wodim' '_cdrecord'
 'wpa_cli' '_wpa_cli'
 'write' '_users_on'
@@ -1497,6 +1506,7 @@ _comps=(
 'ytalk' '_other_accounts'
 'yt-dlp' '_yt-dlp'
 'zargs' '_zargs'
+'zathura' '_zathura'
 'zcalc' '_zcalc'
 '-zcalc-line-' '_zcalc_line'
 'zcat' '_zcat'
@@ -1657,15 +1667,17 @@ bindkey '^[,' _history-complete-newer
 bindkey '^[/' _history-complete-older
 bindkey '^[~' _bash_complete-word
 
-autoload -Uz _bat _bootctl _busctl _coredumpctl _curl \
-            _fd _hostnamectl _journalctl _kernel-install _lf \
-            _libinput _localectl _loginctl _machinectl _meson \
-            _mkinitcpio _mpv _networkctl _ninja _oomctl \
-            _pacman _paru _pass _pkgfile _pulseaudio \
-            _resolvectl _sd_hosts_or_user_at_host _sd_machines _sd_outputmodes _sd_unit_files \
-            _systemctl _systemd _systemd-analyze _systemd-delta _systemd-inhibit \
-            _systemd-nspawn _systemd-path _systemd-run _systemd-tmpfiles _timedatectl \
-            _udevadm _xwallpaper _yt-dlp _cdr _all_labels \
+autoload -Uz _bat _bootctl _busctl _cargo _coredumpctl \
+            _curl _fd _foot _footclient _hostnamectl \
+            _journalctl _kernel-install _lf _libinput _localectl \
+            _loginctl _machinectl _meson _mkinitcpio _mpv \
+            _networkctl _ninja _oomctl _pacman _paru \
+            _pass _pkgfile _pulseaudio _resolvectl _rg \
+            _rustup _sd_hosts_or_user_at_host _sd_machines _sd_outputmodes _sd_unit_files \
+            _starship _swaylock _systemctl _systemd _systemd-analyze \
+            _systemd-delta _systemd-inhibit _systemd-nspawn _systemd-path _systemd-run \
+            _systemd-tmpfiles _timedatectl _udevadm _wl-copy _wl-paste \
+            _xwallpaper _yt-dlp _zathura _cdr _all_labels \
             _all_matches _alternative _approximate _arg_compile _arguments \
             _bash_completions _cache_invalid _call_function _combination _complete \
             _complete_debug _complete_help _complete_help_generic _complete_tag _comp_locale \

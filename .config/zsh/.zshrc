@@ -1,6 +1,8 @@
 # Enable colors and change prompt:
 autoload -U colors && colors	# Load colors
-PS1="%B%{$fg[blue]%}{%{$fg[magenta]%}%~%{$fg[white]%}}%{$reset_color%}%b "
+# PS1="
+# %B%{$fg[magenta]%}╭─%{$fg[yellow]%}%n %{$fg[red]%}in %{$fg[blue]%}(%{$fg[magenta]%}%~%{$fg[blue]%})
+# %{$fg[magenta]%}╰────%b "
 setopt autocd		# Automatically cd into typed directory.
 stty stop undef		# Disable ctrl-s to freeze terminal.
 setopt interactive_comments
@@ -12,9 +14,9 @@ HISTFILE=~/.cache/zsh/history
 
 # Load aliases, functions and shortcuts if existent.
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc"
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/functions.zsh" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/functions.zsh"
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc"
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/functions.zsh" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/functions.zsh"
 
 autoload -Uz +X compinit && compinit
 autoload -Uz +X bashcompinit && bashcompinit
@@ -35,9 +37,9 @@ bindkey '^[[P' delete-char
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-source frappe.sh
+panes
+eval $(starship init zsh)
 
-fetch
 # Load syntax highlighting; should be last.
-#source /home/noob/.config/zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh 2>/dev/null
+source /home/siki/.config/zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null

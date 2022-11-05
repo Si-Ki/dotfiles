@@ -1,0 +1,67 @@
+# ~/.config/starship.toml
+
+# add_newline = false
+format = "[╭─](bold green)$all"
+
+[character]
+success_symbol = "[╰────](bold green)"
+error_symbol = "[╰────](bold red)"
+
+[cmd_duration]
+min_time = 70 
+format = " took [$duration]($style)"
+
+[directory]
+format = "[$path]($style)[$lock_symbol]($lock_style)"
+
+[git_branch]
+format = " on [$symbol$branch]($style) "
+symbol = "שׂ "
+style = "bold yellow"
+
+[git_commit]
+commit_hash_length = 8
+style = "bold white"
+
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+
+[git_status]
+conflicted = " "
+ahead = "×${count} "
+behind = "鈴×${count} "
+diverged = "🔱 🏎️ 💨×{ahead_count} 🐢×${behind_count} "
+untracked = "🛤️ ×${count} "
+stashed = " "
+modified = " ×${count} "
+staged = "🗃️ ×${count} "
+renamed = "×${count} "
+deleted = " ×${count} "
+style = "brightwhite"
+format = "$all_status$ahead_behind"
+
+[hostname]
+ssh_only = true
+format = "<[$hostname]($style)>"
+trim_at = "-"
+style = "bold dimmed white"
+disabled = true
+
+[package]
+disabled = true
+
+[python]
+format = " [$symbol$version]($style) "
+style = "bold green"
+
+[rust]
+format = " [$symbol$version]($style) "
+style = "bold green"
+
+[golang]
+format = " [$symbol$version]($style) "
+style = "bold green"
+
+[username]
+style_user = "bold fg:#c678dd"
+show_always = true

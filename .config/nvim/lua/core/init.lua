@@ -19,6 +19,44 @@ autocmd("FileType", {
   end,
 })
 
+vim.cmd [[autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]]
+vim.cmd [[autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif]]
+vim.cmd [[autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o]]
+
+autocmd("BufEnter", {
+    pattern = "*",
+    command = "set fo-=c fo-=r fo-=o",
+})
+
+-- When shortcut files are updated, renew shell and lf configs with new stuff
+autocmd("BufWritePost", {
+  pattern = { "bm-dirs", "bm-files" },
+  command = "!shortcuts",
+})
+
+-- Run xrdb when Xdefaults or Xresources are updated
+autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "Xresources", "xresources", "Xdefaults", "xdefaults" },
+  command = "set filetype=xdefaults",
+})
+
+autocmd("BufWritePost", {
+  pattern = { "Xresources", "xresources", "Xdefaults", "xdefaults" },
+  command = "!xrdb %",
+})
+
+-- Recomplie suckless software on config edit
+autocmd("BufWritePost", {
+  pattern = "config.h",
+  command = "!cd %:p:h ; sudo -A make install",
+})
+
+-- Reload dunst and send test notif
+autocmd("BufWritePost", {
+  pattern = "dunstrc",
+  command = "!pidof dunst||killall dunst; setsid -f dunst & dunstify 'test' 'fuck you'",
+})
+
 -- wrap the PackerSync command to warn people before using it in NvChadSnapshots
 autocmd("VimEnter", {
   callback = function()

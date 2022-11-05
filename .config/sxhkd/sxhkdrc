@@ -60,6 +60,9 @@ super + p
 super + b
   bookread
 
+super + r
+  dsticker
+
 super + Print
   drec
 

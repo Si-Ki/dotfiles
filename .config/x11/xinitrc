@@ -1,17 +1,17 @@
 #!/bin/sh
 
-# xinitrc runs automatically when you run startx.
+xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!
+setbg ~/pics/wal/ &
+remaps &
+redshift -l 28.644800:77.216721 &
+unclutter --timeout 2 &
+picom &
+sxhkd &
+pipewire-pulse &
+checkup &
 
-# There are some small but important commands that need to be run when we start
-# the graphical environment. There is a link to this file in ~/.xprofile
-# because that file is run automatically if someone uses a display manager
-# (login screen) and so they are needed there. To prevent doubling up commands,
-# I source them here with the line below.
+# Ensure that xrdb has finished running before moving on to start the WM/DE.
+[ -n "$xrdbpid" ] && wait "$xrdbpid"
+dunst &
 
-if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/x11/xprofile" ]; then
-	. "${XDG_CONFIG_HOME:-$HOME/.config}/x11/xprofile"
-else
-	. "$HOME/.xprofile"
-fi
-
-ssh-agent dwm
+exec startdwm

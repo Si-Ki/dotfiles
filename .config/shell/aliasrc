@@ -7,30 +7,19 @@
 [ -f "$XINITRC" ] && alias startx="startx $XINITRC"
 
 # sudo not required for some system commands
-for command in mount systemctl visudo umount sv pacman updatedb su shutdown poweroff reboot ; do
-	alias $command="sudo $command"
+for command in pkill mount umount pacman updatedb make su shutdown poweroff ; do
+	alias $command="doas $command"
 done; unset command
 
 # Verbosity and settings that you pretty much just always are going to want.
 alias \
 	cp="cp -iv" \
-  nv="neovide" \
 	mv="mv -iv" \
 	rm="rm -vI" \
 	bc="bc -ql" \
-	mkd="mkdir -pv" \
 	yt="yt-dlp --add-metadata -i" \
 	yta="yt-dlp -x --audio-quality 0 --audio-format flac --embed-thumbnail --embed-metadata" \
 	ffmpeg="ffmpeg -hide_banner" \
-	aur="baph -n" \
-	sv="systemctl" \
-	betdis="betterdiscordctl --d-modules ~/.config/discord/0.0.20/modules/ install" \
-	pip="python -m pip" \
-	py="python" \
-	wcon="warp-cli connect" \
-	wdis="warp-cli disconnect" \
-	manga="manga-cli" \
-	lf="lfub" \
 
 # Colorize commands when possible.
 alias \
@@ -44,16 +33,21 @@ alias \
 	ka="killall" \
   mov="mov-cli" \
 	g="git" \
+  gap="git add . ;git commit -m 'auto-commit'; git push" \
 	trm="transmission-remote" \
 	sdn="shutdown -h now" \
-	e="$EDITOR" \
 	v="$EDITOR" \
 	p="pacman" \
 	z="zathura" \
-	l="ls -al"
+	l="ls -al" \
+	aur="baph -n" \
+	sv="doas systemctl" \
+	bdi="btds --d-modules ~/.config/discord/0.0.21/modules/ install" \
+	pip="python -m pip" \
+	py="python" \
 
 alias \
-	tracker="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME" \ # Manage dotfiles
+  dot="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME" \
 	pkf="pkgfile" \
 	magit="nvim -c MagitOnly" \
 	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \

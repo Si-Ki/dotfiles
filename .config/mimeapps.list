@@ -1,0 +1,6 @@
+[Added Associations]
+text/x-shellscript=nvim.desktop;firefox.desktop;
+
+[Default Applications]
+x-scheme-handler/magnet=torrent.desktop;
+application/x-bittorrent=torrent.desktop;

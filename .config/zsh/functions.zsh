@@ -6,6 +6,16 @@ function zle-keymap-select () {
     esac
 }
 
+dop (){
+  /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME commit -m ${1:-auto}
+  /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME push
+}
+
+mkd () {
+  name="$(printf "$*" | tr ' ' '_')"
+  mkdir -pv $name && cd $name
+}
+
 chst () {
     [ -z $1 ] && echo "no args provided!" || (curl -s cheat.sh/$1 | bat --style=plain)
 }
@@ -49,7 +59,7 @@ gg () {
 }
 
 share () {
-    curl -s https://0x0.st -F "file=@$*" | xclip -sel clip && notify-send "Link copied to clipboard"
+    curl -s https://0x0.st -F "file=@$*" | tr -d '\n' | wl-copy && dunstify "📃 Link copied to clipboard"
 }
 
 zle -N zle-keymap-select
@@ -64,7 +74,7 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 # Use lf to switch directories and bind it to ctrl-o
 lfcd () {
     tmp="$(mktemp)"
-    lf -last-dir-path="$tmp" "$@"
+    lfub -last-dir-path="$tmp" "$@"
     if [ -f "$tmp" ]; then
         dir="$(cat "$tmp")"
         rm -f "$tmp" >/dev/null

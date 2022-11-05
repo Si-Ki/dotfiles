@@ -33,12 +33,12 @@ cmd open ${{
        text/*|application/json|inode/x-empty) nvim $fx;;
 	image/x-xcf) setsid -f gimp $f >/dev/null 2>&1 ;;
 	image/svg+xml) display -- $f ;;
-	image/*) rotdir $f | grep -i "\.\(png\|jpg\|jpeg\|gif\|webp\|tif\|ico\)\(_large\)*$" |
-		sxiv -aio 2>/dev/null | while read -r file; do
-			[ -z "$file" ] && continue
-			lf -remote "send select \"$file\""
-			lf -remote "send toggle"
-		done &
+	image/*) rotdir $f | grep -i "\.\(png\|jpg\|jpeg\|gif\|webp\|tif\|ico\)\(_large\)*$" | imv -n -
+		# sxiv -aio 2>/dev/null | while read -r file; do
+		# 	[ -z "$file" ] && continue
+		# 	lf -remote "send select \"$file\""
+		# 	lf -remote "send toggle"
+		# done &
 		;;
 	audio/*) mpv --audio-display=no $f ;;
 	video/* | application/octet-stream) mpv $(rotdir $f) -quiet >/dev/null 2>&1 ;;
@@ -139,7 +139,7 @@ map I push A<c-u> # new name
 map i push A<a-b><a-b><a-f> # before extention
 map a push A<a-b> # after extention
 map B bulkrename
-map b $setbg $f
+map b $waybg $f
 
 map <c-e> down
 map <c-y> up

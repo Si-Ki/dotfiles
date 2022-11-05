@@ -3,8 +3,8 @@ local g = vim.g
 local config = require("core.utils").load_config()
 
 g.nvchad_theme = config.ui.theme
-g.toggle_theme_icon = "   "
-g.transparency = config.ui.transparency
+g.toggle_theme_icon = ""
+g.transparency = true
 g.theme_switcher_loaded = false
 g.vimwiki_list = {{
   path = "~/.local/share/nvim/vimwiki",
@@ -14,6 +14,7 @@ g.vimwiki_list = {{
 
 opt.laststatus = 3 -- global statusline
 opt.showmode = false
+opt.hlsearch = false
 
 opt.title = true
 opt.clipboard = "unnamedplus"
@@ -33,6 +34,7 @@ opt.mouse = "a"
 
 -- Numbers
 opt.number = true
+opt.relativenumber = true
 opt.numberwidth = 2
 opt.ruler = false
 
@@ -48,10 +50,6 @@ opt.undofile = true
 
 -- interval for writing swap file to disk, also used by gitsigns
 opt.updatetime = 250
-
--- go to previous/next line with h,l,left arrow and right arrow
--- when cursor reaches end/beginning of line
-opt.whichwrap:append "<>[]hl"
 
 g.mapleader = " "
 

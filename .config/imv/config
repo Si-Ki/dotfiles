@@ -1,0 +1,8 @@
+[binds]
+
+q = quit
+n = next 1
+p = prev 1
+f = fullscreen
+b = exec $(waybg $imv_current_file & pkill imv)
+r = rotate by 90

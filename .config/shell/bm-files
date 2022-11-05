@@ -14,6 +14,7 @@ cfv ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/init.lua
 cfst	~/.local/src/st/config.h				# st config file.
 cfdm	~/.local/src/dmenu/config.h				# dmenu config file.
 cfz	$ZDOTDIR/.zshrc						# zsh (shell) config
+cfs ${XDG_CONFIG_HOME:-$HOME/.config}/starship.toml
 cff $ZDOTDIR/functions.zsh
 cfa	${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc		# aliases used by zsh (and potentially other shells)
 cfp	${XDG_CONFIG_HOME:-$HOME/.config}/shell/profile		# profile file for login settings for zsh
