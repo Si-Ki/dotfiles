@@ -1,31 +1,12 @@
-# colors:
-#   # Default colors
-#   primary:
-#     background: "#1e1e1e"
-#     foreground: "#cdd6f4"
-#   cursor:
-#     text:   "#cad3f5"
-#     cursor: "#cdd6f4"
-#   normal:
-#     black:   "#45475a"
-#     red:     "#f38bab"
-#     green:   "#a6e3a1"
-#     yellow:  "#f9e2af"
-#     blue:    "#89b4fa"
-#     magenta: "#f5c2e7"
-#     cyan:    "#94e2d5"
-#     white:   "#bac2de"
-#
 import:
   - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
-custom_cursor_colors: true
 cursor:
   style:
     shape: Block
     blinking: never
 
 window:
-  opacity: 0.7
+  opacity: 0.8
   padding:
     x: 2
     y: 2
@@ -33,13 +14,18 @@ window:
 
 font: 
   normal:
-    # family: "FiraCode Nerd Font"
-    # family: "ComicCodeLigatures"
-    # family: "PxPlus IBM VGA8"
-    # family: "Audiowide"
-    family: "JetBrains Mono Nerd Font"
+    family: "JetBrainsMono Nerd Font"
 
-  size: 10
+  size: 9.8
   offset:
     x: 0
     y: 0
+
+key_bindings:
+    - { key: K,       mods: Alt|Shift,    action: IncreaseFontSize }
+    - { key: J,       mods: Alt|Shift,    action: DecreaseFontSize }
+    - { key: Home,    mods: Alt|Shift,    action: ResetFontSize }
+    - { key: C,       mods: Alt,          action: Copy }
+    - { key: V,       mods: Alt,          action: Paste }
+    - { key: J,       mods: Alt,          action: ScrollLineDown }
+    - { key: K,       mods: Alt,          action: ScrollLineUp }

@@ -1,6 +1,8 @@
 [Added Associations]
 text/x-shellscript=nvim.desktop;firefox.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop-NPWAV1.desktop;
 
 [Default Applications]
 x-scheme-handler/magnet=torrent.desktop;
 application/x-bittorrent=torrent.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop-NPWAV1.desktop

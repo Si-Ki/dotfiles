@@ -1,5 +1,3 @@
-/* F-keys */
-
 super + F1
   for i in $(seq 7);do notify-send "$(date "+%H:%M:%S | %a, %d/%m/%Y ")" -r 3 -t 1200 &;sleep 1;done
 
