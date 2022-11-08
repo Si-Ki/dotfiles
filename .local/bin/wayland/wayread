@@ -1,0 +1,30 @@
+#!/bin/sh
+
+bkdir="$XDG_DATA_HOME/Books"
+
+# Select file
+cd "$bkdir"
+
+picker() {
+sel="$(ls | dmenu --fn "JetBrainsMono Nerd Font 10" -i -l 10 -p "")"
+if [ -d "$sel" ]; then
+  cd "$sel"
+  picker
+elif
+  [ -f "$sel" ]; then
+  sel_file="$sel"
+fi
+}
+
+picker
+
+# Get filetype
+filetype="$(file --mime-type -b "$sel_file")"
+
+# Open file
+case "$filetype" in
+  application/epub+zip ) alacritty --class epyterm -e epy "$sel_file"
+  ;;
+  application/pdf ) zathura "$sel_file"
+  ;;
+esac
