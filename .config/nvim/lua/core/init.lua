@@ -48,7 +48,7 @@ autocmd("BufWritePost", {
 -- Recomplie suckless software on config edit
 autocmd("BufWritePost", {
   pattern = "config.h",
-  command = "!cd %:p:h ; sudo -A make install",
+  command = "!cd %:p:h ; sudo make install",
 })
 
 -- Reload dunst and send test notif
