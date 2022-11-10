@@ -23,7 +23,7 @@ filetype="$(file --mime-type -b "$sel_file")"
 
 # Open file
 case "$filetype" in
-  application/epub+zip ) alacritty --class epyterm -e epy "$sel_file"
+  application/epub+zip ) foot -f "Iosevka Nerd Font:size=18" -a epyterm -e epy "$sel_file"
   ;;
   application/pdf ) zathura "$sel_file"
   ;;

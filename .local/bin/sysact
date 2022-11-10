@@ -1,9 +1,8 @@
 #!/bin/sh
 # A dmenu wrapper script for system functions.
 
-case "$(printf " Logout\n Renew\n Reboot\n Kill\n鈴 Sleep" | dmenu -i -b -fn "JetBrains Mono Nerd Font:size=15")" in
-	' Logout') kill -TERM "$(pgrep -u "$USER" "\bdwm$")" ;;
-	' Renew') kill -HUP "$(pgrep -u "$USER" "\bdwm$")" ;;
+case "$(printf " Logout\n Reboot\n Kill\n鈴 Sleep" | dmenu -i -b -fn "JetBrains Mono Nerd Font:size=15")" in
+	' Logout') killall startdwm ;;
 	'鈴 Sleep') lock ; doas systemctl suspend ;;
 	' Reboot') doas shutdown -r now ;;
 	' Kill') doas shutdown -h now ;;

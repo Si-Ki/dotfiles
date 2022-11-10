@@ -16,6 +16,3 @@ xmodmap -e 'keycode 135 = Super_R'
 
 # Map right alt to Caps_Lock
 xmodmap -e 'keycode 108 = Caps_Lock'
-
-# Turn off the caps lock if on since there is no longer a key for it.
-# xset -q | grep "Caps Lock:\s*on" && xdotool key Caps_Lock
