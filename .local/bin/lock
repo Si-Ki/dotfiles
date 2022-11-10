@@ -1,3 +1,0 @@
-#!/bin/sh
-
-i3lock --time-font=Iosevka --verif-font=Iosevka --time-size=24 -k --indicator --time-color=#cdd64f --blur=8 --inside-color=00000000 --keyhl-color=#1a1b26 --layout-color=#16161e --line-color=#1a1b26 --ring-color=#c0caf5 --separator-color=#1a1b26 --bshl-color=#e0af68 --insidever-color=00000000 --ringver-color=#e0af68 --ringver-color=#98c379 --verif-color=#EBB9B9 --insidewrong-color=#1a1b26 --ringwrong-color=#f7768e --wrong-color=#f7768e --time-color=#EBB9B9 --date-color=#EBB9B9 --radius=80 --wrong-text="" --noinput-text=""
