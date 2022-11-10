@@ -2,15 +2,15 @@
 *.alpha :				 0.9
 
 !! DPI settings
-Xft.dpi :				 78
+! Xft.dpi :				 78
 
 ! Sxiv settings
-Sxiv.font :				 JetBrains\ Mono\ Nerd\ Font:				size=10
+Sxiv.font :	 JetBrainsMono Nerd Font:				size=10
 
 stfuzzy.internalBorder:				 100
 
 ! settings
-*.font :				 JetBrains Mono Nerd Font:				size=12
+*.font :	JetBrainsMono Nerd Font:				size=9.8
 
 ! DWM settings
 ! dwm.borderpx:				 0
@@ -27,7 +27,7 @@ stfuzzy.internalBorder:				 100
 
 
 ! Dmenu settings
- dmenu.font:				JetBrains\ Mono\ Nerd\ Font:				size=12
+! dmenu.font:	JetBrainsMono Nerd Font:size=12
  dmenu.normbg :				 #1E1E2E
  dmenu.normfg :				 #CDD6F4
  dmenu.selbg :				 #444267

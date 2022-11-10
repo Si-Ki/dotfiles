@@ -85,7 +85,7 @@ super + Return
   st
 
 super + w
-  $BROWSER
+  firefox
 
 super + shift + w
   st -e doas nmtui

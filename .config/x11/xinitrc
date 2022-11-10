@@ -9,9 +9,10 @@ picom &
 sxhkd &
 pipewire-pulse &
 checkup &
+dunst &
 
 # Ensure that xrdb has finished running before moving on to start the WM/DE.
 [ -n "$xrdbpid" ] && wait "$xrdbpid"
-dunst &
 
 exec startdwm
+# dunst &
