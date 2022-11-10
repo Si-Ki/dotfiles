@@ -1,5 +1,3 @@
 #!/bin/sh
 
-# i3lock -k --blur=8 --bar-indicator --bar-orientation=horizontal --bar-direction=2 --bar-base-width=5 --bar-total-width=400 --bar-pos=640:600 --bar-color=#444267 --radius=200 --ring-width=13 --no-verify
-
-i3lock -k --indicator --time-pos=150:895 --time-size=27 --blur=8 --ind-pos=50:900 --ring-color=#444267 --separator-color=#63718b --verif-color=#c497b3 --ringver-color=#98c379 --wrong-color=#f07178 --time-color=#EBB9B9 --date-color=#EBB9B9 --radius=20 --ring-width=5 --verif-text="" --wrong-text="" --noinput-text=""
+i3lock --time-font=Iosevka --verif-font=Iosevka --time-size=24 -k --indicator --time-color=#cdd64f --blur=8 --inside-color=00000000 --keyhl-color=#1a1b26 --layout-color=#16161e --line-color=#1a1b26 --ring-color=#c0caf5 --separator-color=#1a1b26 --bshl-color=#e0af68 --insidever-color=00000000 --ringver-color=#e0af68 --ringver-color=#98c379 --verif-color=#EBB9B9 --insidewrong-color=#1a1b26 --ringwrong-color=#f7768e --wrong-color=#f7768e --time-color=#EBB9B9 --date-color=#EBB9B9 --radius=80 --wrong-text="" --noinput-text=""
