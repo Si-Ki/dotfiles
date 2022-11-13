@@ -12,4 +12,4 @@ else
   dunstify "📦 Repository Sync" "Sync complete. No new packages for update." -r 6969
 fi
 
-[ "$act" = "default" ] && footclient -e popupgrade
+[ "$act" = "default" ] && footclient -a popp -e popupgrade

@@ -29,4 +29,4 @@ else
 	[ -f "$zathuraconf.bak" ] && unlink "$zathuraconf" && mv "$zathuraconf.bak" "$zathuraconf"
 fi
 
-killall swaybg ; swaybg -m fill -i "$bgloc" >/dev/null & disown
+killall swaybg ; setsid -f swaybg -m fill -i "$bgloc" >/dev/null

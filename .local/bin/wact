@@ -2,7 +2,7 @@
 # A dmenu wrapper script for system functions.
 
 case "$(printf " Logout \n Reboot \n Kill \n鈴 Sleep " | dmenu -p "" -i -b --fn "JetBrainsMono Nerd Font 11")" in
-	' Logout ') pkill dwm ;;
+	' Logout ') loginctl terminate-user $USER ;;
 	'鈴 Sleep ') swaylock -S --effect-pixelate 9 & doas systemctl suspend ;;
 	' Reboot ') doas shutdown -r now ;;
 	' Kill ') doas shutdown -h now ;;
