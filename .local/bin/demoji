@@ -3,16 +3,9 @@
 # The famous "get a menu of emojis to copy" script.
 
 # Get user selection via dmenu from emoji file.
-chosen=$(cut -d ';' -f1 ~/.local/bin/emoji | dmenu --fn "JetBrainsMono Nerd Font 10" -i -l 30 -p "Emoji" | sed "s/ .*//")
+chosen=$(cut -d ';' -f1 ~/.local/bin/emoji | tofi --font="Iosevka Nerd Font" --font-size=11 --num-results=10 | sed "s/ .*//")
 
 # Exit if none chosen.
 [ -z "$chosen" ] && exit
 
-# If you run this command with an argument, it will automatically insert the
-# character. Otherwise, show a message that the emoji has been copied.
-# if [ -n "$1" ]; then
 	wtype "$chosen"
-# else
-# 	printf "$chosen" | xclip -selection clipboard
-# 	notify-send "'$chosen' copied to clipboard." &
-# fi
