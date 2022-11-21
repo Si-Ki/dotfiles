@@ -142,3 +142,21 @@
 2022/11/10 (20:52:30) | ===> btop++ v.1.2.13
 2022/11/10 (20:52:30) | ERROR: Stall in Runner thread, restarting!
 2022/11/10 (20:53:09) | WARNING: Failed to join _runner thread on exit!
+
+2022/11/15 (15:09:43) | ===> btop++ v.1.2.13
+2022/11/15 (15:09:44) | ERROR: Stall in Runner thread, restarting!
+
+2022/11/15 (15:09:43) | ===> btop++ v.1.2.13
+2022/11/15 (15:09:44) | ERROR: Stall in Runner thread, restarting!
+2022/11/15 (15:10:33) | ERROR: Stall in Runner thread, restarting!
+2022/11/15 (15:10:32) | ERROR: Stall in Runner thread, restarting!
+2022/11/15 (15:11:11) | ERROR: Stall in Runner thread, restarting!
+2022/11/15 (15:11:11) | ERROR: Stall in Runner thread, restarting!
+2022/11/15 (15:11:21) | ERROR: Stall in Runner thread, restarting!
+2022/11/15 (15:11:21) | ERROR: Stall in Runner thread, restarting!
+2022/11/15 (15:11:24) | ERROR: Stall in Runner thread, restarting!
+2022/11/15 (15:11:41) | ERROR: Stall in Runner thread, restarting!
+
+2022/11/16 (11:58:52) | ===> btop++ v.1.2.13
+2022/11/16 (11:58:52) | ERROR: No tty detected!
+btop++ needs an interactive shell to run.

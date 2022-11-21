@@ -22,12 +22,12 @@ chst () {
 
 # Install packages (change to pacman/AUR helper of your choice)
 in() {
-    paru -Slq | fzf -q "$1" -m --preview 'paru -Si {1}'| xargs -ro paru -S --skipreview
+  baph -s $1 | fzf --ansi | cut -d ' ' -f2 | tr -d '\n' | xargs -ro baph -ni
 }
 
 # Remove installed packages (change to pacman/AUR helper of your choice)
 re() {
-    paru -Qq | fzf -q "$1" -m --preview 'paru -Qi {1}' | xargs -ro paru -Rns
+    pacman -Qq | fzf | xargs -ro pacman -Rns
 }
 
 # Edit configs
@@ -59,7 +59,15 @@ gg () {
 }
 
 share () {
-    curl -s https://0x0.st -F "file=@$*" | tr -d '\n' | wl-copy && dunstify "📃 Link copied to clipboard"
+    curl -s https://0x0.st -F "file=@$path" | tr -d '\n' | wl-copy && dunstify "📃 Link copied to clipboard"
+}
+
+sharebig () {
+  curl $* https://oshi.at
+}
+
+share1 () {
+  curl -s https://oshi.at -F f=@$* -f autodestroy=1
 }
 
 zle -N zle-keymap-select

@@ -14,6 +14,7 @@ elif
   [ -f "$sel" ]; then
   sel_file="$sel"
 fi
+sel_file="$bkdir/$sel_file"
 }
 
 picker
@@ -25,6 +26,6 @@ filetype="$(file --mime-type -b "$sel_file")"
 case "$filetype" in
   application/epub+zip ) foot -f "Iosevka Nerd Font:size=18" -a epyterm -e epy "$sel_file"
   ;;
-  application/pdf ) zathura "$sel_file"
+  application/pdf ) hyprctl dispatch exec [workspace 5] zathura "$sel_file"
   ;;
 esac

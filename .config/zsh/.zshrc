@@ -1,8 +1,7 @@
 # Enable colors and change prompt:
 autoload -U colors && colors	# Load colors
-# PS1="
-# %B%{$fg[magenta]%}╭─%{$fg[yellow]%}%n %{$fg[red]%}in %{$fg[blue]%}(%{$fg[magenta]%}%~%{$fg[blue]%})
-# %{$fg[magenta]%}╰────%b "
+PS1="%B%{$fg[magenta]%}╭─%{$fg[yellow]%}%n %{$fg[red]%}in %{$fg[blue]%}(%{$fg[magenta]%}%~%{$fg[blue]%})
+%{$fg[magenta]%}╰────%b "
 setopt autocd		# Automatically cd into typed directory.
 stty stop undef		# Disable ctrl-s to freeze terminal.
 setopt interactive_comments
@@ -37,8 +36,7 @@ bindkey '^[[P' delete-char
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-panes
-eval $(starship init zsh)
+# eval $(starship init zsh)
 
 # Load syntax highlighting; should be last.
 source /home/siki/.config/zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
