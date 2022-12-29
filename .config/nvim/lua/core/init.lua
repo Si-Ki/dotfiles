@@ -8,6 +8,7 @@ vim.cmd "silent! command! NvChadSnapshotCreate lua require('nvchad').snap_create
 vim.cmd "silent! command! NvChadSnapshotDelete lua require('nvchad').snap_delete()"
 vim.cmd "silent! command! NvChadSnapshotCheckout lua require('nvchad').snap_checkout()"
 
+
 -- autocmds
 local autocmd = vim.api.nvim_create_autocmd
 
@@ -54,7 +55,7 @@ autocmd("BufWritePost", {
 -- Reload dunst and send test notif
 autocmd("BufWritePost", {
   pattern = "dunstrc",
-  command = "!pidof dunst||killall dunst; setsid -f dunst & dunstify 'test' 'fuck you'",
+  command = "!killall dunst; setsid -f dunst & dunstify 'test' 'fuck you'",
 })
 
 -- wrap the PackerSync command to warn people before using it in NvChadSnapshots

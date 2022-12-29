@@ -15,6 +15,8 @@ if fn.empty(fn.glob(install_path)) > 0 then
   fn.system { "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path }
 
   -- install plugins + compile their configs
+
+
   vim.cmd "packadd packer.nvim"
   require "plugins"
   vim.cmd "PackerSync"

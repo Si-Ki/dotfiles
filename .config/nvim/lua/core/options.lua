@@ -4,7 +4,7 @@ local config = require("core.utils").load_config()
 
 g.nvchad_theme = config.ui.theme
 g.toggle_theme_icon = ""
-g.transparency = true
+g.transparency = false
 g.theme_switcher_loaded = false
 g.vimwiki_list = {{
   path = "~/.local/share/nvim/vimwiki",
