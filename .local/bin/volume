@@ -1,5 +1,3 @@
 #!/bin/sh
 
-icon=
-pamixer --get-mute | sh && icon=🔇
-dunstify -h int:value:$(pamixer --get-volume) "Volume $icon" -t 1000 -r 123
+dunstify "$(wpctl get-volume @DEFAULT_AUDIO_SINK@)" -t 1000 -r 0001
