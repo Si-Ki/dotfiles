@@ -22,7 +22,7 @@ chst () {
 
 # Install packages (change to pacman/AUR helper of your choice)
 in() {
-  baph -s $1 | fzf --ansi | cut -d ' ' -f2 | tr -d '\n' | xargs -ro baph -ni
+    paru -Slq | fzf -q "$1" -m --preview 'paru -Si {1}'| xargs -ro paru -S --skipreview
 }
 
 # Remove installed packages (change to pacman/AUR helper of your choice)

@@ -19,10 +19,11 @@ set shellopts '-eu'
 set ifs "\n"
 set scrolloff 10
 set period 1
-# set drawbox
+set drawbox
 set icons
 set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
-set previewer ~/.config/lf/scope
+set previewer '~/.config/lf/scope'
+set autoquit on
 
 # cmds/functions
 cmd open ${{
