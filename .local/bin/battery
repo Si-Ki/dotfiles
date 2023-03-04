@@ -1,0 +1,3 @@
+#!/bin/sh
+
+dunstify "Battery: $(cat /sys/class/power_supply/BAT0/capacity)%" -t 0
