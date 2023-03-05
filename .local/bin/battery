@@ -1,3 +1,2 @@
 #!/bin/sh
-
-dunstify "Battery: $(cat /sys/class/power_supply/BAT0/capacity)%" -t 0
+[ $(cat /sys/class/power_supply/BAT0/status) = "Charging" ] && dunstify "$(cat /sys/class/power_supply/BAT0/capacity)% 󱐋" -t 2000 || dunstify "$(cat /sys/class/power_supply/BAT0/capacity)%" -t 2000
