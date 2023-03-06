@@ -1,3 +1,0 @@
-#!/bin/sh
-
-dunstify "Backlight: $(xbacklight -get)" -r 0002 -t 1000 -h int:value:$(xbacklight -get)
