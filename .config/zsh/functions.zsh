@@ -27,7 +27,7 @@ in() {
 
 # Remove installed packages (change to pacman/AUR helper of your choice)
 re() {
-    pacman -Qq | fzf | xargs -ro pacman -Rns
+    pacman -Qq | fzf | doas xargs -ro pacman -Rns
 }
 
 # Edit configs

@@ -36,7 +36,6 @@ bindkey '^[[P' delete-char
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-pidof ssh-agent > /dev/null || exec ssh-agent zsh
 # eval $(starship init zsh)
 
 # Load syntax highlighting; should be last.

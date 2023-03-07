@@ -2,9 +2,10 @@
     monitor = 0
     follow = mouse
     enable_posix_regex = true
-    width = (200, 300)
+    width = (0, 300)
+    height = (0, 100)
     origin = top-center
-    offset = 20x23
+    offset = 1x1
     progress_bar = true
     progress_bar_height = 4
     progress_bar_frame_width = 0
@@ -89,7 +90,7 @@
     # corners.
     # The radius will be automatically lowered if it exceeds half of the
     # notification height to avoid clipping text and/or icons.
-    corner_radius = 2
+    corner_radius = 5
     ignore_dbusclose = false
     force_xinerama = false
     
