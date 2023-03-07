@@ -1,26 +1,30 @@
+local set = vim.opt
+local vim = vim
 --vim.opt.guicursor = ""
 
-vim.opt.nu = true
-vim.opt.relativenumber = true
+set.nu = true
+set.relativenumber = true
 
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+set.clipboard = "unnamedplus"
 
-vim.opt.smartindent = true
+set.tabstop = 4
+set.shiftwidth = 4
+set.expandtab = true
 
-vim.opt.wrap = false
+set.smartindent = true
 
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
+set.wrap = false
 
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
+set.swapfile = false
+set.backup = false
+set.undodir = os.getenv("HOME") .. "/.vim/undodir"
+set.undofile = true
 
-vim.opt.termguicolors = true
+set.hlsearch = false
+set.incsearch = true
 
-vim.opt.scrolloff = 8
+set.termguicolors = true
 
-vim.opt.updatetime = 50
+set.scrolloff = 8
+
+set.updatetime = 50
