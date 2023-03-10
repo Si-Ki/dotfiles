@@ -5,18 +5,19 @@
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "margin-left":7,
-    "margin-right":7,
+    "margin-left":2,
+    "margin-right":2,
     "margin-bottom": -12,
-    "margin-top": -2,
+    "margin-top": -4,
     "modules-left": [
         "wlr/workspaces"
     ],
-    "modules-center": [
-        "custom/media"
-    ],
+    // "modules-center": [
+        // "custom/media"
+    // ],
     "modules-right": [
-	"network",
+        "network",
+        "pulseaudio",
         "memory",
         "battery",
         "clock",
