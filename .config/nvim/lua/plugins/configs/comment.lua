@@ -1,16 +1,15 @@
 require('Comment').setup({
     padding = true,
-    ---Whether the cursor should stay at its position
     sticky = true,
     ---LHS of toggle mappings in NORMAL mode
     toggler = {
         line = '<leader>/',
-        block = 'gbc',
+        block = '<leader>c',
     },
     ---LHS of operator-pending mappings in NORMAL and VISUAL mode
     opleader = {
         line = '<leader>/',
-        block = 'gb',
+        block = '<leader>c',
     },
     mappings = {
         basic = true,
