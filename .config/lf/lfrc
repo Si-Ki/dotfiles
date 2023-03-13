@@ -83,7 +83,7 @@ cmd moveto ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
 	set -f
 	clear; echo "Move to where?"
-	dest="$(fd . ~ -H | fzf | sed 's|~|$HOME|')" &&
+	dest="$(fd . ~ -u -H | fzf | sed 's|~|$HOME|')" &&
 	for x in $fx; do
 		eval rsync -iv --remove-source-files \"$x\" \"$dest\"
 	done &&
@@ -94,7 +94,7 @@ cmd copyto ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
 	set -f
 	clear; echo "Copy to where?"
-	dest="$(fd . ~ -H | fzf | sed 's|~|$HOME|')" &&
+	dest="$(fd . ~ -u -H | fzf | sed 's|~|$HOME|')" &&
 	for x in $fx; do
 		eval rsync -vr \"$x\" \"$dest\"
 	done &&

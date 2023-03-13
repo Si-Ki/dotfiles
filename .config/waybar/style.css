@@ -17,7 +17,7 @@ window#waybar {
 }
 #workspaces button{
     box-shadow: rgba(0, 0, 0, 0.116) 2 2 5 2px;
-    background-color: #161616 ;
+    background-color: #000000;
     border-radius: 2px;
     margin-top: 3px;
     margin-bottom: 3px;
@@ -54,7 +54,7 @@ window#waybar {
     padding-right: 13px;
     padding-left: 13px;
     border-radius: 2px;
-    background-color: #161616;
+    background-color: #000000;
     color: #ffffff;
     box-shadow: rgba(0, 0, 0, 0.116) 2 2 5 2px;
     margin-top: 8px;

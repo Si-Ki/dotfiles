@@ -1,0 +1,8 @@
+[Unit]
+Description=Creates Notification when battery is below safe level.
+
+[Service]
+ExecStart=/bin/bash -c "~/.local/bin/batnotify"
+
+[Install]
+WantedBy=default.target
