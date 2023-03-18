@@ -1,5 +1,0 @@
-#!/bin/sh
-
-value=$(pactl get-sink-volume @DEFAULT_SINK@ | cut -d ' ' -f6)
-
-dunstify -r 0002 -t 1000 -h int:value:$value "Volume"
