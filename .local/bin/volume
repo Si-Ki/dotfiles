@@ -1,5 +1,6 @@
 #!/bin/sh
 
-value=$(pactl get-sink-volume @DEFAULT_SINK@ | cut -d ' ' -f6)
+value=$(wpctl get-volume @DEFAULT_SINK@ | cut -d '.' -f2)
+num=$(wpctl get-volume @DEFAULT_SINK@ | cut -d ' ' -f2)
 
-dunstify -r 0002 -t 1000 -h int:value:$value "Volume"
+dunstify -r 0002 -t 1000 -h int:value:$value "Volume: $num"
