@@ -344,7 +344,7 @@ play_video() {
 	[ -n "$incognito" ] && opts=""
 
 	[ "$discord_presence" = "true" ] && launch_mpv="jerrydiscordpresence.py \"mpv\" \"${anime_title}\" \"$((progress + 1))\" \"${video_link}\" \"${subs_links}\" \"${referrer}\" \"${opts}\"" ||
-		launch_mpv="mpv --fs --referrer=\"$referrer\" --sub-files=\"$subs_links\" --force-media-title=\"$anime_title - Ep: $((progress + 1)) $episode_title\" ${opts} \"$video_link\""
+		launch_mpv="mpv --no-fs --referrer=\"$referrer\" --sub-files=\"$subs_links\" --force-media-title=\"$anime_title - Ep: $((progress + 1)) $episode_title\" ${opts} \"$video_link\""
 
 	stopped_at=$(eval "$launch_mpv" 2>&1 | grep AV | tail -n1 | sed -nE "s_.*AV: ([^ ]*) / ([^ ]*) \(([0-9]*)%\).*_\3_p" &)
 	[ -n "$incognito" ] && exit 0
