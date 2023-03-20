@@ -21,7 +21,7 @@ set.wrap = false
 
 set.swapfile = false
 set.backup = false
-set.undodir = os.getenv("HOME") .. "/.vim/undodir"
+set.undodir = os.getenv("HOME") .. "/.cache/nvim/undodir"
 set.undofile = true
 
 set.signcolumn = "yes"

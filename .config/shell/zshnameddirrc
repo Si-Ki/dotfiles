@@ -16,7 +16,6 @@ hash -d pp=~/pics
 hash -d ss=~/pics/ss 
 hash -d sc=~/.local/bin 
 hash -d vv=~/data/videos 
-hash -d testing=~/docs/testing 
 hash -d wall=~/pics/wal 
 hash -d bf=/home/siki/.config/shell/bm-files 
 hash -d bd=/home/siki/.config/shell/bm-dirs 

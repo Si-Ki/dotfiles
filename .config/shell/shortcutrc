@@ -17,7 +17,6 @@ pp="cd ~/pics && ls -a" \
 ss="cd ~/pics/ss && ls -a" \
 sc="cd ~/.local/bin && ls -a" \
 vv="cd ~/data/videos && ls -a" \
-testing="cd ~/docs/testing && ls -a" \
 wall="cd ~/pics/wal && ls -a" \
 bf="$EDITOR /home/siki/.config/shell/bm-files" \
 bd="$EDITOR /home/siki/.config/shell/bm-dirs" \
