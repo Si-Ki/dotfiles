@@ -7,4 +7,9 @@ local dark_theme = ({
     'Batman' -- [4]
 })[1]
 
-return {color_scheme = dark_theme}
+return {
+  color_scheme = dark_theme,
+  use_fancy_tab_bar = false,
+  window_decorations = "RESIZE",
+  hide_tab_bar_if_only_one_tab = true,
+}

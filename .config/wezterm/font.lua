@@ -1,16 +1,16 @@
 local wezterm = require 'wezterm'
 
-local font_size = 12
+local font_size = 11
 local bold = false
 local font_family = ({
-    'JetBrainsMono Nerd Font', -- [1]
-    'BlexMono Nerd Font', -- [2]
-    'Liga SFMono Nerd Font', -- [3]
-    'Iosevka Nerd Font Mono', -- [4]
-    'FiraCode Nerd Font Mono', -- [6]
-    'ComicCodeLigatures', -- [6]
-    'Nouveau IBM', -- [7]
-    'IBM Plex Mono' -- [8]
+  'JetBrainsMono Nerd Font', -- [1]
+  'BlexMono Nerd Font', -- [2]
+  'Liga SFMono Nerd Font', -- [3]
+  'Iosevka Nerd Font Mono', -- [4]
+  'FiraCode Nerd Font Mono', -- [5]
+  'ComicCodeLigatures', -- [6]
+  'Nouveau IBM', -- [7]
+  'IBM Plex Mono' -- [8]
 })[1]
 
 local options = {}
