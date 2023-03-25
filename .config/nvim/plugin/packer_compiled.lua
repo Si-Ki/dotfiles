@@ -173,6 +173,11 @@ _G.packer_plugins = {
     path = "/home/siki/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
+  ["oxocarbon.nvim"] = {
+    loaded = true,
+    path = "/home/siki/.local/share/nvim/site/pack/packer/start/oxocarbon.nvim",
+    url = "https://github.com/nyoom-engineering/oxocarbon.nvim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/siki/.local/share/nvim/site/pack/packer/start/packer.nvim",

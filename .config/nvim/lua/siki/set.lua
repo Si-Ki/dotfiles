@@ -1,40 +1,49 @@
-local set = vim.opt
+local vim = vim
+local opt = vim.opt
+local g = vim.g
 
 -- vim.opt.guicursor = ""
 
-set.laststatus = 3 -- global statusline
-set.showmode = false
+opt.ls = 3 -- global statusline
+opt.smd = false
 
-set.nu = true
-set.relativenumber = true
-set.formatoptions:remove("c")
+-- Netrw settings
+g.netrw_cursor = 4
+g.netrw_liststyle = 3
+g.netrw_list_format="%t%T%h%P%f (%s)%L"
 
-set.clipboard = "unnamedplus"
+opt.cmdheight = 0
+opt.nu = true
+opt.rnu = true
+opt.fo:remove("c")
 
-set.tabstop = 2
-set.shiftwidth = 2
-set.expandtab = true
-set.smartindent = true
-set.softtabstop = 2
+opt.cb = "unnamedplus"
+opt.cul = true
 
-set.wrap = false
+opt.ts = 2
+opt.sw = 2
+opt.et = true
+opt.si = true
+opt.sts = 2
 
-set.swapfile = false
-set.backup = false
-set.undodir = os.getenv("HOME") .. "/.cache/nvim/undodir"
-set.undofile = true
+opt.wrap = false
 
-set.signcolumn = "yes"
+opt.swapfile = false
+opt.backup = false
+opt.undodir = os.getenv("HOME") .. "/.cache/nvim/undodir"
+opt.undofile = true
 
-set.hlsearch = false
-set.incsearch = true
+opt.signcolumn = "yes"
 
-set.termguicolors = true
-set.timeoutlen = 400
+opt.hlsearch = false
+opt.incsearch = true
 
-set.scrolloff = 8
+opt.termguicolors = true
+opt.timeoutlen = 400
 
-set.updatetime = 50
+opt.scrolloff = 8
+
+opt.updatetime = 50
 
 
 -- disable some builtin vim plugins

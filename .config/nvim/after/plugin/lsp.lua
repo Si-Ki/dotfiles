@@ -5,7 +5,7 @@ lsp.preset('recommended')
 lsp.setup()
 
 lsp.ensure_installed({
-	'lua_ls',
+	'luau_lsp',
 	'pyright',
 	'rust_analyzer',
 })
