@@ -107,7 +107,7 @@ cmd bulkrename $vidir
 # Bindings
 map c
 map <c-f> $lf -remote "send $id select '$(fzf)'"
-map J $lf -remote "send $id cd $(fd -H | fzf | sed 's|~|$HOME|')"
+map J $lf -remote "send $id cd $(fd . ~ -u -H | fzf | sed 's|~|$HOME|')"
 map gh
 map gg top
 map D delete

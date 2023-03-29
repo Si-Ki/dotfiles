@@ -1,6 +1,82 @@
-downloader.path = "~/.local/share/Books/manga/"
-downloader.default_source = "Mangapill"
-downloader.download_cover = true
-formats.use = "pdf"
-reader.pdf = "zathura"
-reader.read_in_browser = false
+[anilist]
+code = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjA5ODFjMDFjNDMyNjRlN2JmMDU2YmQ1ZGY1Nzg1MWQzYWE0OGFkN2RkYWJlNTk3YmFmYmNlZjdkMGUwMzlmMDZlMWE0NjYxY2IzMmNjNTI4In0.eyJhdWQiOiI5ODU3IiwianRpIjoiMDk4MWMwMWM0MzI2NGU3YmYwNTZiZDVkZjU3ODUxZDNhYTQ4YWQ3ZGRhYmU1OTdiYWZiY2VmN2QwZTAzOWYwNmUxYTQ2NjFjYjMyY2M1MjgiLCJpYXQiOjE2NzgxNzIxNjMsIm5iZiI6MTY3ODE3MjE2MywiZXhwIjoxNzA5Nzk0NTYzLCJzdWIiOiI1ODE0NDYwIiwic2NvcGVzIjpbXX0.YAX_CXh9UuS3qZ7VDewDHRDoNRJE9VXFALjrLgRxc88bIiihwR4NyuZmGQPxvFCdJxxFQjqWs3474i70Abb3CuogeVodzzgURWnkyTGoHDcdK3JmceB-WSozyAnDXVLl5ToW8NT4PT1VJ24HNHA_dX8fo0HWHNuwL3LXEk2ZLErpMEDKoJi6TKZHm7CTJ6bMrPaiZEcghxTDYePCtqGe53W68CgneR_KA5W4YjsekEh95SvI7H5B03gBbkJEm4gWYScF1Una2mTuyEfmQisX_VAL9Tam-K1H6QiA0-eM44K6FMJSOt1LmJY3jGznPDTzRSko81ShpyWkikHkTQ8qyxi131-dFDUPyVZKRuBu4dozBRQF9k_WR_1Ke-Mnz_377ZjsOFlv7PPi19A-Llqzon8KZQpqStbn3OdKqicJ0PguQI1_VoX9M1irwFwKoNcdG5nTwYbj2h6cpH_MpJN_dU0ogwq1wtTBuZaMRVwsISh5Z0q36Tny85bBQO-TjlEa6-Jyk4djvGaAMoMkbN46H9thulVn3K6c_X2GwgW6s8rUJcaVZhQAkVErdNX2_ScVvfka4WjGQXn27ZQDDP2g1L05t43LuqlAF85mWCNOO3jkKQPzd00ZJLEeaZsTeIOe6ep0MW2NELBbLFwMQ4lKjwLAu_ePJv-9A_HkBZdx-lo'
+enable = true
+id = 'SiKiwastaken '
+link_on_manga_select = true
+secret = '...'
+
+[cli]
+colored = true
+
+[downloader]
+async = true
+chapter_name_template = '[{padded-index}] {chapter}'
+create_manga_dir = true
+create_volume_dir = false
+default_source = 'Mangapill'
+default_sources = []
+download_cover = true
+path = '/home/siki/.local/share/Books/manga'
+read_downloaded = true
+redownload_existing = false
+stop_on_error = false
+
+[formats]
+skip_unsupported_images = true
+use = 'pdf'
+
+[gen]
+author = ''
+
+[history]
+save_on_download = false
+save_on_read = true
+
+[icons]
+variant = 'plain'
+
+[installer]
+branch = 'main'
+repo = 'mangal-scrapers'
+user = 'metafates'
+
+[logs]
+json = false
+level = 'info'
+write = false
+
+[mangadex]
+language = 'en'
+nsfw = false
+show_unavailable_chapters = false
+
+[metadata]
+comic_info_xml = true
+comic_info_xml_add_date = true
+comic_info_xml_alternative_date = false
+comic_info_xml_tag_relevance_threshold = 60
+fetch_anilist = true
+series_json = true
+
+[mini]
+search_limit = 20
+
+[reader]
+browser = ''
+cbz = ''
+folder = ''
+pdf = 'zathura'
+plain = ''
+read_in_browser = false
+zip = ''
+
+[search]
+show_query_suggestions = true
+
+[tui]
+item_spacing = 1
+read_on_enter = true
+reverse_chapters = false
+search_prompt = '> '
+show_downloaded_path = true
+show_urls = true

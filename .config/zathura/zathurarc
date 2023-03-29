@@ -9,14 +9,14 @@ map d scroll half-down
 map D toggle_page_mode
 map r reload
 map R rotate
-map K zoom in
-map J zoom out
+map I zoom in
+map O zoom out
 map i recolor
 map p print
 map g goto top
 map b toggle_statusbar
-map n scroll full-down
-map N scroll full-up
+map J scroll full-down
+map K scroll full-up
 
 
 include catppuccin-mocha

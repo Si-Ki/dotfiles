@@ -49,14 +49,49 @@ export SSH_ASKPASS="$HOME/.local/bin/dmenupass"
 #  --reverse
 # "
 
- export FZF_DEFAULT_OPTS=" \
---color=bg+:#414559,bg:#303446,spinner:#f2d5cf,hl:#e78284 \
---color=fg:#c6d0f5,header:#e78284,info:#ca9ee6,pointer:#f2d5cf \
---color=marker:#f2d5cf,fg+:#c6d0f5,prompt:#ca9ee6,hl+:#e78284 \
- --height 40%
- --border=rounded
- --reverse
- "
+#  export FZF_DEFAULT_OPTS=" \
+# --color=bg+:#414559,bg:#303446,spinner:#f2d5cf,hl:#e78284 \
+# --color=fg:#c6d0f5,header:#e78284,info:#ca9ee6,pointer:#f2d5cf \
+# --color=marker:#f2d5cf,fg+:#c6d0f5,prompt:#ca9ee6,hl+:#e78284 \
+#  --height 40%
+#  --border=rounded
+#  --reverse
+# "
+
+# $FZF_DEFAULT_OPTS="--height 40% --border=rounded --reverse"
+
+#--------------------------------#
+
+# Base16 {{scheme-name}}
+# Scheme author: {{scheme-author}}
+# Template author: Tinted Theming (https://github.com/tinted-theming)
+
+color00='#161616'
+color01='#262626'
+color02='#393939'
+color03='#525252'
+color04='#dde1e6'
+color05='#f2f4f8'
+color06='#ffffff'
+color07='#08bdba'
+color08='#3ddbd9'
+color09='#78a9ff'
+color0A='#ee5396'
+color0B='#33b1ff'
+color0C='#ff7eb6'
+color0D='#42be65'
+color0E='#be95ff'
+color0F='#82cfff'
+export FZF_DEFAULT_OPTS="\
+ --color=bg+:$color01,bg:$color00,spinner:$color0C,hl:$color0D\
+ --color=fg:$color04,header:$color0D,info:$color0A,pointer:$color0C\
+ --color=marker:$color0C,fg+:$color06,prompt:$color0A,hl+:$color0D
+--height 60%
+--border=rounded
+--reverse
+"
+
+#---------------------------------------#
 
 export LESS=-R
 export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"
