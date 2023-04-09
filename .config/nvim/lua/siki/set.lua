@@ -12,7 +12,8 @@ g.netrw_cursor = 4
 g.netrw_liststyle = 3
 g.netrw_list_format="%t%T%h%P%f (%s)%L"
 
-opt.cmdheight = 0
+opt.ch = 0
+opt.cwh = 16
 opt.nu = true
 opt.rnu = true
 opt.fo:remove("c")

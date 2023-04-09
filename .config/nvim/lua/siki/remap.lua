@@ -14,8 +14,8 @@ set("n", '>', '>>')
 set("n", '<', '<<')
 
 -- Buffers
-set("n", "gn", vim.cmd.bnext)
-set("n", "gN", vim.cmd.bprevious)
+set("n", "gb", vim.cmd.bnext)
+set("n", "gp", vim.cmd.bprevious)
 
 set("n", "<leader>pw", vim.cmd.Ex)
 
