@@ -8,30 +8,32 @@ window#waybar {
 }
 
 #workspaces{
-    background-color: transparent;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-left: 0px;
-    padding-left: 5px;
-    padding-right: 5px;
+    background-color: #24273A;
+    margin-top: 3px;
+    margin-bottom: 1px;
+    margin-left: 5px;
+    padding-left: 0px;
+    padding-right: 0px;
+    border-radius: 4px;
 }
 #workspaces button{
     box-shadow: rgba(0, 0, 0, 0.116) 2 2 5 2px;
-    background-color: #000000;
-    border-radius: 30px;
-    margin-top: 3px;
-    margin-bottom: 3px;
-    margin-right: 3px;
-    margin-left: 3px;
-    padding-right: 9px;
-    padding-left : 9px;
+    /* background-color: transparent; */
+    background-color: #24273A;
+    border-radius: 4px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding-right: 4px;
+    padding-left : 4px;
     padding-top: 0px;
     padding-bottom : 0px;
     color: 	#ffffff ;
 }
 
 #workspaces button.active{
-    color: #ee5396;
+    color: #ff7eb6;
 }
 
 #clock,
@@ -49,23 +51,23 @@ window#waybar {
 #custom-expand,
 #custom-media,
 #mpd {
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-right: 13px;
-    padding-left: 13px;
-    border-radius: 30px;
-    background-color: #000000;
+    padding-right: 9px;
+    padding-left: 9px;
+    border-radius: 4px;
+    background-color: transparent;
+    background-color: #24273A;
     color: #ffffff;
-    box-shadow: rgba(0, 0, 0, 0.116) 2 2 5 2px;
-    margin-top: 8px;
-    margin-bottom: 9px;
-    margin-right: 5px;
+    /* box-shadow: rgba(0, 0, 0, 0.116) 2 2 5 2px; */
+    margin-top: 3px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
     font-weight : bolder
 }
 
 #custom-dunst {
     padding: 0 20px;
-    border-radius: 55px;
+    border-radius: 4px;
     background-color: #161616;
     color: 	#ffffff;
     box-shadow: rgba(0, 0, 0, 0.116) 2 2 5 2px;

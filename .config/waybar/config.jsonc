@@ -1,20 +1,24 @@
 {
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 40, // Waybar height (to be removed for auto height)
+    // "height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
-    "spacing": 4, // Gaps between modules (4px)
+    "spacing": 5, // Gaps between modules (4px)
     // Choose the order of the modules
-    "margin-left":5,
-    "margin-right":5,
-    "margin-bottom": -11,
-    "margin-top": -2,
+    "margin-left":0,
+    "margin-right":0,
+    "margin-bottom": 0,
+    "padding-bottom": 0,
+    "padding-top": 0,
+    "margin-top": 0,
     "modules-left": [
         "wlr/workspaces"
     ],
+
     // "modules-center": [
-        // "custom/media"
+      // "hyprland/window"
     // ],
+
     "modules-right": [
         "network",
         "pulseaudio",
@@ -25,6 +29,11 @@
     ],
     // Modules configuration
     // custom modules ////////////////
+    "hyprland/window": {
+      "format": "{}",
+      "separate-outputs": true
+    },
+
     "custom/dunst": {
         "exec": "~/.config/waybar/scripts/dunst.sh",
         "return-type": "json",
