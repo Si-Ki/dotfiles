@@ -3,7 +3,7 @@
 # Set paths
 export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
 export PATH="$PATH:${$(find ~/.local/share/cargo/bin/ -type d -printf %p:)%%:}"
-# export PATH="$PATH:${$(find ~/.local/share/go/bin/ -type d -printf %p:)%%:}"
+export PATH="$PATH:${$(find ~/.local/share/go/bin/ -type d -printf %p:)%%:}"
 
 unsetopt PROMPT_SP
 

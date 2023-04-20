@@ -40,7 +40,7 @@ local M = {
     },
     {
       key = 'k',
-      mods = 'SHIFT|ALT',
+      mods = 'CTRL|ALT',
       action = wezterm.action.AdjustPaneSize {"Up", 2}
     },
     {
