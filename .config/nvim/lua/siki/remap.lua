@@ -1,4 +1,3 @@
-local vim = vim
 local set = vim.keymap.set
 vim.g.mapleader = " "
 
@@ -17,7 +16,7 @@ set("n", '<', '<<')
 set("n", "gb", vim.cmd.bnext)
 set("n", "gp", vim.cmd.bprevious)
 
-set("n", "<leader>pw", vim.cmd.Ex)
+set("n", "<leader>e", vim.cmd.Vexplore, { noremap = true, silent = true })
 
 set("v", "J", ":m '>+1<CR>gv=gv")
 set("v", "K", ":m '<-2<CR>gv=gv")

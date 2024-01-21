@@ -1,4 +1,4 @@
-local yes_mam, blankline = pcall(require, "indent_blankline")
+local yes_mam, blankline = pcall(require, "ibl.setup")
 
 if not yes_mam then
     return

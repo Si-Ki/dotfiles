@@ -7,19 +7,23 @@ local g = vim.g
 opt.ls = 3 -- global statusline
 opt.smd = false
 
--- Netrw settings
+-- Netrw settings, make it look like nerdtree
 g.netrw_cursor = 4
+g.netrw_banner = 0
 g.netrw_liststyle = 3
+g.netrw_browse_split = 4
+g.netrw_winsize = 25
 g.netrw_list_format="%t%T%h%P%f (%s)%L"
 
 opt.ch = 0
 opt.cwh = 16
 opt.nu = true
 opt.rnu = true
-opt.fo:remove("c")
+opt.fo:remove("c") -- something about comments
 
 opt.cb = "unnamedplus"
 opt.cul = true
+opt.culopt = "both"
 
 opt.ts = 2
 opt.sw = 2

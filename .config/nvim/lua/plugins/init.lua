@@ -1,114 +1,137 @@
-vim.cmd "packadd packer.nvim"
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+local uv = vim.uv or vim.loop
 
-require('packer').startup({
-  function(use)
-    -- Packer can manage itself
+-- Auto-install lazy.nvim if not present
+if not uv.fs_stat(lazypath) then
+  print('Installing lazy.nvim....')
+  vim.fn.system({
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable', -- latest stable release
+    lazypath,
+  })
+  print('Done.')
+end
 
-    use "wbthomason/packer.nvim"
-    use 'christoomey/vim-tmux-navigator'
+vim.opt.rtp:prepend(lazypath)
 
-    use 'lewis6991/impatient.nvim'
+local default_plugins = {
 
-    -- Telescope
-    use {
-      'nvim-telescope/telescope.nvim', tag = '0.1.1',
-      requires = { { 'nvim-lua/plenary.nvim' } }
-    }
+  -- Telescope
+  {
+    'nvim-telescope/telescope.nvim', tag = '0.1.5',
+    dependencies = { 'nvim-lua/plenary.nvim' }
+  },
 
-    -- Colors
-    use { 'nyoom-engineering/oxocarbon.nvim' }
+  -- Colors
+  'rose-pine/neovim',
 
-    use {
-      'rose-pine/neovim',
-      as = 'rose-pine'
-    }
+  -- vim.cmd('colorscheme rose-pine')
 
-    -- vim.cmd('colorscheme rose-pine')
+  -- Treesitter
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function () 
+      require("plugins.configs.treesitter")
+    end
+  },
 
-    -- Treesitter
-    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+  -- Ez comments
+  {
+    "numToStr/Comment.nvim",
+    module = "Comment",
+    opts = function()
+      require("plugins.configs.comment")
+    end,
+    lazy = false,
+  },
 
-    -- Ez comments
-    use {
-      "numToStr/Comment.nvim",
-      module = "Comment",
-      setup = function()
-        require("plugins.configs.comment")
-      end,
-    }
+  -- Indent blankline
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    lazy = false,
+    opts = function()
+      require "plugins.configs.blankline"
+    end
+  },
 
-    -- Indent blankline
-    use {
-      "lukas-reineke/indent-blankline.nvim",
-      opt = true,
-      setup = function()
-        require("siki.lazy_load").on_file_open "indent-blankline.nvim"
-      end,
-      config = function()
-        require "plugins.configs.blankline"
-      end
-    }
+  -- Autopairs
+  {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    opts = {} -- this is equalent to setup({}) function
+  },
 
-    -- Autopairs
-    use {
-      "windwp/nvim-autopairs",
-      after = "nvim-cmp",
-      config = function()
-        require("nvim-autopairs").setup()
-      end,
-      fast_wrap = {},
-      disable_filetype = { "TelescopePrompt", "vim" }
-    }
+  -- Colorizer
+  {
+    'norcalli/nvim-colorizer.lua',
+    opt = true,
+    config = function()
+     require "plugins.configs.colorizer"
+    end
+  },
 
-    -- Colorizer
-    use {
-      'norcalli/nvim-colorizer.lua',
-      opt = true,
-      setup = function()
-        require("siki.lazy_load").on_file_open "nvim-colorizer.lua"
-      end,
-      config = function()
-        require "plugins.configs.colorizer"
-      end
-    }
+  -- Lsp stuff
+  {'williamboman/mason.nvim'},
+  {'williamboman/mason-lspconfig.nvim'},
 
-    -- Lsp stuff
-    use {
-      'VonHeikemen/lsp-zero.nvim',
-      branch = 'v1.x',
-      requires = {
-        -- LSP Support
-        { 'neovim/nvim-lspconfig' },           -- Required
-        { 'williamboman/mason.nvim' },         -- Optional
-        { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+  {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
+  {'neovim/nvim-lspconfig'},
+  {'hrsh7th/cmp-nvim-lsp'},
+  {'hrsh7th/nvim-cmp'},
+  {'L3MON4D3/LuaSnip'},
 
-        -- Autocompletion
-        { 'hrsh7th/nvim-cmp' },       -- Required
-        { 'hrsh7th/cmp-nvim-lsp' },   -- Required
-        { 'hrsh7th/cmp-buffer' },     -- Optional
-        { 'hrsh7th/cmp-path' },       -- Optional
-        { 'saadparwaiz1/cmp_luasnip' }, -- Optional
-        { 'hrsh7th/cmp-nvim-lua' },   -- Optional
+}
 
-        -- Snippets
-        { 'L3MON4D3/LuaSnip' },           -- Required
-        { 'rafamadriz/friendly-snippets' }, -- Optional
-      }
-    }
-  end,
-  config = {
-    auto_clean = true,
-    compile_on_sync = true,
-    git = { clone_timeout = 6000 },
-    display = {
-      working_sym = "ﲊ",
-      error_sym = "✗ ",
-      done_sym = " ",
-      removed_sym = " ",
-      moved_sym = "",
-      open_fn = function()
-        return require("packer.util").float { border = "single" }
-      end
+local opts = {
+  defaults = { lazy = true },
+
+  ui = {
+    icons = {
+      ft = "",
+      lazy = "󰂠 ",
+      loaded = "",
+      not_loaded = "",
     },
-  }
-})
+  },
+
+  performance = {
+    rtp = {
+      disabled_plugins = {
+        "2html_plugin",
+        "tohtml",
+        "getscript",
+        "getscriptPlugin",
+        "gzip",
+        "logipat",
+        -- "netrw",
+        -- "netrwPlugin",
+        -- "netrwSettings",
+        -- "netrwFileHandlers",
+        "matchit",
+        "tar",
+        "tarPlugin",
+        "rrhelper",
+        "spellfile_plugin",
+        "vimball",
+        "vimballPlugin",
+        "zip",
+        "zipPlugin",
+        "tutor",
+        "rplugin",
+        "syntax",
+        "synmenu",
+        "optwin",
+        "compiler",
+        "bugreport",
+        "ftplugin",
+      },
+    },
+  },
+}
+
+require("lazy").setup(default_plugins, opts)

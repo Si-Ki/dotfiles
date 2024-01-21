@@ -22,3 +22,8 @@ autocmd("BufWritePost", {
   pattern = { "bm-dirs", "bm-files" },
   command = "!shortcuts",
 })
+
+-- autocmd("VimEnter", {
+--   pattern = "*",
+--   command = ":Lexplore",
+-- })
