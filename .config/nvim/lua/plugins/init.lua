@@ -26,9 +26,11 @@ local default_plugins = {
   },
 
   -- Colors
-  'rose-pine/neovim',
-
-  -- vim.cmd('colorscheme rose-pine')
+  {
+    'rose-pine/neovim',
+    lazy = true
+  },
+  "nyoom-engineering/oxocarbon.nvim",
 
   -- Treesitter
   {
