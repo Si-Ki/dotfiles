@@ -17,9 +17,10 @@ alias \
 	mv="mv -iv" \
 	rm="rm -vI" \
 	bc="bc -ql" \
-	yt="yt-dlp --add-metadata -i" \
+	yt="yt-dlp --downloader aria2c --downloader-args '-x 16 -s 16' --add-metadata -i" \
 	yta="yt-dlp -x --audio-quality 0 --audio-format flac --embed-thumbnail --embed-metadata" \
 	ffmpeg="ffmpeg -hide_banner" \
+  cat="bat" \
 
 # Colorize commands when possible.
 alias \
@@ -30,6 +31,7 @@ alias \
 
 # These common commands are just too long! Abbreviate them.
 alias \
+  piprm="pip-autoremove" \
 	ka="killall" \
   mov="mov-cli" \
 	g="git" \
@@ -45,10 +47,12 @@ alias \
 	bdi="btds --d-modules ~/.config/discord/0.0.21/modules/ install" \
 	pip="python -m pip" \
 	py="python" \
+  aria="aria2c -s 16 -x 16" \
+  wiki="nvim -c VimwikiIndex" \
+  diary="nvim -c VimwikiDiaryIndex" \
 
 alias \
   dot="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME" \
 	pkf="pkgfile" \
 	magit="nvim -c MagitOnly" \
 	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
-	weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport"

@@ -1,8 +1,8 @@
 # You can add comments to these files with #
 cac 	~/.cache
 cf  	~/.config
-D   	~/down
-d   	~/docs
+D   	~/dwn
+d   	~/doc
 dt  	~/.local/share
 dat 	~/data/
 ani 	~/data/videos/anime/
@@ -13,8 +13,9 @@ lib 	~/.local/lib
 h   	~
 m   	~/music
 mn  	/mnt
-pp  	~/pics
-ss  	~/pics/ss
+med   /media
+pp  	~/pix
+ss  	~/pix/ss
 sc  	~/.local/bin
 vv  	~/data/videos
-wall	~/pics/wal
+wall	~/pix/wal

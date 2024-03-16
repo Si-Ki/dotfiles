@@ -9,8 +9,9 @@ unsetopt PROMPT_SP
 
 # Default programs:
 export EDITOR="nvim"
-export TERMINAL="st"
+export TERMINAL="footclient"
 export BROWSER="firefox"
+export MOZ_ENABLE_WAYLAND=1
 
 # ~/ Clean-up:
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -35,6 +36,8 @@ export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 export ANSIBLE_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/ansible/ansible.cfg"
 export UNISON="${XDG_DATA_HOME:-$HOME/.local/share}/unison"
 export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/history"
+export MANPAGER="sh -c 'sed -e s/.\\\\x08//g | bat -l man -p'"
+export BAT_THEME="Catppuccin-frappe"
 
 # Other program settings:
 export DICS="/usr/share/stardict/dic/"
@@ -86,7 +89,7 @@ export FZF_DEFAULT_OPTS="\
  --color=bg+:$color01,bg:$color00,spinner:$color0C,hl:$color0D\
  --color=fg:$color04,header:$color0D,info:$color0A,pointer:$color0C\
  --color=marker:$color0C,fg+:$color06,prompt:$color0A,hl+:$color0D
---height 60%
+ --height 100%
 --border=rounded
 --reverse
 "
@@ -103,6 +106,7 @@ export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"
 export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
 export LESSOPEN="| /usr/bin/highlight -O ansi %s 2>/dev/null"
 export QT_QPA_PLATFORMTHEME="gtk3"	# Have QT use gtk3 theme.
+export QT_DEBUG_PLUGINS=1
 export AWT_TOOLKIT="MToolkit wmname LG3D"	#May have to install wmname
 # export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm
 
@@ -279,4 +283,4 @@ export CM_IGNORE_WINDOW="dmenu"
 
 # Start graphical server on user's current tty if not already running.
 # [ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx "$XINITRC"
-[ "$(tty)" = "/dev/tty1" ] && startw
+[ "$(tty)" = "/dev/tty1" ] && exec Hyprland
