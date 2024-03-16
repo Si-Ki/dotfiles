@@ -12,11 +12,12 @@
     "padding-top": 0,
     "margin-top": 0,
     "modules-left": [
-        "wlr/workspaces"
+      "hyprland/workspaces",
+      "hyprland/window"
     ],
 
-    // "modules-center": [
       // "hyprland/window"
+    //   "modules-center": [
     // ],
 
     "modules-right": [
@@ -41,7 +42,7 @@
         "on-click": "dunstctl set-paused toggle"
     },
     //////////////////////////////////
-    "wlr/workspaces": {
+    "hyprland/workspaces": {
         "format": "{icon}",
         // "format-icons": {
         //     "1": "一",
@@ -55,13 +56,13 @@
         //     "9": "九"
         // },
         "format-active": " {icon} ",
-        "on-click": "activate",
+        "on-click": "activate"
         // "format-icons":{
         //     "10":"10"
         // }
-        "persistent_workspaces": {
-            "3": [],
-        }
+        // "persistent_workspaces": {
+        //     "3": []
+        // }
     },
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
@@ -95,7 +96,7 @@
     "clock": {
         "format": "{:%a, %b %d - %H:%M}",
         "tooltip-format": "{calendar}",
-        "interval": 30,
+        "interval": 30
     },
     "memory": {
         "interval": 30,
@@ -125,7 +126,7 @@
             "",
             ""
         ],
-        "format-time": "{H}h{M}m",
+        "format-time": "{H}:{M}",
         "format-charging": "<span font='JetBrains Mono Nerd Font'></span>  <span font='JetBrains Mono Nerd Font'>{icon}</span>  {capacity}% - {time}",
         "format-full": "<span font='JetBrains Mono Nerd Font'></span>  <span font='JetBrains Mono Nerd Font'>{icon}</span>  Charged",
         "interval": 30,
@@ -139,16 +140,16 @@
         "format-wifi": "{essid}  ",
         "tooltip-format": "via {gwaddr} {ifname}",
         "format-disconnected": "wifi",
-        "on-click": "wofi-wifi-menu",
+        "on-click": "footclient -e nmtui",
     },
     "pulseaudio": {
         "scroll-step": 5, // %, can be a float
         "format": "{icon} {volume}%",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
+        "format-bluetooth": "{volume}%  {format_source}",
+        "format-bluetooth-muted": "󰂲 {icon} {format_source}",
+        "format-muted": " {format_source}",
         "format-icons": {
-            "headphone": "",
+            "headphone": "󰋋",
             "hands-free": "",
             "headset": "",
             "phone": "",
@@ -160,7 +161,7 @@
                 ""
             ]
         },
-        "on-click": "pavucontrol"
+        "on-click": "footclient -e plusemixer"
     },
     "custom/media": {
         "format": "{icon} {}",

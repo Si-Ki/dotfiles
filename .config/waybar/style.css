@@ -9,15 +9,14 @@ window#waybar {
 
 #workspaces{
     background-color: #24273A;
-    margin-top: 3px;
-    margin-bottom: 1px;
+    margin-top: 3px; margin-bottom: 1px;
     margin-left: 5px;
     padding-left: 0px;
     padding-right: 0px;
     border-radius: 4px;
 }
 #workspaces button{
-    box-shadow: rgba(0, 0, 0, 0.116) 2 2 5 2px;
+    /* box-shadow: rgba(0, 0, 0, 0.116) 2 2 5 2px; */
     /* background-color: transparent; */
     background-color: #24273A;
     border-radius: 4px;
@@ -29,11 +28,11 @@ window#waybar {
     padding-left : 4px;
     padding-top: 0px;
     padding-bottom : 0px;
-    color: 	#ffffff ;
+    color: 	yellow;
 }
 
 #workspaces button.active{
-    color: #ff7eb6;
+    color: red;
 }
 
 #clock,
