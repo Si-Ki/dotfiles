@@ -33,6 +33,38 @@ opt.sts = 2
 
 opt.wrap = false
 
+-- Markdown
+g.markdown_fenced_languages = {
+  'html', 'python', 'bash=sh', 'markdown'
+}
+
+-- Vimwiki stuff
+g.vimwiki_ext2syntax = {
+  ['.Rmd'] = 'markdown',
+  ['.rmd'] = 'markdown',
+  ['.md'] = 'markdown',
+  ['.markdown'] = 'markdown',
+  ['.mdown'] = 'markdown'
+}
+
+g.vimwiki_list = {{
+  auto_diary_list = 1
+}}
+
+-- Set working directory
+g.vimwiki_list = {
+  {
+    path = '~/.local/share/nvim/vimwiki',
+    syntax = 'markdown',
+    ext = '.md'
+  }
+}
+opt.compatible = false
+opt.filetype = "plugin"
+opt.syntax = "on"
+opt.splitbelow = true
+opt.splitright = true
+
 opt.swapfile = false
 opt.backup = false
 opt.undodir = os.getenv("HOME") .. "/.cache/nvim/undodir"
@@ -69,7 +101,7 @@ local default_plugins = {
   "zipPlugin",
   "tutor",
   "rplugin",
-  "syntax",
+  -- "syntax",
   "synmenu",
   "optwin",
   "compiler",

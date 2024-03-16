@@ -19,6 +19,12 @@ vim.opt.rtp:prepend(lazypath)
 
 local default_plugins = {
 
+  -- Vimwiki
+  {
+    'vimwiki/vimwiki',
+    cmd = {"VimwikiIndex", "VimwikiDiaryIndex"},
+  },
+
   -- Telescope
   {
     'nvim-telescope/telescope.nvim', tag = '0.1.5',

@@ -23,6 +23,10 @@ autocmd("BufWritePost", {
   command = "!shortcuts",
 })
 
+autocmd("BufWritePre", {
+  pattern = {"*.md"},
+  command = "silent! wa"
+})
 -- autocmd("VimEnter", {
 --   pattern = "*",
 --   command = ":Lexplore",

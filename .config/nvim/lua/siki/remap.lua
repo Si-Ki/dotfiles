@@ -17,6 +17,7 @@ set("n", "gb", vim.cmd.bnext)
 set("n", "gp", vim.cmd.bprevious)
 
 set("n", "<leader>e", vim.cmd.Vexplore, { noremap = true, silent = true })
+set("n", "<leader>v", vim.cmd.VimwikiIndex)
 
 set("v", "J", ":m '>+1<CR>gv=gv")
 set("v", "K", ":m '<-2<CR>gv=gv")
