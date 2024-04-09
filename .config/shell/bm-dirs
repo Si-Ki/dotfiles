@@ -1,0 +1,21 @@
+# You can add comments to these files with #
+cac 	~/.cache
+cf  	~/.config
+D   	~/dwn
+d   	~/doc
+dt  	~/.local/share
+dat 	~/data/
+ani 	~/data/videos/anime/
+bks   ~/.local/share/Books/
+torr 	~/data/torrents/
+rr  	~/.local/src
+lib 	~/.local/lib
+h   	~
+m   	~/music
+mn  	/mnt
+med   /media
+pp  	~/pix
+ss  	~/pix/ss
+sc  	~/.local/bin
+vv  	~/data/videos
+wall	~/pix/wal

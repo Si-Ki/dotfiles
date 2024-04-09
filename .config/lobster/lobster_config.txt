@@ -1,0 +1,5 @@
+player=mpv
+subs_language=English
+video_quality=1080
+base=https://api.haikei.xyz/movies/flixhq
+preferred_server=vidcloud
