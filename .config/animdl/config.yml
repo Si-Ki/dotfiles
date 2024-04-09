@@ -1,6 +1,0 @@
-default_provider: animepahe
-default_player: mpv
-fzf:
-  executable: fzf
-  opts: []
-  state: true

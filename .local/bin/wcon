@@ -1,3 +1,0 @@
-#/bin/sh
-
-warp-cli connect && dunstify "嬨  VPN on"

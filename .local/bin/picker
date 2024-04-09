@@ -1,4 +1,0 @@
-#!/bin/sh
-
-sel="$(hyprpicker)"
-printf "$sel" | wl-copy && dunstify "$sel"
