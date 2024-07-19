@@ -1,3 +1,0 @@
-#/bin/sh
-
-warp-cli disconnect && dunstify "嬨" "VPN off"
