@@ -6,15 +6,15 @@ bkdir="$XDG_DATA_HOME/Books"
 cd "$bkdir"
 
 picker() {
-sel="$(ls | tofi --prompt-text "Read:")"
-if [ -d "$sel" ]; then
-  cd "$sel"
-  picker
-elif
-  [ -f "$sel" ]; then
-  sel_file="$sel"
-fi
-sel_file="$bkdir/$sel_file"
+  sel="$(ls | tofi --prompt-text "Read:")"
+  if [ -d "$sel" ]; then
+    cd "$sel"
+    picker
+  elif
+    [ -f "$sel" ]; then
+    sel_file="$sel"
+  fi
+  sel_file="$bkdir/$sel_file"
 }
 
 picker

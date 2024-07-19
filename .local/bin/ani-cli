@@ -1,6 +1,6 @@
 #!/bin/sh
 
-version_number="4.8.3"
+version_number="4.8.10"
 
 # UI
 
@@ -67,6 +67,8 @@ help_info() {
         Use ani-skip to skip the intro of the episode (mpv only)
       --no-detach
         Don't detach the player (useful for in-terminal playback, mpv only)
+      --exit-after-play
+        Exit the player, and return the player exit code (useful for non interactive scenarios, works only if --no-detach is used, mpv only)
       --skip-title <title>
         Use given title as ani-skip query
       -N, --nextep-countdown
@@ -119,13 +121,6 @@ get_links() {
 |g' | sed -nE 's|.*link":"([^"]*)".*"resolutionStr":"([^"]*)".*|\2 >\1|p;s|.*hls","url":"([^"]*)".*"hardsub_lang":"en-US".*|\1|p')"
 
     case "$episode_link" in
-        *repackager.wixmp.com*)
-            extract_link=$(printf "%s" "$episode_link" | cut -d'>' -f2 | sed 's|repackager.wixmp.com/||g;s|\.urlset.*||g')
-            for j in $(printf "%s" "$episode_link" | sed -nE 's|.*/,([^/]*),/mp4.*|\1|p' | sed 's|,|\
-|g'); do
-                printf "%s >%s\n" "$j" "$extract_link" | sed "s|,[^/]*|${j}|g"
-            done | sort -nr
-            ;;
         *vipanicdn* | *anifastcdn*)
             if printf "%s" "$episode_link" | head -1 | grep -q "original.m3u"; then
                 printf "%s" "$episode_link"
@@ -151,10 +146,9 @@ provider_init() {
 # generates links based on given provider
 generate_link() {
     case $1 in
-        1) provider_init "wixmp" "/Default :/p" ;;     # wixmp(default)(m3u8)(multi) -> (mp4)(multi)
-        2) provider_init "dropbox" "/Sak :/p" ;;       # dropbox(mp4)(single)
-        3) provider_init "wetransfer" "/Kir :/p" ;;    # wetransfer(mp4)(single)
-        4) provider_init "sharepoint" "/S-mp4 :/p" ;;  # sharepoint(mp4)(single)
+        1) provider_init "dropbox" "/Sak :/p" ;;       # dropbox(mp4)(single)
+        2) provider_init "wetransfer" "/Kir :/p" ;;    # wetransfer(mp4)(single)
+        3) provider_init "sharepoint" "/S-mp4 :/p" ;;  # sharepoint(mp4)(single)
         *) provider_init "gogoanime" "/Luf-mp4 :/p" ;; # gogoanime(m3u8)(multi)
     esac
     [ -n "$provider_id" ] && get_links "$provider_id"
@@ -178,7 +172,7 @@ get_episode_url() {
     resp=$(curl -e "$allanime_refr" -s -G "${allanime_api}/api" --data-urlencode "variables={\"showId\":\"$id\",\"translationType\":\"$mode\",\"episodeString\":\"$ep_no\"}" --data-urlencode "query=$episode_embed_gql" -A "$agent" | tr '{}' '\n' | sed 's|\\u002F|\/|g;s|\\||g' | sed -nE 's|.*sourceUrl":"--([^"]*)".*sourceName":"([^"]*)".*|\2 :\1|p')
     # generate links into sequential files
     cache_dir="$(mktemp -d)"
-    providers="1 2 3 4 5"
+    providers="1 2 3 4"
     for provider in $providers; do
         generate_link "$provider" >"$cache_dir"/"$provider" &
     done
@@ -200,26 +194,14 @@ search_anime() {
 
 time_until_next_ep() {
     animeschedule="https://animeschedule.net"
-    schedule_title="$(printf "%s" "$1" | awk '{print tolower($0)}')"
-    schedule_query="$(printf "%s" "$schedule_title" | sed 's|+|-|g')"
-    fetched="$(curl -s "$animeschedule/anime/$schedule_query")"
-
-    if printf "%s" "$fetched" | grep -q "Not Found"; then
-        anime_list="$(curl -s "$animeschedule/shows?q=$schedule_title" | awk -F '"' '{print $2}' | grep "$schedule_query" | uniq | grep -v "/anime/")"
-        for anime in $anime_list; do
-            fetched="$(curl -s "$animeschedule/anime/$anime")"
-            main_title="$(printf "%s" "$fetched" | grep 'anime-header-main-title' | grep -v '{' | awk -F '>' '{print $2}' | awk -F '<' '{print $1}')"
-            english_title="$(printf "%s" "$fetched" | grep 'anime-header-english-title' | grep -v '{' | awk -F '>' '{print $2}' | awk -F '<' '{print $1}')"
-            ttne="$(printf "%s" "$fetched" | grep 'countdown-time countdown-time-raw' | uniq | awk -F '"' '{print $4}')"
-            [ -n "$ttne" ] && printf "%s / %s\n%s\n---\n" "$main_title" "$english_title" " -  Next episode in: $ttne" | more
-            [ -z "$ttne" ] && printf "%s / %s\n%s\n---\n" "$main_title" "$english_title" " -  Finished" | more
-        done
-    else
-        ttne="$(printf "%s" "$fetched" | grep 'countdown-time countdown-time-raw' | uniq | awk -F '"' '{print $4}')"
-        [ -n "$ttne" ] && echo "Next episode in: " "$ttne"
-        [ -z "$ttne" ] && echo "Finished"
-    fi
-
+    curl -s -G "$animeschedule/api/v3/anime" --data-urlencode "q=$1" | sed 's|"id"|\n|g' | sed -nE 's|.*,"route":"([^"]*)","premier.*|\1|p' | while read -r anime; do
+        data=$(curl -s "$animeschedule/anime/$anime" | sed '1,/"anime-header-list-buttons-wrapper"/d' | sed -nE 's|.*countdown-time-raw" datetime="([^"]*)">.*|Next Raw Release: \1|p;s|.*countdown-time" datetime="([^"]*)">.*|Next Sub Release: \1|p;s|.*english-title">([^<]*)<.*|English Title: \1|p;s|.*main-title".*>([^<]*)<.*|Japanese Title: \1|p')
+        status="Ongoing"
+        color="33"
+        printf "%s\n" "$data"
+        ! (printf "%s\n" "$data" | grep -q "Next Raw Release:") && status="Finished" && color="32"
+        printf "Status:  \033[1;%sm%s\033[0m\n---\n" "$color" "$status"
+    done
     exit 0
 }
 
@@ -234,15 +216,16 @@ episodes_list() {
 # PLAYING
 
 process_hist_entry() {
-    [ -n "$ttne" ] && ttne="$(printf " - next episode in: %s" "$ttne")"
     ep_list=$(episodes_list "$id")
+    latest_ep=$(printf "%s\n" "$ep_list" | tail -n1)
+    title=$(printf "%s\n" "$title" | sed "s|[0-9]\+ episodes|${latest_ep} episodes|")
     ep_no=$(printf "%s" "$ep_list" | sed -n "/^${ep_no}$/{n;p;}") 2>/dev/null
-    [ -n "$ep_no" ] && printf "%s\t%s - episode %s%s\n" "$id" "$title" "$ep_no" "$ttne"
+    [ -n "$ep_no" ] && printf "%s\t%s - episode %s\n" "$id" "$title" "$ep_no"
 }
 
 update_history() {
     if grep -q -- "$id" "$histfile"; then
-        sed -E "s/^[^\t]+\t${id}\t/${ep_no}\t${id}\t/" "$histfile" >"${histfile}.new"
+        sed -E "s|^[^\t]+\t${id}\t[^\t]+$|${ep_no}\t${id}\t${title}|" "$histfile" >"${histfile}.new"
     else
         cp "$histfile" "${histfile}.new"
         printf "%s\t%s\t%s\n" "$ep_no" "$id" "$title" >>"${histfile}.new"
@@ -266,8 +249,7 @@ download() {
 }
 
 play_episode() {
-    aniskip_title="${skip_title:-${title}}"
-    [ "$skip_intro" = 1 ] && skip_flag="$(ani-skip "$aniskip_title" "$ep_no")"
+    [ "$skip_intro" = 1 ] && skip_flag="$(ani-skip -q "$mal_id" -e "$ep_no")"
     [ -z "$episode" ] && get_episode_url
     # shellcheck disable=SC2086
     case "$player_function" in
@@ -280,6 +262,8 @@ play_episode() {
                 nohup "$player_function" $skip_flag --force-media-title="${allanime_title}Episode ${ep_no}" "$episode" >/dev/null 2>&1 &
             else
                 "$player_function" $skip_flag --force-media-title="${allanime_title}Episode ${ep_no}" "$episode"
+                mpv_exitcode=$?
+                [ "$exit_after_play" = 1 ] && exit "$mpv_exitcode"
             fi
             ;;
         android_mpv) nohup am start --user 0 -a android.intent.action.VIEW -d "$episode" -n is.xyz.mpv/.MPVActivity >/dev/null 2>&1 & ;;
@@ -347,6 +331,7 @@ case "$(uname -a)" in
 esac
 
 no_detach="${ANI_CLI_NO_DETACH:-0}"
+exit_after_play="${ANI_CLI_EXIT_AFTER_PLAY:-0}"
 use_external_menu="${ANI_CLI_EXTERNAL_MENU:-0}"
 skip_intro="${ANI_CLI_SKIP_INTRO:-0}"
 # shellcheck disable=SC2154
@@ -404,6 +389,7 @@ while [ $# -gt 0 ]; do
             ;;
         --dub) mode="dub" ;;
         --no-detach) no_detach=1 ;;
+        --exit-after-play) exit_after_play=1 ;;
         --rofi) use_external_menu=1 ;;
         --skip) skip_intro=1 ;;
         --skip-title)
@@ -441,26 +427,13 @@ case "$search" in
         anime_list=$(while read -r ep_no id title; do process_hist_entry & done <"$histfile")
         wait
         [ -z "$anime_list" ] && die "No unwatched series in history!"
-        result=$(printf "%s" "$anime_list" | nl -w 2 | sed 's/^[[:space:]]//' | nth "Select anime: " | cut -f1)
-        [ -z "$result" ] && exit 1
-        resfile="$(mktemp)"
-        grep "$result" "$histfile" >"$resfile"
-        read -r ep_no id title <"$resfile"
+        [ -z "${index##*[!0-9]*}" ] && id=$(printf "%s" "$anime_list" | nl -w 2 | sed 's/^[[:space:]]//' | nth "Select anime: " | cut -f1)
+        [ -z "${index##*[!0-9]*}" ] || id=$(printf "%s" "$anime_list" | sed -n "${index}p" | cut -f1)
+        [ -z "$id" ] && exit 1
+        title=$(printf "%s" "$anime_list" | grep "$id" | cut -f2 | sed 's/ - episode.*//')
         ep_list=$(episodes_list "$id")
-        ep_no=$(printf "%s" "$ep_list" | sed -n "/^${ep_no}$/{n;p;}") 2>/dev/null
+        ep_no=$(printf "%s" "$anime_list" | grep "$id" | cut -f2 | sed -nE 's/.*- episode (.+)$/\1/p')
         allanime_title="$(printf "%s" "$title" | cut -d'(' -f1 | tr -d '[:punct:]')"
-        ;;
-    nextep)
-        if [ "$use_external_menu" = "0" ]; then
-            while [ -z "$query" ]; do
-                printf "\33[2K\r\033[1;36mSearch anime: \033[0m" && read -r query
-            done
-        else
-            [ -z "$query" ] && query=$(printf "" | external_menu "" "Search anime: ")
-            [ -z "$query" ] && exit 1
-        fi
-        query=$(printf "%s" "$query" | sed 's| |+|g')
-        time_until_next_ep "$query"
         ;;
     *)
         if [ "$use_external_menu" = "0" ]; then
@@ -471,6 +444,9 @@ case "$search" in
             [ -z "$query" ] && query=$(printf "" | external_menu "" "Search anime: ")
             [ -z "$query" ] && exit 1
         fi
+        # for checking new releases by specifying anime name
+        [ "$search" = "nextep" ] && time_until_next_ep "$query"
+
         query=$(printf "%s" "$query" | sed "s| |+|g")
         anime_list=$(search_anime "$query")
         [ -z "$anime_list" ] && die "No results found!"
@@ -485,6 +461,7 @@ case "$search" in
         [ -z "$ep_no" ] && exit 1
         ;;
 esac
+[ "$skip_intro" = 1 ] && mal_id="$(ani-skip -q "${skip_title:-${title}}")"
 
 # moves the cursor up one line and clears that line
 tput cuu1 && tput el
