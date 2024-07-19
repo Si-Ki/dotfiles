@@ -1,0 +1,27 @@
+#!/bin/sh
+
+handle () {
+  if [[ ${1:0:12} == "workspace>>1" ]]; then
+    dunstify "workspace 1" -r 5 -t 1
+  elif [[ ${1:0:12} == "workspace>>2" ]]; then
+    dunstify "workspace 2" -r 5 -t 1
+  elif [[ ${1:0:12} == "workspace>>3" ]]; then
+    dunstify "workspace 3" -r 5 -t 1
+  elif [[ ${1:0:12} == "workspace>>4" ]]; then
+    dunstify "workspace 4" -r 5 -t 1
+  elif [[ ${1:0:12} == "workspace>>5" ]]; then
+    dunstify "workspace 5" -r 5 -t 1
+  elif [[ ${1:0:12} == "workspace>>6" ]]; then
+    dunstify "workspace 6" -r 5 -t 1
+  elif [[ ${1:0:12} == "workspace>>7" ]]; then
+    dunstify "workspace 7" -r 5 -t 1
+  elif [[ ${1:0:12} == "workspace>>8" ]]; then
+    dunstify "workspace 8" -r 5 -t 1
+  elif [[ ${1:0:12} == "workspace>>9" ]]; then
+    dunstify "workspace 9" -r 5 -t 1
+  elif [[ ${1:0:12} == "workspace>>0" ]]; then
+    dunstify "workspace 0" -r 5 -t 1
+  fi
+}
+
+socat - UNIX-CONNECT:/tmp/hypr/$(echo $HYPRLAND_INSTANCE_SIGNATURE)/.socket2.sock | while read line; do handle $line; done
