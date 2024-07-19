@@ -17,7 +17,7 @@ export MOZ_ENABLE_WAYLAND=1
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
-export XINITRC="${XDG_CONFIG_HOME:-$HOME/.config}/x11/xinitrc"
+# export XINITRC="${XDG_CONFIG_HOME:-$HOME/.config}/x11/xinitrc"
 #export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority" # This line will break some DMs.
 export GTK2_RC_FILES="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-2.0/gtkrc-2.0"
 export LESSHISTFILE="-"
@@ -36,7 +36,11 @@ export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 export ANSIBLE_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/ansible/ansible.cfg"
 export UNISON="${XDG_DATA_HOME:-$HOME/.local/share}/unison"
 export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/history"
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+#exp
+export IG_USERNAME="teblox_labs"
+export WEBHOOK_URL="https://discord.com/api/webhooks/1239543509682487356/EHsD0ZO6mD6VO3zNxY6VGN6l2UnyCWFe_HKsTcWUTpY_piXH-udU9jX8LdtPaepTx0ZQ"
+export TIME_INTERVAL=10
 
 # Other program settings:
 export DICS="/usr/share/stardict/dic/"

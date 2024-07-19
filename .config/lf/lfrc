@@ -22,20 +22,35 @@ set period 1
 # set drawbox
 set icons
 set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
-set previewer ~/.config/lf/scope
+# set cleaner '~/.config/lf/cleaner'
+set previewer '~/.config/lf/scope'
+set autoquit true
 
 # cmds/functions
 cmd open ${{
     case $(file --mime-type "$(readlink -f $f)" -b) in
-	application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) localc $fx ;;
-	image/vnd.djvu|application/pdf|application/postscript) zathura $fx >/dev/null 2>&1 ;;
+	application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) setsid -f libreoffice $fx &> /dev/null &;;
+	application/vnd.ms-excel) setsid -f libreoffice $fx &> /dev/null &;;
+
+	application/vnd.openxmlformats-officedocument.wordprocessingml.document) setsid -f libreoffice $fx &> /dev/null &;;
+	application/msword) setsid -f libreoffice $fx &> /dev/null &;;
+
+	application/vnd.openxmlformats-officedocument.presentationml.presentation) setsid -f libreoffice $fx &> /dev/null &;;
+	application/vnd.ms-powerpoint) setsid -f libreoffice $fx &> /dev/null &;;
+
+	image/vnd.djvu|application/pdf|application/postscript) setsid -f zathura $fx >/dev/null 2>&1 ;;
        text/*|application/json|inode/x-empty) nvim $fx;;
 	image/x-xcf) setsid -f gimp $f >/dev/null 2>&1 ;;
 	image/svg+xml) display -- $f ;;
-	image/*) rotdir $f | grep -i "\.\(png\|jpg\|jpeg\|gif\|webp\|tif\|ico\)\(_large\)*$" | imv -n -
-		;;
+	image/*) rotdir $f | grep -i "\.\(png\|jpg\|jpeg\|gif\|webp\|tif\|ico\)\(_large\)*$" |  imv -n - ;;
+		# sxiv -aio 2>/dev/null | while read -r file; do
+		# 	[ -z "$file" ] && continue
+		# 	lf -remote "send select \"$file\""
+		# 	lf -remote "send toggle"
+		# done &
+		# ;;
 	audio/*) mpv --audio-display=no $f ;;
-	video/* | application/octet-stream) mpv $(rotdir $f) -quiet >/dev/null 2>&1 ;;
+	video/* | application/octet-stream) setsid -f mpv $f -quiet >/dev/null 2>&1 ;;
 	application/pdf|application/vnd*) zathura $fx >/dev/null 2>&1 ;;
 	application/epub*) epy $fx 2>&1 ;;
 	application/pgp-encrypted) nvim $fx ;;
@@ -83,7 +98,7 @@ cmd moveto ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
 	set -f
 	clear; echo "Move to where?"
-	dest="$(fd . ~ -u -H | fzf | sed 's|~|$HOME|')" &&
+	dest="$(fd . ~ -H | fzf | sed 's|~|$HOME|')" &&
 	for x in $fx; do
 		eval rsync -iv --remove-source-files \"$x\" \"$dest\"
 	done &&
@@ -94,7 +109,7 @@ cmd copyto ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
 	set -f
 	clear; echo "Copy to where?"
-	dest="$(fd . ~ -u -H | fzf | sed 's|~|$HOME|')" &&
+	dest="$(fd . ~ -H | fzf | sed 's|~|$HOME|')" &&
 	for x in $fx; do
 		eval rsync -vr \"$x\" \"$dest\"
 	done &&
@@ -107,7 +122,7 @@ cmd bulkrename $vidir
 # Bindings
 map c
 map <c-f> $lf -remote "send $id select '$(fzf)'"
-map J $lf -remote "send $id cd $(fd . ~ -u -H | fzf | sed 's|~|$HOME|')"
+map J $lf -remote "send $id cd $(fd -H | fzf | sed 's|~|$HOME|')"
 map gh
 map gg top
 map D delete
@@ -130,7 +145,8 @@ map gs :fzf_search
 
 map A rename # at the very end
 map I push A<c-u> # new name
-map i push A<a-b><a-b><a-f> # before extention
+map i push A<a-b><a-b> # before extention
+# map i push A<a-b><a-b><a-f> # before extention
 map a push A<a-b> # after extention
 map B bulkrename
 map b $setbg $f

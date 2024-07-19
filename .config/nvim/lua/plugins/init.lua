@@ -30,6 +30,17 @@ local default_plugins = {
   {
     'vimwiki/vimwiki',
     cmd = {"VimwikiIndex", "VimwikiDiaryIndex"},
+    -- ft = {"markdown"},
+    priority = 100,
+  },
+
+  -- Markdown
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    priority = 10,
+    lazy = false,
+    build = function() vim.fn["mkdp#util#install"]() end,
   },
 
   -- Telescope
@@ -43,6 +54,8 @@ local default_plugins = {
     'rose-pine/neovim',
     lazy = true
   },
+
+  -- Colorscheme(s)
 
   "nyoom-engineering/oxocarbon.nvim",
 
@@ -100,7 +113,6 @@ local default_plugins = {
   {'hrsh7th/cmp-nvim-lsp'},
   {'hrsh7th/nvim-cmp'},
   {'L3MON4D3/LuaSnip'},
-
 }
 
 local opts = {

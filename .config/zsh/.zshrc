@@ -25,6 +25,7 @@ autoload -Uz +X bashcompinit && bashcompinit
 bindkey -v
 export KEYTIMEOUT=1
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANROFFOPT="-c"
 
 bindkey -s '^o' 'lfcd\n'
 bindkey -s '^w' 'open_with_mpv\n'

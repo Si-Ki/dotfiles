@@ -15,6 +15,9 @@ set("n", '<', '<<')
 -- Goyo
 set("n", "<leader>g", vim.cmd.Goyo)
 
+-- Markdownpreview
+set("n", "<leader>mdp", vim.cmd.MarkdownPreviewToggle)
+
 -- Buffers
 set("n", "gb", vim.cmd.bnext)
 set("n", "gp", vim.cmd.bprevious)

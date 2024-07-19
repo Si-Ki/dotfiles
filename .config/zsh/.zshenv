@@ -1,1 +1,2 @@
-. "/home/siki/.local/share/cargo/env"
+. "$XDG_DATA_HOME/dfx/env"
+export DFX_CYCLES_LEDGER_SUPPORT_ENABLE=1

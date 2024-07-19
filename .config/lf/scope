@@ -1,7 +1,7 @@
 #!/bin/sh
 
 image() {
-   chafa "$1" -f sixel -s "$(($2-2))x$3" | sed 's/#/\n#/g'
+   chafa "$1" -f sixel -s "$(($2-9))x$3" | sed 's/#/\n#/g'
 }
 
 batorcat() {
@@ -9,7 +9,8 @@ batorcat() {
 	shift
 	if command -v bat > /dev/null 2>&1
 	then
-		bat --color=always --style=plain --pager=never "$file" "$@"
+		# bat --color=always --style=plain --pager=never "$file" "$@"
+    highlight --out-format=ansi -l "$file"
 	else
 		cat "$file"
 	fi
@@ -28,7 +29,7 @@ case "$(printf "%s\n" "$(readlink -f "$1")" | awk '{print tolower($0)}')" in
 	*.7z) 7z l "$1" ;;
 	*.[1-8]) man "$1" | col -b ;;
 	*.o) nm "$1";;
-	*.torrent) transmission-show "$1" ;;
+	*.torrent) aria2c -S "$1" ;;
 	*.iso) iso-info --no-header -l "$1" ;;
 	*.odt|*.ods|*.odp|*.sxw) odt2txt "$1" ;;
 	*.doc) catdoc "$1" ;;
@@ -59,9 +60,11 @@ case "$(printf "%s\n" "$(readlink -f "$1")" | awk '{print tolower($0)}')" in
 		[ ! -f "${CACHE}.jpg" ] && \
 			ffmpegthumbnailer -i "$1" -o "${CACHE}.jpg" -s 0 -q 5
 		image "${CACHE}.jpg" "$2" "$3" "$4" "$5"
+    mediainfo "$1"
 		;;
 	*.bmp|*.jpg|*.jpeg|*.png|*.xpm|*.webp|*.gif|*.jfif)
 		image "$1" "$2" "$3" "$4" "$5"
+    mediainfo "$1"
 		;;
   *.svg)
     [ ! -f "${CACHE}.jpg" ] && \
