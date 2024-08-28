@@ -50,7 +50,7 @@ cmd open ${{
 		# done &
 		# ;;
 	audio/*) mpv --audio-display=no $f ;;
-	video/* | application/octet-stream) setsid -f mpv $f -quiet >/dev/null 2>&1 ;;
+	video/* | application/octet-stream) setsid -f mpv $(rotdir $f) -quiet >/dev/null 2>&1 ;;
 	application/pdf|application/vnd*) zathura $fx >/dev/null 2>&1 ;;
 	application/epub*) epy $fx 2>&1 ;;
 	application/pgp-encrypted) nvim $fx ;;
