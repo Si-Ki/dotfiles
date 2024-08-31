@@ -1,7 +1,7 @@
 #!/bin/sh
 
 image() {
-   chafa -f sixel -s "$2x$3" --polite on "$1"
+  chafa -f sixel -s "$(($2-2))x$3" --polite on "$1"
 }
 
 batorcat() {
