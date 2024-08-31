@@ -3,8 +3,10 @@ text/x-shellscript=nvim.desktop;firefox.desktop;
 x-scheme-handler/tg=userapp-Telegram Desktop-NPWAV1.desktop;
 application/octet-stream=imv-folder.desktop;
 image/png=imv.desktop;
+x-scheme-handler/tonsite=org.telegram.desktop.desktop;
 
 [Default Applications]
 x-scheme-handler/magnet=torrent.desktop;
 application/x-bittorrent=torrent.desktop;
 x-scheme-handler/tg=userapp-Telegram Desktop-NPWAV1.desktop
+x-scheme-handler/tonsite=org.telegram.desktop.desktop
