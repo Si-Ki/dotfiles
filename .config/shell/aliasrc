@@ -41,6 +41,7 @@ alias \
 	v="$EDITOR" \
 	p="pacman" \
 	z="zathura" \
+  j="jerry -i" \
 	l="ls -al" \
 	aur="baph -n" \
 	sv="doas systemctl" \

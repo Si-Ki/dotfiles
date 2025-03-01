@@ -2,7 +2,7 @@
 
 # Set paths
 export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
-export PATH="$PATH:${$(find ~/.local/share/cargo/bin/ -type d -printf %p:)%%:}"
+# export PATH="$PATH:${$(find ~/.local/share/cargo/bin/ -type d -printf %p:)%%:}"
 export PATH="$PATH:${$(find ~/.local/share/go/bin/ -type d -printf %p:)%%:}"
 
 unsetopt PROMPT_SP
@@ -17,34 +17,28 @@ export MOZ_ENABLE_WAYLAND=1
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
-# export XINITRC="${XDG_CONFIG_HOME:-$HOME/.config}/x11/xinitrc"
-#export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority" # This line will break some DMs.
 export GTK2_RC_FILES="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-2.0/gtkrc-2.0"
 export LESSHISTFILE="-"
 export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
 export INPUTRC="${XDG_CONFIG_HOME:-$HOME/.config}/shell/inputrc"
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
-# export ALSA_CONFIG_PATH="$XDG_CONFIG_HOME/alsa/asoundrc"
+export ALSA_CONFIG_PATH="$XDG_CONFIG_HOME/alsa/asoundrc"
 export GNUPGHOME="${XDG_DATA_HOME:-$HOME/.local/share}/gnupg"
-export WINEPREFIX="${XDG_DATA_HOME:-$HOME/.local/share}/wineprefixes/default"
+# export WINEPREFIX="${XDG_DATA_HOME:-$HOME/.local/share}/wineprefixes/default"
 export PASSWORD_STORE_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/password-store"
 export PASSWORD_STORE_CLIP_TIME=10
 export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
 export ANDROID_SDK_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/android"
-export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
-export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
+# export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
+# export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 export ANSIBLE_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/ansible/ansible.cfg"
 export UNISON="${XDG_DATA_HOME:-$HOME/.local/share}/unison"
 export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/history"
 
-#exp
-export IG_USERNAME="teblox_labs"
-export WEBHOOK_URL="https://discord.com/api/webhooks/1239543509682487356/EHsD0ZO6mD6VO3zNxY6VGN6l2UnyCWFe_HKsTcWUTpY_piXH-udU9jX8LdtPaepTx0ZQ"
-export TIME_INTERVAL=10
-
 # Other program settings:
 export DICS="/usr/share/stardict/dic/"
 export SSH_ASKPASS="$HOME/.local/bin/dmenupass"
+export GRIMBLAST_EDITOR="swappy -f -"
 
 #  export FZF_DEFAULT_OPTS=" \
 # --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
