@@ -38,7 +38,7 @@ conf() {
 
 # Open files with mpv
 open_with_mpv() {
-  file=$(fd . "$HOME/Videos/" -t f|fzf) 
+  file=$(fd . "$HOME/vid/" -t f|fzf) 
   [ -z "$file" ] || mpv $file
 }
 

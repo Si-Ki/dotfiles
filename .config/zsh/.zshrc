@@ -32,7 +32,7 @@ bindkey -s '^w' 'open_with_mpv\n'
 bindkey -s '^a' 'bc -lq\n'
 bindkey -s '^g' 'cd "$(fd -H | fzf)"\n'
 bindkey -s '^n' 'nvim "$(fzf)"\n'
-bindkey -s '^h' 'bat $HISTFILE | fzf | tr -d "\n" | wl-copy\n'
+bindkey -s '^h' 'bat $HISTFILE | fzf --no-sort | tr -d "\n" | wl-copy\n'
 bindkey '^[[P' delete-char
 
 # Edit line in vim with ctrl-e:
