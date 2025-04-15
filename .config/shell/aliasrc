@@ -53,7 +53,7 @@ alias \
   diary="nvim -c VimwikiDiaryIndex" \
 
 alias \
-  dot="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME" \
+  dot="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME" \
 	pkf="pkgfile" \
 	magit="nvim -c MagitOnly" \
 	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \

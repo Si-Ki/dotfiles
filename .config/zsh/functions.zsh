@@ -7,8 +7,8 @@ function zle-keymap-select () {
 }
 
 dop (){
-  /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME commit -m ${1:-auto}
-  /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME push
+  /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME commit -m ${1:-auto}
+  /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME push
 }
 
 mkd () {
