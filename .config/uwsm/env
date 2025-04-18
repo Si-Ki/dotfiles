@@ -1,2 +1,9 @@
 export env=XCURSOR_THEME,Bibata-Modern-Amber
 export env=XCURSOR_SIZE,18
+
+export env=QT_QPA_PLATFORM,wayland;xcb
+export env=XDG_CURRENT_DESKTOP,Hyprland
+export env=XDG_SESSION_DESKTOP,Hyprland
+export env=XDG_SESSION_TYPE,wayland
+export env=MOZ_ENABLE_WAYLAND,1
+export env=QT_QPA_PLATFORMTHEME,gtk3
