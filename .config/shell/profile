@@ -36,6 +36,7 @@ export UNISON="${XDG_DATA_HOME:-$HOME/.local/share}/unison"
 export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/history"
 
 # Other program settings:
+export LIBVA_DRIVER_NAME=iHD
 export DICS="/usr/share/stardict/dic/"
 export SSH_ASKPASS="$HOME/.local/bin/dmenupass"
 export GRIMBLAST_EDITOR="swappy -f -"
