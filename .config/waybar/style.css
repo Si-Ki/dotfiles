@@ -1,80 +1,227 @@
+@import url("./colors.css");
+
 * {
-    font-family: "JetBrains Mono Nerd Font";
+    border: none;
+    border-radius: 1px;
+    font-family: JetBrains Mono Nerd Font;
     font-size: 16px;
+    min-height: 0;
 }
 
 window#waybar {
-    background-color: transparent;
-    /* font-size: 16px; */
+    background-color: @mantle;
+    color: @text;
 }
 
-#workspaces{
-    background-color: #24273A;
-    margin-top: 3px; margin-bottom: 1px;
-    margin-left: 5px;
-    padding-left: 0px;
-    padding-right: 0px;
-    border-radius: 4px;
-}
-#workspaces button{
-    /* box-shadow: rgba(0, 0, 0, 0.116) 2 2 5 2px; */
-    /* background-color: transparent; */
-    background-color: #24273A;
-    border-radius: 4px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    margin-right: 0px;
-    margin-left: 0px;
-    padding-right: 4px;
-    padding-left : 4px;
-    padding-top: 0px;
-    padding-bottom : 0px;
-    color: 	yellow;
+window#waybar.hidden {
+    opacity: 0.2;
 }
 
-#workspaces button.active{
-    color: red;
+tooltip {
+    background-color: @base;
+    border: 1px solid @surface1;
 }
 
-#clock,
-#battery,
-#cpu,
-#memory,
-#disk,
-#bluetooth,
-#temperature,
-#backlight,
-#network,
-#wireplumber,
-#pulseaudio,
-#tray,
-#mode,
-#privacy,
-#idle_inhibitor,
-#custom-expand,
-#custom-media,
-#mpd {
-    padding-right: 9px;
-    padding-left: 9px;
-    border-radius: 4px;
-    background-color: transparent;
-    background-color: #24273A;
-    color: #ffffff;
-    /* box-shadow: rgba(0, 0, 0, 0.116) 2 2 5 2px; */
-    margin-top: 3px;
-    margin-bottom: 0px;
-    margin-right: 0px;
-    margin-left: 0px;
-    font-weight : bold
+tooltip label {
+    color: @text;
 }
 
-#custom-dunst {
-    padding: 0 20px;
+button {
+    box-shadow: inset 0 -3px transparent;
+    border: none;
+    border-radius: 1;
+}
+
+button:hover {
+    background: inherit;
+    box-shadow: inset 0 -3px @text;
+}
+
+#workspaces {
+    background-color: @base;
+    margin: 0 0;
+    padding: 0 0 0 0;
     border-radius: 4px;
-    background-color: #161616;
-    color: 	#ffffff;
+}
+
+#workspaces button {
     box-shadow: rgba(0, 0, 0, 0.116) 2 2 5 2px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: 15px;
+    padding: 0 6 0 6;
+    margin: 2 2 2 2;
+    background-color: @mantle;
+    color: @yellow;
+    border-radius: 4px;
+}
+
+#workspaces button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
+    background-image: linear-gradient(0deg, @surface1, @mantle);
+}
+
+#workspaces button.urgent {
+    background-image: linear-gradient(0deg, @red, @mantle);
+}
+
+#workspaces button.active {
+    background-image: linear-gradient(0deg, @surface1, @mantle);
+    color: @red;
+}
+
+#mpris,
+#custom-weather,
+#clock,
+#language,
+#pulseaudio,
+#bluetooth,
+#network,
+#memory,
+#cpu,
+#temperature,
+#disk,
+#custom-kernel,
+#idle_inhibitor,
+#battery,
+#tray {
+    padding: 0 10px;
+    margin: 5px 1px;
+    color: @text;
+}
+
+#window {
+    margin: 0 4px;
+}
+
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#custom-weather {
+    background-color: @teal;
+    color: @mantle;
+    /* margin-right: 0px; */
+}
+
+#custom-kernel {
+    background-color: @rosewater;
+    color: @mantle;
+}
+
+#clock {
+    background-color: @green;
+    color: @mantle;
+}
+
+@keyframes blink {
+    to {
+        background-color: @mantle;
+        color: @text;
+    }
+}
+
+label:focus {
+    background-color: @mantle;
+}
+
+#cpu {
+    background-color: @mauve;
+    color: @mantle;
+    min-width: 45px;
+}
+
+#memory {
+    background-color: @red;
+    color: @mantle;
+}
+
+#disk {
+    background-color: @flamingo;
+    color: @mantle;
+}
+
+#network {
+    background-color: @peach;
+    color: @mantle;
+}
+
+#network.disconnected {
+    background-color: red;
+    color: @mantle;
+}
+
+#bluetooth {
+    background-color: @maroon;
+    color: @mantle;
+    min-width: 40px;
+}
+
+#pulseaudio {
+    background-color: @yellow;
+    color: @mantle;
+}
+
+#pulseaudio.muted {
+    background-color: @red;
+    color: @mantle;
+}
+
+#temperature {
+    background-color: @pink;
+    color: @mantle;
+    min-width: 37px;
+}
+
+#temperature.critical {
+    background-color: @red;
+    color: @mantle;
+    min-width: 37px;
+}
+
+#battery{
+    background-color: @lavender;
+    color: @mantle
+}
+
+#battery.full {
+    background-color: @green;
+    color: @crust;
+}
+
+#battery.warning {
+    background-color: @yellow;
+    color: @text;
+}
+
+#battery.critical {
+    background-color: @red;
+    color: @crust;
+}
+
+#tray {
+    background-color: @overlay0;
+    color: @text;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @mantle;
+}
+
+#idle_inhibitor {
+    background-color: @base;
+    color: @text;
+    font-family: Inter;
+}
+
+#idle_inhibitor.activated {
+    background-color: @text;
+    color: @base;
 }

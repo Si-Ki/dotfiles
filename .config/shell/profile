@@ -10,7 +10,7 @@ unsetopt PROMPT_SP
 # Default programs:
 export EDITOR="nvim"
 export TERMINAL="footclient"
-export BROWSER="firefox"
+export BROWSER="zen-browser"
 export MOZ_ENABLE_WAYLAND=1
 
 # ~/ Clean-up:
