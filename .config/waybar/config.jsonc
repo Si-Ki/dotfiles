@@ -1,67 +1,56 @@
 {
-    // "output": "HDMI-A-1",
     "layer": "top",
     "position": "top",
-    "height": "auto",
-    // "width": 2880px,
-    "margin-left": 0,
-    // "margin-right": 2,
-    "spacing": 2,
+    "mode": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "height": 0,
+    "width": 2390,
+    "margin-top": 2,
+    "spacing": 4,
     "modules-left": [
-        "hyprland/workspaces",
-        "tray",
+      "hyprland/workspaces",
+      "bluetooth",
+      "network",
+      "hyprland/window",
     ],
+    "fixed-center": "true",
     "modules-center": [
-    "hyprland/window"
+      "custom/notifications",
+      "clock",
+      "idle_inhibitor"
     ],
     "modules-right": [
-    "idle_inhibitor",
+      "tray",
     // "custom/kernel",
     // "disk#ssd",
-    "temperature",
-    "cpu",
+      "mpris",
+      "temperature",
+      "cpu",
     // "memory",
-    "bluetooth",
-    "network",
-    "pulseaudio",
-    "clock",
-    "custom/weather",
-    "battery"
+      "pulseaudio",
+      // "pulseaudio#microphone",
+      "custom/weather",
+      "battery"
     ],
     
-    //  "hyprland/workspaces": {
-    //      "disable-scroll": false,
-    //      "all-outputs": true,
-    //      "warp-on-scroll": false,
-    //      "format": "{icon}",
-    //      "format-icons": {
-    // //         "1": "",
-    // //         "2": "",
-    // //         "3": "",
-    // //         "4": "",
-    // //         "5": "",
-    //      "urgent": "",
-    //         "focused": "",
-    //         "default": ""
-    //      }
-    //  },
-
     "hyprland/workspaces": {
         "format": "{id}",
-        "format": "{icon}",
+        // "format": "{icon}",
         // "format-icons": {
-            // "1": " 1 ",
-            // "2": " 2 ",
-            // "3": " 3 ",
-            // "4": " 4 ",
-            // "5": " 5 ",
-            // "6": " 6 ",
-            // "7": " 7 ",
-            // "8": " 8 ",
-            // "9": " 9 ",
-        // "urgent": " ",
-        //   "focused": " ",
-        //   "default": " "
+        //   "1": "󰲠",
+        //   "2": "󰲢",
+        //   "3": "󰲤",
+        //   "4": "󰲦",
+        //   "5": "󰲨",
+        //   "6": "󰲪",
+        //   "7": "󰲬",
+        //   "8": "󰲮",
+        //   "9": "󰲰"
+        // // "urgent": " ",
+        // //   "focused": " ",
+        // //   "default": " "
         //  },
         // "show-special": true,
         "format-window-separator": ";",
@@ -76,61 +65,87 @@
         }
     },
 
+    "hyprland/window": {
+      "max-length": 50
+    },
+
     "bluetooth": {
-        "format-on": "bt ",
-        "format-off": "bt 󰂲",
+        "format-on": "",
+        "format-off": "󰂲",
+        "format-disabled": "󰂲",
         "format-connected": "{device_alias}",
-        "format-connected-battery": "{device_alias} [{device_battery_percentage}%]",
+        "format-connected-battery": "󰂱 {device_alias} [{device_battery_percentage}%]",
         "format-device-preference": [ "ugreen_1", "ugreen_2" ],
         "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
         "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
         "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
-        "on-click": "footclient --app-id bluetui bluetui"
+        "on-click": "footclient --app-id bluetui bluetui",
+        "on-click-right": "rfkill toggle bluetooth"
     },
 
-      "battery": {
-      "bat": "BAT0",
-      "format": "{icon} {capacity}%",
-      "format-icons": [
-        "󰁺",
-        "󰁻",
-        "󰁼",
-        "󰁽",
-        "󰁾",
-        "󰁿",
-        "󰂀",
-        "󰂁",
-        "󰂂",
-        "󰁹"
+    "battery": {
+    "bat": "BAT0",
+    "format": "{icon} {capacity}%",
+    "format-icons": [
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
       ],
-      "format-time": "{H}:{M}",
-      "format-charging": "  {capacity}%",
-      "format-full": " Charged",
-      "interval": 60,
-      "states": {
-        "warning": 20,
-        "critical": 10
+    "format-time": "{H}:{M}",
+    "format-charging": "  {capacity}%",
+    "format-full": " Charged",
+    "interval": 60,
+    "states": {
+      "warning": 20,
+      "critical": 10
       },
-      "tooltip": true,
-      "tooltip-format": "{power}W || {time}"
+
+    "tooltip": true,
+    "tooltip-format": "{power}W || {time}"
     },
 
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
-            "activated": " ",
-            "deactivated": " "
+            "activated": "󰈈 ",
+            "deactivated": "󰈉 "
         }
     },
+
+    "mpris": {
+    "interval": 5,
+    "format": "{player_icon} {dynamic}",
+    "format-paused": "{status_icon} <b><i>{dynamic}</i></b>",
+    "dynamic-order": ["title"],
+    "player-icons": {
+          "default": "󰎆 ",
+          "firefox": "󰎆"
+          // "tidal-hifi": "🎵",
+          // "cmus": "🎵"
+          },
+    "status-icons": {
+          "paused": "⏸"
+      },
+    // "ignored-players": ["zen-browser"],
+    "max-length": 30
+    },
+
     "tray": {
-        "icon-size": 13,
+        "icon-size": 16,
         "spacing": 10
     },
     "clock": {
         "interval": 60,
         "timezone": "Asia/Kolkata",
-        "format": "{:%F %R }",
+        "format": "󰃰 {:%A, %B %d [%H:%M]}",  
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
                     "mode"          : "year",
@@ -170,11 +185,11 @@
     },
     "temperature": {
         "interval": 3,
-        "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
+        "hwmon-path": "/sys/class/hwmon/hwmon2/temp2_input",
         "critical-threshold": 90,
         "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
+        "format-icons": ["", "", ""]
     },
     "disk#ssd": {
         "interval": 60,
@@ -189,37 +204,49 @@
         "interface-ethernet": "enp1s*",
         "interface-wifi": "wlan0",
         "format-ethernet": "eth 󰈀 ",
-        "format-wifi": " ",
+        "format-wifi": "  {essid}",
         "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr} 󰈀 ",
-        "tooltip-format-wifi": "{essid}   ({signalStrength}%)\n\n{ifname}: {ipaddr}/{cidr}  ",
+        // "tooltip-format-wifi": "{essid}   ( {signalStrength}%)\n\n{ifname}: {ipaddr}/{cidr}  ",
+        "tooltip-format": " {signalStrength}%",
         "format-linked": "(No IP) ",
         "format-disconnected": "Disconnected ⚠",
         "on-click": "footclient --app-id nmtui nmtui"
     },
     "custom/weather": {
         "interval": 600,
-        "exec": "~/.config/waybar/wittr.sh bahadurgarh",
+        "exec": "~/.config/waybar/bin/wittr.sh 124507",
         "return-type": "json",
         "format": "{}",
         "tooltip": true,
-        "on-click": "$BROWSER https://wttr.in/bahadurgarh"
+        "on-click": "$BROWSER https://wttr.in/124507"
     },
     "custom/kernel": {
         "exec": "uname -r | sed -E 's/^([0-9]+\\.[0-9]+\\.[0-9]+)-.*-([a-zA-Z0-9]+)/\\1-\\2/'",
         "format": "{} "
     },
+    "custom/notifications": {
+        "format": "{}",
+        "exec": "$HOME/.config/waybar/bin/not-dnd -j",
+        "on-click": "$HOME/.config/waybar/bin/not-dnd",
+        "return-type": "json",
+        "interval": "once",
+        "signal": 2
+    },
     "pulseaudio": {
         "scroll-step": 2,
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": "󰸈 {icon} {format_source}",
-        "format-muted": "󰸈 {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
+        "format": "{icon} {volume}% {format_source}",
+        "format-bluetooth": "{icon} {volume}% {format_source}",
+        "format-bluetooth-muted": "{icon} MUTED",
+        "format-muted": "{icon} {format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": " ",
         "format-icons": {
-            "headphone": "󰋋 ",
-            "hands-free": "",
-            "headset": "󰋎 ",
+            "default": "󰓃",
+            "default-muted": " ",
+            "source": "",
+            "headphone": "󰋋",
+            "hands-free": "󰋎",
+            "headset": "󰋎",
             "phone": "",
             "portable": "",
             "car": "",

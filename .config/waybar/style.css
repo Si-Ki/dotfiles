@@ -2,15 +2,16 @@
 
 * {
     border: none;
-    border-radius: 1px;
-    font-family: JetBrains Mono Nerd Font;
+    border-radius: 5px;
+    font-family: JetBrainsMono Nerd Font;
     font-size: 16px;
+    font-weight: bold;
     min-height: 0;
 }
 
 window#waybar {
-    background-color: @mantle;
-    color: @text;
+   background: rgba(21, 18, 27, 0);
+   color: @pink;
 }
 
 window#waybar.hidden {
@@ -18,12 +19,19 @@ window#waybar.hidden {
 }
 
 tooltip {
-    background-color: @base;
-    border: 1px solid @surface1;
+    background: #000000;
+    border-radius: 7px;
+    border-width: 2.5px;
+    border-style: solid;
+    border-color: @surface1;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 tooltip label {
-    color: @text;
+    color: @rosewater;
 }
 
 button {
@@ -38,8 +46,8 @@ button:hover {
 }
 
 #workspaces {
-    background-color: @base;
-    margin: 0 0;
+    background: transparent;
+    margin: 0 0 0 0;
     padding: 0 0 0 0;
     border-radius: 4px;
 }
@@ -83,8 +91,8 @@ button:hover {
 #idle_inhibitor,
 #battery,
 #tray {
-    padding: 0 10px;
-    margin: 5px 1px;
+    padding: 4 8 4 8;
+    margin: 1 0 0 0;
     color: @text;
 }
 
@@ -101,19 +109,19 @@ button:hover {
 }
 
 #custom-weather {
-    background-color: @teal;
-    color: @mantle;
+    color: @teal;
+    background-color: @mantle;
     /* margin-right: 0px; */
 }
 
 #custom-kernel {
-    background-color: @rosewater;
-    color: @mantle;
+    color: @rosewater;
+    background-color: @mantle;
 }
 
 #clock {
-    background-color: @green;
-    color: @mantle;
+    color: @green;
+    background-color: @mantle;
 }
 
 @keyframes blink {
@@ -128,8 +136,8 @@ label:focus {
 }
 
 #cpu {
-    background-color: @mauve;
-    color: @mantle;
+    background-color: @mantle;
+    color: @mauve;
     min-width: 45px;
 }
 
@@ -138,40 +146,45 @@ label:focus {
     color: @mantle;
 }
 
+#mpris {
+    background-color: @crust;
+    color: @rosewater;
+}
+
 #disk {
     background-color: @flamingo;
     color: @mantle;
 }
 
 #network {
-    background-color: @peach;
-    color: @mantle;
+    background-color: @mantle;
+    color: @peach;
 }
 
 #network.disconnected {
-    background-color: red;
-    color: @mantle;
-}
-
-#bluetooth {
-    background-color: @maroon;
-    color: @mantle;
-    min-width: 40px;
-}
-
-#pulseaudio {
-    background-color: @yellow;
-    color: @mantle;
-}
-
-#pulseaudio.muted {
     background-color: @red;
     color: @mantle;
 }
 
+#bluetooth {
+    background-color: @mantle;
+    color: @maroon;
+    /* min-width: 40px; */
+}
+
+#pulseaudio {
+    background-color: @mantle;
+    color: @yellow;
+}
+
+#pulseaudio.muted {
+    background-color: @mantle;
+    color: @red;
+}
+
 #temperature {
-    background-color: @pink;
-    color: @mantle;
+    background-color: @mantle;
+    color: @pink;
     min-width: 37px;
 }
 
@@ -181,9 +194,19 @@ label:focus {
     min-width: 37px;
 }
 
+#custom-notifications {
+    background-color: @mantle;
+    color: @yellow;
+    padding-top: 4px;
+    padding-left: 9px;
+    padding-right: 14px;
+    /* margin-left:  2px; */
+    /* margin-right: 2px; */
+}
+
 #battery{
-    background-color: @lavender;
-    color: @mantle
+    background-color: @crust;
+    color: @lavender;
 }
 
 #battery.full {
@@ -193,7 +216,7 @@ label:focus {
 
 #battery.warning {
     background-color: @yellow;
-    color: @text;
+    color: @crust;
 }
 
 #battery.critical {
@@ -201,13 +224,34 @@ label:focus {
     color: @crust;
 }
 
+#battery.critical:not(.charging) {
+  background-color:           @red;
+  color:                      @crust;
+  animation-name:             blink;
+  animation-duration:         1.0s;
+  animation-timing-function:  linear;
+  animation-iteration-count:  infinite;
+  animation-direction:        alternate;
+}
+
+#battery.charging {                      
+  background-color:           @crust;   
+  color:                      @green;   
+  animation-name:             blink;     
+  animation-duration:         1.0s;      
+  animation-timing-function:  linear;    
+  animation-iteration-count:  infinite;  
+  animation-direction:        alternate; 
+}                                       
+
 #tray {
-    background-color: @overlay0;
+    background-color: @surface0;
     color: @text;
 }
 
 #tray > .passive {
     -gtk-icon-effect: dim;
+    background-color: @mantle;
 }
 
 #tray > .needs-attention {
@@ -217,11 +261,11 @@ label:focus {
 
 #idle_inhibitor {
     background-color: @base;
-    color: @text;
+    color: @yellow;
     font-family: Inter;
 }
 
 #idle_inhibitor.activated {
-    background-color: @text;
-    color: @base;
+    background-color: @base;
+    color: @red;
 }

@@ -48,7 +48,7 @@ alias \
 	bdi="btds --d-modules ~/.config/discord/0.0.21/modules/ install" \
 	pip="python -m pip" \
 	py="python" \
-  aria="aria2c -s 16 -x 16" \
+  aria="aria2c -j5 -x15 -k25M --split=15" \
   wiki="nvim -c VimwikiIndex" \
   diary="nvim -c VimwikiDiaryIndex" \
 

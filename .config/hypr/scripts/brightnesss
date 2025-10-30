@@ -1,0 +1,8 @@
+#!/bin/bash
+# Get brightness percentage
+brightness=$(brightnessctl g)
+max_brightness=$(brightnessctl m)
+percent=$(( brightness * 100 / max_brightness ))
+
+# Send notification with progress bar hint
+fyi -a "wp-vol" -r 99 -t 1000 -H int:value:$percent "Brightness: $percent%"

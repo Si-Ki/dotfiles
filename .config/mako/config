@@ -1,0 +1,66 @@
+# General
+
+icons=1
+icon-location=left
+markup=1
+actions=1
+width=320
+height=500
+sort=-time
+invisible=0
+group-by=none
+format=%s\n%b
+layer=overlay
+border-size=4
+max-visible=10
+margin=2,2,2,2
+outer-margin=15
+max-icon-size=42
+anchor=top-right
+border-radius=7
+ignore-timeout=0
+text-alignment=right
+default-timeout=3000
+on-button-left=invoke-default-action
+on-button-right=dismiss-all
+font=JetBrainsMonoNerd Font Bold 12.5
+icon-path=/usr/share/icons/Pop/
+
+# Colors (Catppuccin Mocha)
+
+background-color=#7f849c33
+text-color=#f5e0dc
+border-color=#b4befe66
+# progress-color=over #313244
+progress-color=#6c708688
+
+# Per-mode settings
+
+[mode=do-not-disturb]
+invisible=1
+on-notify=none
+
+[mode=silent]
+on-notify=none
+
+[urgency=high]
+border-color=#fab387
+
+# Volume-mode
+[app-name=wp-vol]
+anchor=top-center
+# outer-margin=150,0,0,0
+group-by=app-name
+text-alignment=center
+layer=overlay
+format=<b>%s</b>\n%b
+
+[app-name=wp-vol group-index=0]
+invisible=0
+
+# [app-name=volume grouped=false]
+# invisible=0
+
+[app-name=update actionable grouped=true]
+on-button-left=exec ~/.local/bin/popupgrade
+invisible=0
