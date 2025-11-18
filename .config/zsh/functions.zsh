@@ -6,7 +6,13 @@ function zle-keymap-select () {
     esac
 }
 
-dop (){
+copy_last () {
+  local last_command=$(fc -ln -1)
+  eval "$last_command" | wl-copy # Or xclip/xsel for Linux
+  echo "Last command and its output copied to clipboard."
+}
+
+dop () {
   /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME commit -m ${1:-auto}
   /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME push
 }
@@ -42,12 +48,7 @@ open_with_mpv() {
   [ -z "$file" ] || mpv $file
 }
 
-# animdl stuff
-adn () {
-	ep=${2:-1-}
-	name="$(echo $1 | sed 's/-/ /g')"
-	animdl download -q best "animixplay:$name" -r "$ep"
-}
+
 anime () {
 	ep=${2:-1-}
 	name="$(echo $1 | sed 's/-/ /g')"

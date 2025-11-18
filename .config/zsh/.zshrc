@@ -29,6 +29,7 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"
 
 bindkey -s '^o' 'lfcd\n'
+bindkey -s '^x' 'copy_last\n'
 bindkey -s '^w' 'open_with_mpv\n'
 bindkey -s '^a' 'bc -lq\n'
 bindkey -s '^g' 'cd "$(fd -H | fzf)"\n'
@@ -45,3 +46,8 @@ eval $(starship init zsh)
 # Load syntax highlighting; should be last.
 source /home/siki/.config/zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
+
+if [ "$(uname -r)" != "$(ls /lib/modules/ | sort -V | tail -1)" ]; then
+    echo "⚠️  Kernel mismatch! Running $(uname -r), latest available: $(ls /lib/modules/ | sort -V | tail -1)"
+    echo "   Consider rebooting to use the latest kernel."
+fi
