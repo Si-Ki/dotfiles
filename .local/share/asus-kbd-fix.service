@@ -1,0 +1,10 @@
+[Unit]
+Description=Fix keyboard backlight after resume
+After=suspend.target hibernate.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/asus-kbd-fix.sh
+
+[Install]
+WantedBy=hibernate.target
