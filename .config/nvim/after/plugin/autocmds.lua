@@ -10,7 +10,7 @@ autocmd("FileType", { command = [[setlocal formatoptions-=cro]] })
 
 autocmd("BufWritePost", {
   pattern = "dunstrc",
-  command = "!pidof dunst||killall dunst; setsid -f dunst & dunstify 'test' 'fuck you'",
+  command = "!dunstctl reload; dunstify 'test' 'fuck you'",
 })
 
 autocmd("BufWritePost", {

@@ -54,8 +54,8 @@ button:hover {
 
 #workspaces button {
     box-shadow: rgba(0, 0, 0, 0.116) 2 2 5 2px;
-    padding: 0 6 0 6;
-    margin: 2 2 2 2;
+    padding: 0 0 0 0;
+    margin: 1 2 1 2;
     background-color: @mantle;
     color: @yellow;
     border-radius: 4px;

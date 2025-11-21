@@ -10,10 +10,10 @@
     "margin-top": 2,
     "spacing": 4,
     "modules-left": [
-      "hyprland/workspaces",
+      "niri/workspaces",
       "bluetooth",
       "network",
-      "hyprland/window",
+      "niri/window",
     ],
     "fixed-center": "true",
     "modules-center": [
@@ -65,7 +65,7 @@
         }
     },
 
-    "hyprland/window": {
+    "niri/window": {
       "max-length": 50
     },
 
