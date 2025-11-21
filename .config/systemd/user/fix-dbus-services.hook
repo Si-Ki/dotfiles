@@ -1,0 +1,11 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = File
+Target = usr/share/dbus-1/services/fr.emersion.mako.service
+Target = usr/share/dbus-1/services/hyprpolkitagent.service
+
+[Action]
+Description = Fixing problematic D-Bus service files
+When = PostTransaction
+Exec = /bin/bash -c 'cd /usr/share/dbus-1/services && [ -f fr.emersion.mako.service ] && mv fr.emersion.mako.service fr.emersion.mako.service.disabled; [ -f hyprpolkitagent.service ] && mv hyprpolkitagent.service hyprpolkitagent.service.disabled; exit 0'

@@ -282,7 +282,7 @@ export CM_IGNORE_WINDOW="dmenu"
 
 # Start graphical server on user's current tty if not already running.
 # [ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx "$XINITRC"
-# [ "$(tty)" = "/dev/tty1" ] && exec Hyprland
-if uwsm check may-start; then
-    exec uwsm start hyprland.desktop
-fi
+[ "$(tty)" = "/dev/tty1" ] && exec niri-session
+# if uwsm check may-start; then
+#     exec uwsm start hyprland.desktop
+# fi

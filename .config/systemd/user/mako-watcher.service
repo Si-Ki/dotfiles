@@ -1,0 +1,11 @@
+# ~/.config/systemd/user/mako-watcher.service
+
+[Unit]
+Description=mako notifications tester
+
+[Service]
+Type=oneshot
+ExecStart=/home/siki/.config/mako/reload.sh
+
+[Install]
+WantedBy=graphical-session.target

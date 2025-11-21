@@ -1,0 +1,7 @@
+# ~/.config/systemd/user/mako-watcher.path
+
+[Path]
+PathModified=%h/.config/mako/config
+
+[Install]
+WantedBy=graphical-session.target

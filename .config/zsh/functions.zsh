@@ -12,7 +12,7 @@ copy_last () {
   echo "Last command and its output copied to clipboard."
 }
 
-dop () {
+cap () {
   /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME commit -m ${1:-auto}
   /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME push
 }
