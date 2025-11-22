@@ -60,7 +60,7 @@ gg () {
 }
 
 share () {
-    curl -s https://0x0.st -F "file=@$path" | tr -d '\n' | wl-copy && dunstify "📃 Link copied to clipboard"
+    curl -s https://0x0.st -F "file=@$path" | tr -d '\n' | wl-copy && notify-send "📃 Link copied to clipboard"
 }
 
 sharebig () {

@@ -9,7 +9,7 @@ setopt interactive_comments
 # History in cache directory:
 HISTSIZE=10000000
 SAVEHIST=10000000
-HISTFILE=~/.cache/zsh/history
+HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
 
 # Load aliases, functions and shortcuts if existent.
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc"
@@ -23,7 +23,7 @@ autoload -Uz +X compinit && compinit
 autoload -Uz +X bashcompinit && bashcompinit
 
 # vi mode
-bindkey -v
+# bindkey -v
 export KEYTIMEOUT=1
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"
@@ -34,7 +34,7 @@ bindkey -s '^w' 'open_with_mpv\n'
 bindkey -s '^a' 'bc -lq\n'
 bindkey -s '^g' 'cd "$(fd -H | fzf)"\n'
 bindkey -s '^n' 'nvim "$(fzf)"\n'
-bindkey -s '^h' 'bat $HISTFILE | fzf --no-sort | tr -d "\n" | wl-copy\n'
+bindkey -s '^h' 'bat $HISTFILE | fzf --tac --no-sort | tr -d "\n" | wl-copy\n'
 bindkey '^[[P' delete-char
 
 # Edit line in vim with ctrl-e:
@@ -44,6 +44,7 @@ bindkey '^e' edit-command-line
 eval $(starship init zsh)
 
 # Load syntax highlighting; should be last.
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /home/siki/.config/zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
 
