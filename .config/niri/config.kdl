@@ -14,11 +14,6 @@ input {
             layout "us"
             // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
             options "caps:escape_shifted_capslock"
-            // workspace-auto-back-and-forth
-
-            // If this section is empty, niri will fetch xkb settings
-            // from org.freedesktop.locale1. You can control these using
-            // localectl set-x11-keymap.
         }
 
         // Enable numlock on startup, omitting this setting disables it.
@@ -52,23 +47,21 @@ input {
         // scroll-method "no-scroll"
     }
 
-    trackpoint {
-        // off
-        // natural-scroll
-        // accel-speed 0.2
-        // accel-profile "flat"
-        // scroll-method "on-button-down"
-        // scroll-button 273
-        // scroll-button-lock
-        // middle-emulation
-    }
-
     // Uncomment this to make the mouse warp to the center of newly focused windows.
-    // warp-mouse-to-focus
+    warp-mouse-to-focus
 
     // Focus windows and outputs automatically when moving the mouse into them.
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
     // focus-follows-mouse max-scroll-amount="0%"
+}
+
+cursor {
+    hide-when-typing
+    hide-after-inactive-ms 2000 
+}
+
+overview {
+    zoom 0.5
 }
 
 gestures {
@@ -272,6 +265,7 @@ layout {
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "setbg"
 spawn-at-startup "niriusd"
+spawn-at-startup "clipse -listen"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -306,15 +300,35 @@ animations {
     // slowdown 3.0
 }
 
-// Open the Firefox picture-in-picture player as floating by default.
+// Universal window rules
+window-rule {
+    geometry-corner-radius 4
+    clip-to-geometry true
+}
+
+// Steam fix
+window-rule {
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=10 y=10 relative-to="bottom-right"
+}
+
+// Open the Browser picture-in-picture player as floating by default.
 window-rule {
     // This app-id regular expression will work for both:
-    // - host Firefox (app-id is "firefox")
-    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
     match app-id=r#"zen$"# title="^Picture-in-Picture$"
     open-floating true
 }
 
+window-rule {
+    match app-id=r#"zen$"# 
+    open-maximized true
+}
+
+// Clipboard manager
+window-rule {
+    match title="clipse"
+    open-floating true
+}
 // Example: block out two password managers from screen capture.
 // (This example rule is commented out with a "/-" in front.)
 /-window-rule {
@@ -329,27 +343,25 @@ window-rule {
 
 // Example: enable rounded corners for all windows.
 // (This example rule is commented out with a "/-" in front.)
-window-rule {
-    geometry-corner-radius 4
-    clip-to-geometry true
-}
 
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs
+    Mod+C { spawn-sh "footclient -T clipse -e clipse ; nirius toggle-follow-mode"; }
     Mod+Backspace hotkey-overlay-title="Wact" { spawn-sh "wact"; }
     Mod+W hotkey-overlay-title="Open Browser" { spawn "zen-browser"; }
     Mod+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "footclient"; }
     Alt+Space hotkey-overlay-title="Run an Application: tofi" { spawn-sh "tofi-run|sh"; }
     Super+Escape hotkey-overlay-title="Lock the Screen: Hyprlock" { spawn "hyprlock"; }
 
-    // Mod+P {toggle-follow-mode; }
+    Mod+S {spawn-sh "nirius toggle-follow-mode"; }
 
+    Mod+Shift+Return { spawn-sh "nirius scratchpad-show"; }
+    Mod+M { spawn-sh "nirius scratchpad-toggle"; }
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
     // For example, this is a standard bind to toggle the screen reader (orca).
-    Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
 
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
@@ -359,6 +371,9 @@ binds {
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
+    Mod+XF86AudioMute allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    Mod+XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "playerctl next"; }
+    Mod+XF86AudioLowerVolume allow-when-locked=true { spawn-sh "playerctl previous"; }
     // Example brightness key mappings for brightnessctl.
     // You can use regular spawn with multiple arguments too (to avoid going through "sh"),
     // but you need to manually put each argument in separate "" quotes.
@@ -430,8 +445,8 @@ binds {
 
     Mod+Page_Down      { focus-workspace-down; }
     Mod+Page_Up        { focus-workspace-up; }
-    Mod+U              { focus-workspace-down; }
-    Mod+I              { focus-workspace-up; }
+    Mod+N              { focus-workspace-down; }
+    Mod+P              { focus-workspace-up; }
     Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
     Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
     Mod+Ctrl+U         { move-column-to-workspace-down; }
@@ -535,7 +550,7 @@ binds {
     // Makes the column "fill the rest of the space".
     Mod+Ctrl+F { expand-column-to-available-width; }
 
-    Mod+C { center-column; }
+    Mod+Shift+C { center-column; }
 
     // Center all fully visible columns on screen.
     Mod+Ctrl+C { center-visible-columns; }
@@ -556,8 +571,8 @@ binds {
     Mod+Shift+Equal { set-window-height "+10%"; }
 
     // Move the focused window between the floating and the tiling layout.
-    Mod+V       { toggle-window-floating; }
-    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+    Mod+Space       { toggle-window-floating; }
+    Mod+Shift+Space { switch-focus-between-floating-and-tiling; }
 
     // Toggle tabbed column display mode.
     // Windows in this column will appear as vertical tabs,
