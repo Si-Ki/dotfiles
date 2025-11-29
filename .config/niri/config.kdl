@@ -42,8 +42,8 @@ input {
     mouse {
         // off
         // natural-scroll
-        // accel-speed 0.2
-        // accel-profile "flat"
+        accel-speed -0.2
+        accel-profile "flat"
         // scroll-method "no-scroll"
     }
 
@@ -61,7 +61,18 @@ cursor {
 }
 
 overview {
-    zoom 0.5
+    zoom 0.6
+    workspace-shadow {
+      off
+    }
+}
+
+// Make the wallpaper stationary, rather than moving with workspaces.
+layer-rule {
+    // This is for swaybg; change for other wallpaper tools.
+    // Find the right namespace by running niri msg layers.
+    match namespace="^wallpaper$"
+    place-within-backdrop true
 }
 
 gestures {
@@ -123,6 +134,7 @@ output "eDP-1" {
 // https://yalter.github.io/niri/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
+    background-color "transparent"
     gaps 10
     tab-indicator {
       place-within-column
