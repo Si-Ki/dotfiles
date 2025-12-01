@@ -1,0 +1,21 @@
+[als.webcam]
+video = 0
+thresholds = { 0 = "night", 15 = "dark", 30 = "dim", 45 = "normal", 60 = "bright", 75 = "outdoors" }
+
+# [als.time]
+# thresholds = { 0 = "night", 7 = "dark", 9 = "dim", 11 = "normal", 13 = "bright", 16 = "normal", 18 = "dark", 20 = "night" }
+
+# [als.none]
+
+[[output.backlight]]
+name = "eDP-1"
+path = "/sys/class/backlight/intel_backlight"
+capturer = "wayland"
+
+# [[keyboard]]
+# name = "keyboard-asus"
+# path = "/sys/bus/platform/devices/asus-nb-wmi/leds/asus::kbd_backlight"
+
+# [[keyboard]]
+# name = "keyboard-thinkpad"
+# path = "/sys/bus/platform/devices/thinkpad_acpi/leds/tpacpi::kbd_backlight"
