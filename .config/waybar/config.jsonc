@@ -1,90 +1,72 @@
 {
-    "layer": "top",
-    "position": "top",
-    "mode": "dock",
-    "exclusive": true,
-    "passthrough": false,
-    "gtk-layer-shell": true,
-    "height": 0,
-    "width": 2390,
-    "margin-top": 2,
-    "spacing": 4,
-    "modules-left": [
-      "niri/workspaces",
-      "bluetooth",
-      "network",
-      "niri/window",
-    ],
-    "fixed-center": "true",
-    "modules-center": [
-      "custom/notifications",
-      "clock",
-      "idle_inhibitor"
-    ],
-    "modules-right": [
-      "tray",
+  "layer": "top",
+  "position": "top",
+  "mode": "dock",
+  "exclusive": true,
+  "passthrough": false,
+  "gtk-layer-shell": true,
+  "height": 0,
+  "width": 2390,
+  "margin-top": 4,
+  "spacing": 4,
+  "modules-left": [
+    "niri/workspaces",
+    "bluetooth",
+    "network",
+    "niri/window"
+  ],
+  "fixed-center": "true",
+  "modules-center": [
+    // "custom/notifications",
+    "clock",
+    "idle_inhibitor",
+  ],
+  "modules-right": [
+    "tray",
+    "custom/screenrec",
     // "custom/kernel",
     // "disk#ssd",
-      "mpris",
-      "temperature",
-      "cpu",
+    // "mpris",
+    // "backlight",
+    "temperature",
+    "cpu",
     // "memory",
-      "pulseaudio",
-      // "pulseaudio#microphone",
-      "custom/weather",
-      "battery"
-    ],
-    
-    "hyprland/workspaces": {
-        "format": "{id}",
-        // "format": "{icon}",
-        // "format-icons": {
-        //   "1": "󰲠",
-        //   "2": "󰲢",
-        //   "3": "󰲤",
-        //   "4": "󰲦",
-        //   "5": "󰲨",
-        //   "6": "󰲪",
-        //   "7": "󰲬",
-        //   "8": "󰲮",
-        //   "9": "󰲰"
-        // // "urgent": " ",
-        // //   "focused": " ",
-        // //   "default": " "
-        //  },
-        // "show-special": true,
-        "format-window-separator": ";",
-        "window-rewrite-default": "",
-        "window-rewrite": {
-             "title<.*youtube.*>": " ", // Windows whose titles contain "youtube"
-             "class<zen-browser>": "", // Windows whose classes are "zen-browser"
-             "class<zen-browser> title<.*github.*>": " ", // Windows whose class is "firefox" and title contains "github". Note that "class" always comes first.
-             "foot": "", // Windows that contain "foot" in either class or title. For optimization reasons, it will only match against a title if at least one other window explicitly matches against a title.
-             // "code": "<U+F0A1E>",
-             // "title<.* - (.*) - VSCodium>": "codium $1"  // captures part of the window title and formats it into output
-        }
-    },
+    "pulseaudio",
+    "custom/weather",
+    "battery"
+  ],
 
-    "niri/window": {
-      "max-length": 50
-    },
+  "niri/window": {
+    "max-length": 50
+  },
 
-    "bluetooth": {
-        "format-on": "",
-        "format-off": "󰂲",
-        "format-disabled": "󰂲",
-        "format-connected": "{device_alias}",
-        "format-connected-battery": "󰂱 {device_alias} [{device_battery_percentage}%]",
-        "format-device-preference": [ "ugreen_1", "ugreen_2" ],
-        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
-        "on-click": "footclient --app-id bluetui bluetui",
-        "on-click-right": "rfkill toggle bluetooth"
-    },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{percent}% {icon}",
+    "format-icons": [
+      "󰃞",
+      "󰃟",
+      "󰃝",
+      "󰃠"
+    ]
+  },
 
-    "battery": {
+  "bluetooth": {
+    "format-on": "",
+    "format-off": "󰂲",
+    "format-disabled": "󰂲",
+    "format-connected": "{device_alias}",
+    "format-connected-battery": "󰂱 {device_alias} [{device_battery_percentage}%]",
+    "format-device-preference": [ "ugreen_1", "ugreen_2" ],
+    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+    "on-click": "footclient --app-id bluetui bluetui",
+    "on-click-right": "rfkill toggle bluetooth"
+  },
+
+  "battery": {
     "bat": "BAT0",
     "format": "{icon} {capacity}%",
     "format-icons": [
@@ -98,7 +80,7 @@
       "󰂁",
       "󰂂",
       "󰁹"
-      ],
+    ],
     "format-time": "{H}:{M}",
     "format-charging": "  {capacity}%",
     "format-full": " Charged",
@@ -106,151 +88,167 @@
     "states": {
       "warning": 20,
       "critical": 10
-      },
+    },
 
     "tooltip": true,
     "tooltip-format": "{power}W || {time}"
-    },
+  },
 
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "󰈈 ",
-            "deactivated": "󰈉 "
-        }
-    },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "󰈈 ",
+      "deactivated": "󰈉 "
+    }
+  },
 
-    "mpris": {
+  "mpris": {
     "interval": 5,
     "format": "{player_icon} {dynamic}",
     "format-paused": "{status_icon} <b><i>{dynamic}</i></b>",
     "dynamic-order": ["title"],
     "player-icons": {
-          "default": "󰎆 ",
-          "firefox": "󰎆"
+      "default": "󰎆 ",
+      "firefox": "󰎆"
           // "tidal-hifi": "🎵",
           // "cmus": "🎵"
-          },
+    },
     "status-icons": {
-          "paused": "⏸"
-      },
+      "paused": "⏸"
+    },
     // "ignored-players": ["zen-browser"],
     "max-length": 30
-    },
+  },
 
-    "tray": {
-        "icon-size": 16,
-        "spacing": 10
+  "tray": {
+    "icon-size": 16,
+    "spacing": 10
+  },
+
+  "clock": {
+    "interval": 60,
+    "timezone": "Asia/Kolkata",
+    "format": "󰃰 {:%A, %B %d [%H:%M]}",  
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode"          : "year",
+      "mode-mon-col"  : 3,
+      "weeks-pos"     : "right",
+      "on-scroll"     : 1,
+      "on-click-right": "mode",
+      "format": {
+        "months":     "<span color='#cba6f7'><b>{}</b></span>",
+        "days":       "<span color='#cdd6f4'><b>{}</b></span>",
+        "weeks":      "<span color='#94e2d5'>W{}</span>",
+        "weekdays":   "<span color='#f9e2af'><b>{}</b></span>",
+        "today":      "<span color='#f5e0dc'><b><u>{}</u></b></span>"
+      }
     },
-    "clock": {
-        "interval": 60,
-        "timezone": "Asia/Kolkata",
-        "format": "󰃰 {:%A, %B %d [%H:%M]}",  
-        "tooltip-format": "<tt><small>{calendar}</small></tt>",
-        "calendar": {
-                    "mode"          : "year",
-                    "mode-mon-col"  : 3,
-                    "weeks-pos"     : "right",
-                    "on-scroll"     : 1,
-                    "on-click-right": "mode",
-                    "format": {
-                              "months":     "<span color='#cba6f7'><b>{}</b></span>",
-                              "days":       "<span color='#cdd6f4'><b>{}</b></span>",
-                              "weeks":      "<span color='#94e2d5'>W{}</span>",
-                              "weekdays":   "<span color='#f9e2af'><b>{}</b></span>",
-                              "today":      "<span color='#f5e0dc'><b><u>{}</u></b></span>"
-                              }
-                    },
-        "actions":  {
-                    "on-click-right": "mode",
-                    "on-click-forward": "tz_up",
-                    "on-click-backward": "tz_down",
-                    "on-scroll-up": "shift_up",
-                    "on-scroll-down": "shift_down"
-                    }
-    },
-    "cpu": {
-        "interval": 3,
-        "format": "{usage}% ",
-        "on-click": "footclient --app-id btop btop",
-    },
-    "memory": {
-        "interval": 3,
-        "format": "{}% ",
-        "on-click": "footclient --app-id htop htop",
-        "tooltip-format": "Used: {used:0.1f}G/{total:0.1f}G. Swap: {swapUsed:0.1f}G/{swapTotal:0.1f}G",
-        "states": {
-            "critical": 80
-        }
-    },
-    "temperature": {
-        "interval": 3,
-        "hwmon-path": "/sys/class/hwmon/hwmon2/temp2_input",
-        "critical-threshold": 90,
-        "format-critical": "{temperatureC}°C {icon}",
-        "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
-    },
-    "disk#ssd": {
-        "interval": 60,
-        "format": "{path} {free} ",
-        "path": "/",
-        "tooltip": true,
-        "warning": 80,
-        "critical": 90
-    },
-    "network": {
-        "interval": 60,
-        "interface-ethernet": "enp1s*",
-        "interface-wifi": "wlan0",
-        "format-ethernet": "eth 󰈀 ",
-        "format-wifi": "  {essid}",
-        "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr} 󰈀 ",
+    "actions":  {
+      "on-click-right": "mode",
+      "on-click-forward": "tz_up",
+      "on-click-backward": "tz_down",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
+
+  "cpu": {
+    "interval": 3,
+    "format": "{usage}% ",
+    "on-click": "footclient --app-id btop btop",
+  },
+
+  "memory": {
+    "interval": 3,
+    "format": "{}% ",
+    "on-click": "footclient --app-id htop htop",
+    "tooltip-format": "Used: {used:0.1f}G/{total:0.1f}G. Swap: {swapUsed:0.1f}G/{swapTotal:0.1f}G",
+    "states": {
+      "critical": 80
+    }
+  },
+
+  "temperature": {
+    "interval": 3,
+    "hwmon-path": "/sys/class/hwmon/hwmon2/temp2_input",
+    "critical-threshold": 90,
+    "format-critical": "{temperatureC}°C {icon}",
+    "format": "{temperatureC}°C {icon}",
+    "format-icons": ["", "", ""]
+  },
+
+  "disk#ssd": {
+    "interval": 60,
+    "format": "{path} {free} ",
+    "path": "/",
+    "tooltip": true,
+    "warning": 80,
+    "critical": 90
+  },
+
+  "network": {
+    "interval": 60,
+    "interface-ethernet": "enp1s*",
+    "interface-wifi": "wlan0",
+    "format-ethernet": "eth 󰈀 ",
+    "format-wifi": "  {essid}",
+    "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr} 󰈀 ",
         // "tooltip-format-wifi": "{essid}   ( {signalStrength}%)\n\n{ifname}: {ipaddr}/{cidr}  ",
         "tooltip-format": " {signalStrength}%",
         "format-linked": "(No IP) ",
         "format-disconnected": "Disconnected ⚠",
         "on-click": "footclient --app-id nmtui nmtui"
+  },
+
+  "custom/weather": {
+    "interval": 600,
+    "exec": "~/.config/waybar/bin/wittr.sh bahadurgarh",
+    "return-type": "json",
+    "format": "{}",
+    "tooltip": true,
+    "on-click": "$BROWSER https://wttr.in/bahadurgarh"
+  },
+
+  "custom/kernel": {
+    "exec": "uname -r | sed -E 's/^([0-9]+\\.[0-9]+\\.[0-9]+)-.*-([a-zA-Z0-9]+)/\\1-\\2/'",
+    "format": "{} "
+  },
+
+  "custom/notifications": {
+    "format": "{}",
+    "exec": "$HOME/.config/waybar/bin/not-dnd -j",
+    "on-click": "$HOME/.config/waybar/bin/not-dnd",
+    "return-type": "json",
+    "interval": "once",
+    "signal": 2
+  },
+
+  "custom/screenrec": {
+    "exec": "/home/siki/.config/waybar/bin/screenrec",
+    "format": "{}",
+    "hide-empty-text": true
+  },
+
+  "pulseaudio": {
+    "scroll-step": 2,
+    "format": "{icon} {volume}% {format_source}",
+    "format-bluetooth": "{icon} {volume}% {format_source}",
+    "format-bluetooth-muted": "{icon} MUTED",
+    "format-muted": "{icon} {format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": " ",
+    "format-icons": {
+      "default": "󰓃",
+      "default-muted": " ",
+      "source": "",
+      "headphone": "󰋋",
+      "hands-free": "󰋎",
+      "headset": "󰋎",
+      "phone": "",
+      "portable": "",
+      "car": "",
     },
-    "custom/weather": {
-        "interval": 600,
-        "exec": "~/.config/waybar/bin/wittr.sh 124507",
-        "return-type": "json",
-        "format": "{}",
-        "tooltip": true,
-        "on-click": "$BROWSER https://wttr.in/124507"
-    },
-    "custom/kernel": {
-        "exec": "uname -r | sed -E 's/^([0-9]+\\.[0-9]+\\.[0-9]+)-.*-([a-zA-Z0-9]+)/\\1-\\2/'",
-        "format": "{} "
-    },
-    "custom/notifications": {
-        "format": "{}",
-        "exec": "$HOME/.config/waybar/bin/not-dnd -j",
-        "on-click": "$HOME/.config/waybar/bin/not-dnd",
-        "return-type": "json",
-        "interval": "once",
-        "signal": 2
-    },
-    "pulseaudio": {
-        "scroll-step": 2,
-        "format": "{icon} {volume}% {format_source}",
-        "format-bluetooth": "{icon} {volume}% {format_source}",
-        "format-bluetooth-muted": "{icon} MUTED",
-        "format-muted": "{icon} {format_source}",
-        "format-source": " {volume}%",
-        "format-source-muted": " ",
-        "format-icons": {
-            "default": "󰓃",
-            "default-muted": " ",
-            "source": "",
-            "headphone": "󰋋",
-            "hands-free": "󰋎",
-            "headset": "󰋎",
-            "phone": "",
-            "portable": "",
-            "car": "",
-        },
-        "on-click": "footclient --app-id pulsemixer pulsemixer"
-    },
+    "on-click": "footclient --app-id pulsemixer pulsemixer"
+  },
 }

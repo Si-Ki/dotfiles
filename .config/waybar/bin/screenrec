@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+tail -f ~/.local/share/waybar-screen-rec
