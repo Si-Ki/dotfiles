@@ -17,20 +17,22 @@
   ],
   "fixed-center": "true",
   "modules-center": [
-    // "custom/notifications",
+    "custom/notifications",
     "clock",
+    "privacy",
     "idle_inhibitor",
   ],
   "modules-right": [
     "tray",
     "custom/screenrec",
+    "power-profiles-daemon",
     // "custom/kernel",
     // "disk#ssd",
     // "mpris",
-    // "backlight",
+    "backlight",
     "temperature",
     "cpu",
-    // "memory",
+    "memory",
     "pulseaudio",
     "custom/weather",
     "battery"
@@ -162,10 +164,10 @@
   "memory": {
     "interval": 3,
     "format": "{}% ",
-    "on-click": "footclient --app-id htop htop",
+    "on-click": "footclient --app-id btop btop",
     "tooltip-format": "Used: {used:0.1f}G/{total:0.1f}G. Swap: {swapUsed:0.1f}G/{swapTotal:0.1f}G",
     "states": {
-      "critical": 80
+      "critical": 90
     }
   },
 
@@ -192,13 +194,25 @@
     "interface-ethernet": "enp1s*",
     "interface-wifi": "wlan0",
     "format-ethernet": "eth 󰈀 ",
-    "format-wifi": "  {essid}",
+    "format-wifi": "  {essid} || {bandwidthUpBytes} | {bandwidthDownBytes}",
     "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr} 󰈀 ",
         // "tooltip-format-wifi": "{essid}   ( {signalStrength}%)\n\n{ifname}: {ipaddr}/{cidr}  ",
         "tooltip-format": " {signalStrength}%",
         "format-linked": "(No IP) ",
         "format-disconnected": "Disconnected ⚠",
         "on-click": "footclient --app-id nmtui nmtui"
+  },
+
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      // "default": "⚡",
+      "performance": "⚡",
+      "balanced": " ",
+      "power-saver": "󰛓 "
+    }
   },
 
   "custom/weather": {

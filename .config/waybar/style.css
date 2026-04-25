@@ -1,81 +1,82 @@
 @import url("./colors.css");
 
 * {
-    border: none;
-    border-radius: 5px;
-    font-family: JetBrainsMono NF;
-    font-size: 16px;
-    font-weight: bold;
-    min-height: 0;
+  border: none;
+  border-radius: 5px;
+  font-family: JetBrainsMono NF;
+  font-size: 16px;
+  font-weight: bold;
+  min-height: 0;
 }
 
 window#waybar {
-   background: rgba(21, 18, 27, 0);
-   color: @pink;
+  background: rgba(21, 18, 27, 0);
+  color: @pink;
 }
 
 window#waybar.hidden {
-    opacity: 0.2;
+  opacity: 0.2;
 }
 
 tooltip {
-    background: #000000;
-    border-radius: 7px;
-    border-width: 2.5px;
-    border-style: solid;
-    border-color: @surface1;
-    padding-right: 5px;
-    padding-left: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+  background: #000000;
+  border-radius: 7px;
+  border-width: 2.5px;
+  border-style: solid;
+  border-color: @surface1;
+  padding-right: 5px;
+  padding-left: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 tooltip label {
-    color: @rosewater;
+  color: @rosewater;
 }
 
 button {
-    box-shadow: inset 0 -3px transparent;
-    border: none;
-    border-radius: 1;
+  box-shadow: inset 0 -3px transparent;
+  border: none;
+  border-radius: 1;
 }
 
 button:hover {
-    background: inherit;
-    box-shadow: inset 0 -3px @text;
+  background: inherit;
+  box-shadow: inset 0 -3px @text;
 }
 
 #workspaces {
-    background: transparent;
-    margin: 0 0 0 0;
-    padding: 0 0 0 0;
-    border-radius: 4px;
+  background: transparent;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  border-radius: 4px;
 }
 
 #workspaces button {
-    box-shadow: rgba(0, 0, 0, 0.116) 2 2 5 2px;
-    padding: 0 0 0 0;
-    margin: 0 0 0 0;
-    background-color: @mantle;
-    color: @yellow;
-    border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.116) 2 2 5 2px;
+  padding: 0 4 0 4;
+  margin: 0 2 0 2;
+  background-color: @mantle;
+  color: @yellow;
+  border-radius: 4px;
 }
 
 #workspaces button:hover {
-    box-shadow: inherit;
-    text-shadow: inherit;
-    background-image: linear-gradient(0deg, @surface1, @mantle);
+  box-shadow: inherit;
+  text-shadow: inherit;
+  background-image: linear-gradient(0deg, @surface1, @mantle);
 }
 
 #workspaces button.urgent {
-    background-image: linear-gradient(0deg, @red, @mantle);
+  background-image: linear-gradient(0deg, @red, @mantle);
 }
 
 #workspaces button.active {
-    background-image: linear-gradient(0deg, @surface1, @mantle);
-    color: @red;
+  background-image: linear-gradient(0deg, @surface1, @mantle);
+  color: @red;
 }
 
+#power-profiles-daemon,
 #mpris,
 #backlight,
 #custom-weather,
@@ -93,137 +94,147 @@ button:hover {
 #idle_inhibitor,
 #battery,
 #tray {
-    padding: 4 8 4 8;
-    margin: 1 0 0 0;
-    color: @text;
+  padding: 4 8 4 8;
+  margin: 0 0 0 0;
+  color: @text;
 }
 
 #window {
-    margin: 0 4px;
+  margin: 0 4px;
 }
 
 .modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
+  margin-left: 0;
 }
 
 .modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
+  margin-right: 0;
+}
+
+#backlight {
+  color: @white;
+  background-color: @mantle;
+}
+
+#power-profiles-daemon {
+  color: @teal;
+  background-color: @mantle;
 }
 
 #custom-weather {
-    color: @teal;
-    background-color: @mantle;
-    /* margin-right: 0px; */
+  color: @teal;
+  background-color: @mantle;
+  /* margin-right: 0px; */
 }
 
 #custom-kernel {
-    color: @rosewater;
-    background-color: @mantle;
+  color: @rosewater;
+  background-color: @mantle;
 }
 
 #clock {
-    color: @green;
-    background-color: @mantle;
+  color: @green;
+  background-color: @mantle;
 }
 
 @keyframes blink {
-    to {
-        background-color: @mantle;
-        color: @text;
-    }
+  to {
+    background-color: @mantle;
+    color: @text;
+  }
 }
 
 label:focus {
-    background-color: @mantle;
+  background-color: @mantle;
 }
 
 #cpu {
-    background-color: @mantle;
-    color: @mauve;
-    min-width: 45px;
+  background-color: @mantle;
+  color: @mauve;
+  min-width: 45px;
 }
 
 #memory {
-    background-color: @red;
-    color: @mantle;
+  background-color: @mantle;
+  color: @red;
 }
 
 #mpris {
-    background-color: @crust;
-    color: @rosewater;
+  background-color: @crust;
+  color: @rosewater;
 }
 
 #disk {
-    background-color: @flamingo;
-    color: @mantle;
+  background-color: @flamingo;
+  color: @mantle;
 }
 
 #network {
-    background-color: @mantle;
-    color: @peach;
+  background-color: @mantle;
+  color: @peach;
 }
 
 #network.disconnected {
-    background-color: @red;
-    color: @mantle;
+  background-color: @red;
+  color: @mantle;
 }
 
 #bluetooth {
-    background-color: @mantle;
-    color: @maroon;
-    /* min-width: 40px; */
+  background-color: @mantle;
+  color: @maroon;
+  /* min-width: 40px; */
 }
 
 #pulseaudio {
-    background-color: @mantle;
-    color: @yellow;
+  background-color: @mantle;
+  color: @yellow;
 }
 
 #pulseaudio.muted {
-    background-color: @mantle;
-    color: @red;
+  background-color: @mantle;
+  color: @red;
 }
 
 #temperature {
-    background-color: @mantle;
-    color: @pink;
-    min-width: 37px;
+  background-color: @mantle;
+  color: @pink;
+  min-width: 37px;
 }
 
 #temperature.critical {
-    background-color: @red;
-    color: @mantle;
-    min-width: 37px;
+  background-color: @red;
+  color: @mantle;
+  min-width: 37px;
 }
 
 #custom-notifications {
-    background-color: @mantle;
-    color: @yellow;
-    padding-top: 4px;
-    padding-left: 9px;
-    padding-right: 14px;
-    /* margin-left:  2px; */
-    /* margin-right: 2px; */
+  background-color: @mantle;
+  color: @yellow;
+  padding-top: 4px;
+  padding-left: 9px;
+  padding-right: 14px;
+  /* margin-left:  2px; */
+  /* margin-right: 2px; */
 }
 
 #battery{
-    background-color: @crust;
-    color: @lavender;
+  background-color: @crust;
+  color: @lavender;
 }
 
 #battery.full {
-    background-color: @green;
-    color: @crust;
+  background-color: @green;
+  color: @crust;
 }
 
 #battery.warning {
-    background-color: @yellow;
-    color: @crust;
+  background-color: @yellow;
+  color: @crust;
 }
 
 #battery.critical {
-    background-color: @red;
-    color: @crust;
+  background-color: @red;
+  color: @crust;
 }
 
 #battery.critical:not(.charging) {
@@ -247,27 +258,27 @@ label:focus {
 }                                       
 
 #tray {
-    background-color: @surface0;
-    color: @text;
+  background-color: @surface0;
+  color: @text;
 }
 
 #tray > .passive {
-    -gtk-icon-effect: dim;
-    background-color: @mantle;
+  -gtk-icon-effect: dim;
+  background-color: @mantle;
 }
 
 #tray > .needs-attention {
-    -gtk-icon-effect: highlight;
-    background-color: @mantle;
+  -gtk-icon-effect: highlight;
+  background-color: @mantle;
 }
 
 #idle_inhibitor {
-    background-color: @base;
-    color: @yellow;
-    font-family: Inter;
+  background-color: @base;
+  color: @yellow;
+  font-family: Inter;
 }
 
 #idle_inhibitor.activated {
-    background-color: @base;
-    color: @red;
+  background-color: @base;
+  color: @red;
 }
